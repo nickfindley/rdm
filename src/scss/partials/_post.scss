@@ -1,0 +1,50 @@
+.post {
+    padding: $paragraph-margin-bottom * 2 0;
+}
+
+.post-content {
+    @include make-row;
+}
+
+.post-content-wrapper {
+    @include make-col-ready;
+
+    @include media-breakpoint-up(md) {
+        @include make-col(8);
+        @include make-col-offset(4);
+    }
+}
+
+.post-title {    
+    h2 {
+        background-color: rgba($white, .5);
+        font-family: 'garamond-premier-pro', serif;
+        @include font-size(3rem);
+        font-weight: 700;
+        margin: $paragraph-margin-bottom 0;
+
+        a {
+            color: rgba($black, .875);
+            text-decoration: none;
+
+            &:hover {
+                color: $black;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.permalink {
+    .permalink-icon {
+        padding-left: .5rem;
+        visibility: hidden;
+    }
+
+    &:hover .permalink-icon {
+        font-size: 50%;
+        opacity: .5;
+        text-decoration: none;
+        visibility: visible;
+    }
+}

@@ -1,0 +1,43 @@
+.navbar-brand {
+    font-family: 'essonnes-headline', serif;
+    @include font-size(3rem);
+    line-height: 1;
+    text-align: center;
+
+    .bar {
+        @include font-size(2.75rem);
+        margin: 0 .25rem;
+    }
+
+    .sub-brand {
+        display: block;
+        font-family: 'garamond-premier-pro', serif;
+        @include font-size(.75rem);
+        @include rfs(.25rem, letter-spacing);
+        line-height: 1;
+        margin: 0;
+        text-transform: uppercase;
+    }
+}
+
+.nav-item {
+    font-family: 'proxima-nova', sans-serif;
+    @include font-size(1rem);
+    font-weight: 300;
+    @include rfs(.125rem, letter-spacing);
+    text-transform: uppercase;
+}
+
+#navbarLocations {
+    margin-top: -16px;
+
+    .nav-item {
+        @include font-size(.75rem);
+        @include rfs(.25rem, letter-spacing);
+
+        .nav-link {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    }
+}

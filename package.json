@@ -1,0 +1,30 @@
+{
+  "name": "rdm",
+  "version": "1.0.0",
+  "description": "2020 theme for RDM",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "Test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickfindley/rdm.git"
+  },
+  "keywords": [
+    "wp"
+  ],
+  "author": "me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickfindley/rdm/issues"
+  },
+  "homepage": "https://github.com/nickfindley/rdm#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify-es": "^2.0.0"
+  }
+}
