@@ -24,7 +24,7 @@
     font-family: 'proxima-nova', sans-serif;
     @include font-size(1rem);
     font-weight: 300;
-    @include rfs(.125rem, letter-spacing);
+    @include rfs(.25rem, letter-spacing);
     text-transform: uppercase;
 }
 

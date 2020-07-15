@@ -1,0 +1,19 @@
+.site-footer {
+    background-color: $brown;
+    box-shadow:
+        0 .125rem 1rem rgba($black, .75),
+        0 50vh 0 50vh $brown;
+    color: rgba($white, .75);
+    font-size: .875rem;
+    margin-top: $paragraph-margin-bottom;
+    padding: $paragraph-margin-bottom 0;
+
+    a {
+        color: rgba($white, .875);
+        text-decoration: underline;
+
+        &:hover {
+            color: $white;
+        }
+    }
+}

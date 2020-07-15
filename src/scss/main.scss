@@ -45,9 +45,11 @@
 @import "bootstrap/utilities/api";
 // scss-docs-end import-stack
 
+@import "partials/blog.scss";
 @import "partials/images.scss";
 @import "partials/navbar.scss";
 @import "partials/post.scss";
+@import "partials/site-footer.scss";
 @import "partials/type.scss";
 
 @import "fontawesome/fontawesome.scss";

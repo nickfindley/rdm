@@ -17,18 +17,19 @@
 
 .post-title {    
     h2 {
-        background-color: rgba($white, .5);
-        font-family: 'garamond-premier-pro', serif;
-        @include font-size(3rem);
-        font-weight: 700;
+        color: $white;
+        font-family: 'essonnes-headline', serif;
+        @include font-size(4rem);
+        font-weight: 300;
         margin: $paragraph-margin-bottom 0;
+        max-width: 75%;
 
         a {
-            color: rgba($black, .875);
+            color: rgba($white, .875);
             text-decoration: none;
 
             &:hover {
-                color: $black;
+                color: $white;
                 text-decoration: none;
             }
         }

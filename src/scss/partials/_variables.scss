@@ -1,6 +1,15 @@
-$primary: #1b73ab;
+$blue: #26788c;
+$red: #b45c3d;
+$brown: #504842;
+$taupe: #908a82;
+$beige: #ccc7bf;
+
+$primary: $blue;
 
 $link-color: $primary;
+$link-hover-color: $red;
+
+$paragraph-margin-bottom: 2rem;
 
 $rfs-base-value: 1rem;
 $rfs-breakpoint: 1140px;
