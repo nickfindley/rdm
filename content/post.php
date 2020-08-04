@@ -4,9 +4,6 @@
             <?php if ( has_post_thumbnail() ) : ?>
             <div class="post-thumbnail">
                 <?php the_post_thumbnail(); ?>
-                <div class="post-thumbnail-overlay">
-                    <h1><?php the_title(); ?></h1>
-                </div>
             </div>
             <?php endif; ?>
             <div class="post-title">
@@ -17,9 +14,11 @@
         </div>
     </header>
 
-    <section class="post-content container">
+    <section class="post-content-container container">
         <div class="post-content-wrapper">
-            <?php the_content(); ?>
+            <div class="post-content">
+                <?php the_content(); ?>
+            </div>
         </div>
     </section>
 </article>

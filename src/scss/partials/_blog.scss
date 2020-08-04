@@ -4,6 +4,7 @@
 
 .blog-header-image-overlay {
     align-items: center;
+    background-color: rgba($blue, .25);
     display: flex;
     justify-content: center;
     position: absolute;
@@ -11,20 +12,34 @@
     right: 0;
     bottom: 0;
     left: 0;
+    width: 100vw;
+
+    &:before {
+        background-color: rgba($red, .5);
+        bottom: 0;
+        content: "";
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform: skew(60deg);
+    }
 
     h1 {
-        background-color: rgba($black, .5);
-        box-shadow: 0 .125rem 1rem rgba($black, .75);
+        backdrop-filter: blur(3px);
+        background-color: rgba($blue, .5);
+        box-shadow: 0 .125rem 1rem rgba($black, .5);
         color: $white;
-        font-family: 'proxima-nova', sans-serif;
-        @include font-size(6rem);
+        font-family: $proxima;
+        font-size: 6rem;
+        font-variant-caps: all-small-caps;
         font-weight: 700;
         letter-spacing: .5rem;
         line-height: 1;
         margin: 0;
         padding: 2rem 0;
         text-align: center;
-        text-shadow: 0 .125rem 1rem rgba($black, .75);
+        text-shadow: 0 .125rem 1rem rgba($black, .5);
         text-transform: uppercase;
         width: 75%;
 
@@ -37,11 +52,18 @@
         span.subtitle {
             display: block;
             letter-spacing: .25rem;
-            
+            position: relative;         
+        }
+
+        .rdm-logo {
+            display: inline-block;
+            height: 1.75rem;
+            vertical-align: -.25rem;
+            width: auto;
         }
         
         span.rdm {
-            font-family: 'essonnes-headline', serif;
+            font-family: $essonnes;
         }
 
         span.bar {
@@ -52,41 +74,47 @@
 }
 
 .blog-intro {
-    padding: $paragraph-margin-bottom 0;
+    padding-bottom: $paragraph-margin-bottom;
+    padding-top: $paragraph-margin-bottom
 }
 
 .blog-intro-title {
     @include make-col-ready;
     @include make-col(4);
-    // align-items: center;
     border-right: 2px solid $beige;
-    display: flex;
-    justify-content: center;
 
     h2 {
-        font-family: 'essonnes-headline', serif;
-        font-size: 3rem;
-        font-weight: 700;
+        font-family: $essonnes;
+        font-size: 2.75rem;
+        font-weight: 400;
+        letter-spacing: -.05rem;
         line-height: 1.25;
         text-align: right;
     }
 }
 
+.blog-intro-title-wrapper {
+    padding: 0 1rem;
+}
+
 .blog-intro-content {
     @include make-col-ready;
-    @include make-col(8);
-    font-family: 'garamond-premier-pro', serif;
+    @include make-col(5);
+    border-right: 2px solid $beige;
+    font-family: $garamond;
+    text-align: center;
 
     p {
-        font-family: 'proxima-nova', sans-serif;
-        font-size: 1.25rem;
+        font-family: $proxima;
+        font-size: 1.125rem;
+        font-weight: 200;
         line-height: 1.75;
     }
 
     p:first-child {
-        font-family: 'garamond-premier-pro', serif;
+        font-family: $garamond;
         font-size: 1.5rem;
-        line-height: 1.75;
+        line-height: 1.5;
     }
 
     p:last-child {
@@ -94,20 +122,42 @@
     }
 }
 
+.blog-intro-content-wrapper,
+.blog-intro-cta-wrapper {
+    padding: 1rem;
+}
+
+.blog-intro-cta {
+    @include make-col-ready;
+    @include make-col(3);
+    align-content: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: $essonnes;
+    font-size: 2.75rem;
+    font-weight: 400;
+    letter-spacing: -.05rem;
+    line-height: 1.25;
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
 .blog-subscribe {
     background-color: $taupe;
     color: $white;
-    padding: $paragraph-margin-bottom 0;
+    padding-bottom: $paragraph-margin-bottom;
+    padding-top: $paragraph-margin-bottom;
 }
 
 .blog-subscribe-title {
     @include make-col-ready;
     @include make-col(4);
-    border-left: 2px solid $white;
-    @extend .order-last;
+    border-right: 2px solid $white;
 
     h2 {
-        font-family: 'essonnes-headline', serif;
+        font-family: $essonnes;
         font-size: 3rem;
         font-weight: 700;
         line-height: 1.25;
@@ -115,7 +165,7 @@
 
         span.subtitle {
             display: block;
-            font-family: 'proxima-nova', sans-serif;
+            font-family: $proxima;
             font-size: 1rem;
             font-weight: 300;
             letter-spacing: .125rem;
@@ -127,7 +177,8 @@
 .blog-subscribe-content {
     @include make-col-ready;
     @include make-col(8);
-    @extend .order-first;
+    align-items: center;
+    display: flex;
     text-align: right;
 
     p:last-child {
@@ -135,13 +186,18 @@
     }
 }
 
-.post-thumbnail {
-    @include make-col-ready;
-    @include make-col(4);
+.blog-content {
+    padding-top: $paragraph-margin-bottom;
 }
 
-.post-title {
-    @include make-col-ready;
-    @include make-col(8);
-    background-color: $brown;
+.has-post-thumbnail {
+    .post-thumbnail {
+        @include make-col-ready;
+        @include make-col(4);
+    }
+
+    .post-title {
+        @include make-col-ready;
+        @include make-col(8);
+    }
 }

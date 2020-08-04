@@ -1,0 +1,9 @@
+.btn:focus {
+    box-shadow: 0 0 0 .25rem rgba($beige, .25);
+    outline: 0;
+}
+
+.btn-primary {
+    background-color: $blue;
+    border-color: $blue;
+}

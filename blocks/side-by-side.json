@@ -1,0 +1,117 @@
+{
+    "block-lab\/side-by-side": 
+    {
+        "name": "side-by-side",
+        "title": "Side by Side",
+        "excluded": [],
+        "icon": "block_lab",
+        "category": 
+        {
+            "slug": "common",
+            "title": "Common Blocks",
+            "icon": null
+        },
+        "keywords": [""],
+        "fields": 
+        {
+            "photo": 
+            {
+                "name": "photo",
+                "label": "Photo",
+                "control": "image",
+                "type": "integer",
+                "order": 0,
+                "location": "editor",
+                "width": "50",
+                "help": ""
+            },
+            "text": 
+            {
+                "name": "text",
+                "label": "Text",
+                "control": "textarea",
+                "type": "textarea",
+                "order": 1,
+                "location": "editor",
+                "width": "100",
+                "help": "",
+                "default": "",
+                "placeholder": "",
+                "maxlength": null,
+                "number_rows": 4,
+                "new_lines": "none"
+            },
+            "photo-position": 
+            {
+                "name": "photo-position",
+                "label": "Photo Position",
+                "control": "radio",
+                "type": "string",
+                "order": 2,
+                "location": "editor",
+                "width": "100",
+                "help": "",
+                "options": [
+                    {
+                        "label": "left",
+                        "value": "left"
+                    },
+                    {
+                        "label": "right",
+                        "value": "right"
+                    }
+                ],
+                "default": ""
+            },
+            "color": 
+            {
+                "name": "color",
+                "label": "Color",
+                "control": "radio",
+                "type": "string",
+                "order": 3,
+                "location": "editor",
+                "width": "100",
+                "help": "",
+                "options": [
+                    {
+                        "label": "blue",
+                        "value": "blue"
+                    },
+                    {
+                        "label": "red",
+                        "value": "red"
+                    }
+                ],
+                "default": ""
+            },
+            "button-text": 
+            {
+                "name": "button-text",
+                "label": "Button Text",
+                "control": "text",
+                "type": "string",
+                "order": 4,
+                "location": "editor",
+                "width": "100",
+                "help": "",
+                "default": "",
+                "placeholder": "",
+                "maxlength": null
+            },
+            "button-link": 
+            {
+                "name": "button-link",
+                "label": "Button Link",
+                "control": "url",
+                "type": "string",
+                "order": 5,
+                "location": "editor",
+                "width": "100",
+                "help": "",
+                "default": "",
+                "placeholder": ""
+            }
+        }
+    }
+}

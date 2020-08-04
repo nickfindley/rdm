@@ -1,4 +1,4 @@
-<div class="navbar-wrapper">
+<div id="navbarWrapper" class="navbar-wrapper fixed-top nav-translucent">
     <div id="navbarCollapse">
         <nav class="navbar navbar-expand-md">
             <div class="container">
@@ -23,7 +23,7 @@
             </div>
         </nav>
 
-        <nav class="navbar navbar-expand-md">
+        <!--<nav class="navbar navbar-expand-md">
             <div class="container">
                 <?php
                     wp_nav_menu( array(
@@ -38,6 +38,6 @@
                     ) );
                 ?>
             </div>
-        </nav>
+        </nav>-->
     </div>
 </div>

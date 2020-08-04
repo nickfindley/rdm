@@ -1,5 +1,26 @@
+html {
+    font-size: 16px;
+}
+
 body {
-    font-family: 'proxima-nova', sans-serif;
+    // color: $brown;
+    font-family: $proxima;
+    font-variant-numeric: oldstyle-nums proportional-nums;
     font-weight: 300;
-    line-height: 1.5;
+    line-height: 1.75;
+}
+
+blockquote {
+    p {
+        color: rgba($brown, .875);
+        font-size: 1.125rem;
+        margin-bottom: $paragraph-margin-bottom / 2;
+    }
+
+    cite {
+        color: $taupe;
+        font-family: $proxima;
+        font-size: .875rem;
+        font-style: normal;
+    }
 }

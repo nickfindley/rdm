@@ -1,0 +1,88 @@
+.page-header {
+    position: relative;
+
+    img {
+        object-fit: cover;
+    }
+
+    .overlay {
+        align-items: center;
+    }
+
+    h1 {
+        backdrop-filter: blur(3px);
+        box-shadow: 0 .125rem 1rem rgba($black, .5);
+        color: $white;
+        font-family: $proxima;
+        font-size: 4rem;
+        font-variant-caps: all-small-caps;
+        font-weight: 300;
+        letter-spacing: .375rem;
+        line-height: 1;
+        margin: 0;
+        padding: 2rem;
+        text-shadow: 0 .125rem 1rem rgba($black, .5);
+        width: 100%;
+
+        span.subheading {
+            display: block;
+            font-family: garamond;
+            font-size: 2rem;
+            font-variant-caps: all-small-caps;
+            font-weight: 400;
+            letter-spacing: .25rem;
+            line-height: 1;
+            position: relative;         
+        }
+    }
+
+    &.page-header-blue {
+        h1 {
+            background-color: rgba($blue, .5);
+        }
+
+        .overlay {
+            background-color: rgba($blue, .25);
+        }
+    }
+
+    &.page-header-red {
+        h1 {
+            background-color: rgba($red, .5);
+        }
+
+        .overlay {
+            background-color: rgba($red, .25);
+        }
+    }
+
+    &.page-header-brown {
+        h1 {
+            background-color: rgba($brown, .5);
+        }
+
+        .overlay {
+            background-color: rgba($brown, .25);
+        }
+    }
+
+    &.page-header-taupe {
+        h1 {
+            background-color: rgba($taupe, .5);
+        }
+
+        .overlay {
+            background-color: rgba($taupe, .25);
+        }
+    }
+
+    &.page-header-beige {
+        h1 {
+            background-color: rgba($beige, .5);
+        }
+
+        .overlay {
+            background-color: rgba($beige, .25);
+        }
+    }
+}

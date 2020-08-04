@@ -1,11 +1,11 @@
 .site-footer {
+    background: linear-gradient(180deg, rgba($brown, 1) 0%, rgba(darken($brown, .875), 1) 100%);
     background-color: $brown;
     box-shadow:
-        0 .125rem 1rem rgba($black, .75),
+        $box-shadow,
         0 50vh 0 50vh $brown;
     color: rgba($white, .75);
     font-size: .875rem;
-    margin-top: $paragraph-margin-bottom;
     padding: $paragraph-margin-bottom 0;
 
     a {

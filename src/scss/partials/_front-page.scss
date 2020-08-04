@@ -1,0 +1,135 @@
+.front-page-content {
+    margin: $paragraph-margin-bottom * 2 0;
+
+    .blog {
+        @include make-col-ready;
+        
+        @include media-breakpoint-up(md) {
+            @include make-col(6);
+        }
+
+        @include media-breakpoint-up(lg) {
+            @include make-col(8);
+        }
+
+        & > header {
+            margin-bottom: $paragraph-margin-bottom / 2;
+        }
+
+        h2 {           
+            font-family: $essonnes;
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: -.05rem;
+            line-height: 1;
+            margin-bottom: 0;
+
+            & + p {
+                color: rgba($body-color, .5);
+                font-family: $proxima;
+                font-size: 1rem;
+                font-variant-caps: all-small-caps;
+                font-weight: 300;
+                letter-spacing: .125rem;
+                line-height: 1.5;
+                margin-bottom: 0;
+                margin-top: $paragraph-margin-bottom / 4;
+
+                a {
+                    color: rgba($link-color, .5);
+                }
+            }
+        }
+    }
+
+    .blog-post {
+        border-top: 1px solid $beige;
+        margin-bottom: $paragraph-margin-bottom;
+        padding-top: $paragraph-margin-bottom;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .blog-post-featured-image {
+            margin-bottom: $paragraph-margin-bottom;
+            position: relative;
+            
+            &:after {
+                background-color: rgba($brown, .25);
+                bottom: 0;
+                content: "";
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                transition: .5s all ease-in-out;
+            }
+
+            &:hover:after {
+                background-color: transparent;
+            }
+        }
+
+        h3 {
+            font-family: $proxima;
+            font-size: 1.75rem;
+            font-variant-caps: all-small-caps;
+            font-weight: 400;
+            letter-spacing: .25rem;
+            line-height: 1;
+        }
+
+        footer {
+            color: rgba($body-color, .75);
+            font-size: .875rem;
+
+            p:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .additional-content {
+        @include make-col-ready;
+
+        @include media-breakpoint-up(md) {
+            @include make-col(3);
+            border-left: 1px solid $beige;
+        }
+
+        @include media-breakpoint-up(lg) {
+            @include make-col(2);
+        }
+
+        line-height: 1.25;
+
+        h3 {
+            font-family: $proxima;
+            font-size: 1.25rem;
+            font-variant-caps: all-small-caps;
+            letter-spacing: .125rem;
+            line-height: 1;
+            margin-top: $paragraph-margin-bottom;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding-left: 0;
+
+            li {
+                border-bottom: 1px solid rgba($beige, .5);
+                padding: .5rem 0;
+
+                &:last-child {
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+}

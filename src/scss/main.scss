@@ -45,14 +45,23 @@
 @import "bootstrap/utilities/api";
 // scss-docs-end import-stack
 
-@import "partials/blog.scss";
-@import "partials/images.scss";
-@import "partials/navbar.scss";
-@import "partials/post.scss";
-@import "partials/site-footer.scss";
-@import "partials/type.scss";
+@import "partials/base";
+@import "partials/block-big-image-header";
+@import "partials/block-big-image-text-block";
+@import "partials/block-side-by-side";
+@import "partials/blog";
+@import "partials/buttons";
+@import "partials/forms";
+@import "partials/front-page";
+@import "partials/images";
+@import "partials/navbar";
+@import "partials/overlay";
+@import "partials/post";
+@import "partials/quotes";
+@import "partials/site-footer";
+@import "partials/type";
 
-@import "fontawesome/fontawesome.scss";
-@import "fontawesome/regular.scss";
-@import "fontawesome/solid.scss";
-@import "fontawesome/brands.scss";
+@import "fontawesome/fontawesome";
+@import "fontawesome/regular";
+@import "fontawesome/solid";
+@import "fontawesome/brands";
