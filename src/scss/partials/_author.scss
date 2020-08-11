@@ -1,0 +1,544 @@
+.author-header {
+    box-shadow: $box-shadow;
+    position: relative;
+    z-index: 1;
+
+    img {
+        min-height: 50vh;
+        object-fit: cover;
+    }
+
+    .overlay {
+        align-items: center;
+        background-color: rgba($red, .25);
+
+        @include media-breakpoint-up(md) {
+            align-items: flex-end;
+            padding-bottom: $paragraph-margin-bottom;
+        }
+    }
+
+    h1 {
+        backdrop-filter: blur(3px);
+        box-shadow: 0 .125rem 1rem rgba($black, .5);
+        color: $white;
+        font-family: $proxima;
+        font-size: 2.5rem;
+        font-variant-caps: all-small-caps;
+        font-weight: 300;
+        letter-spacing: .25rem;
+        line-height: .875;
+        margin: 0;
+        padding: 2rem;
+        text-align: center;
+        text-shadow: 0 .125rem 1rem rgba($black, .5);
+        width: 100%;
+
+        @include media-breakpoint-up(md) {
+            font-size: 3rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: 4rem;
+            letter-spacing: .375rem;
+        }
+
+        .subheading {
+            display: block;
+            font-family: $garamond;
+            font-size: 1.25rem;
+            font-variant-caps: all-small-caps;
+            font-weight: 400;
+            letter-spacing: .25rem;
+            line-height: .875;
+            position: relative;
+            text-indent: .25rem;
+
+            @include media-breakpoint-up(md) {
+                font-size: 1.5rem;
+            }
+
+            @include media-breakpoint-up(lg) {
+                font-size: 2rem;
+            }        
+        }
+    }
+}
+
+.author-intro {
+    border-bottom: 1px solid $beige;
+    padding-bottom: $paragraph-margin-bottom;
+}
+
+.author-profile {
+    margin-top: $paragraph-margin-bottom;
+}
+
+.author-info {
+    @include make-col-ready;
+    position: relative;
+    z-index: 2;
+
+
+    @include media-breakpoint-up(md) {
+        @include make-col(4);
+        z-index: 0;
+    }
+
+    &.has-photo {
+        margin-top: -25%;
+
+        @media screen and (orientation: landscape) {
+            margin-top: -20%;
+        }
+
+        @include media-breakpoint-up(md) {
+            margin-top: 0;
+        }
+    }
+}
+
+.author-photo {
+    img {
+        border: 0;
+        border-radius: 50%;
+        box-shadow: $box-shadow;
+        margin: 0 25%;
+        width: 50%;
+
+        @include media-breakpoint-up(md) {
+            border-radius: 0;
+            box-shadow: none;
+            margin: 0;
+            width: 100%;
+        }
+    }
+}
+
+.author-contact {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+
+    li {
+        border-bottom: 1px solid rgba($beige, .5);
+        padding: .5rem 0;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    i.fas,
+    i.fab {
+        padding-right: $paragraph-margin-bottom;
+    }
+
+    address {
+        display: inline;
+
+        .addr-2,
+        .addr-csz,
+        .addr-ph {
+            display: block;
+            margin-left: 2rem;
+        }
+    }
+}
+
+.author-bio {
+    @include make-col-ready;
+    padding-top: $paragraph-margin-bottom;
+
+    @include media-breakpoint-up(md) {
+        @include make-col(8);
+        border-left: 1px solid $beige;
+        padding-top: 0;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.author-education,
+.author-practice,
+.author-admissions,
+.author-honors,
+.author-activities {
+    @include make-col-ready;
+    @include make-col(12);
+    font-size: .875rem;
+    line-height: 1.25;
+    margin-bottom: $paragraph-margin-bottom;
+    margin-top: $paragraph-margin-bottom;
+
+    @include media-breakpoint-up(md) {
+        @include make-col(2);
+    }
+
+    h3 {
+        font-family: $proxima;
+        font-size: 1.5rem;
+        font-variant-caps: all-small-caps;
+        font-weight: 400;
+        letter-spacing: .25rem;
+
+        @include media-breakpoint-up(md) {
+            font-size: 1.25rem;
+
+            br {
+                display: none;
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: 1.375rem;
+            letter-spacing: .125rem;
+        }
+
+        @include media-breakpoint-up(xl) {
+            font-size: 1.5rem;
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    li {
+        border-bottom: 1px solid rgba($beige, .5);
+        padding: .5rem 0;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        h4 {
+            font-family: $proxima;
+            font-size: 1rem;
+            font-variant-caps: all-small-caps;
+            font-weight: 400;
+            letter-spacing: .125rem;
+            line-height: .875;
+            margin: 0 0 .5rem;
+        }
+
+        p {
+            color: rgba($body-color, .75);
+            margin-bottom: 0;
+        }
+    }
+}
+
+.author-education li {
+    padding: 1rem 0;
+
+    &:first-child {
+        padding-top: .5rem;
+    }
+
+    .year {
+        color: rgba($body-color, .75);
+        font-size: 75%;
+    }
+
+    .honors {
+        color: rgba($body-color, .75);
+        font-style: italic;
+    }
+}
+
+.author-honors,
+.author-activities {
+    .year {
+        color: rgba($body-color, .625);
+        font-size: .75rem;
+        font-variant-caps: all-small-caps;
+        letter-spacing: .05rem;
+    }
+
+    .source,
+    .role {
+        color: rgba($body-color, .75);
+        display: block;
+        font-size: .875rem;
+        font-variant-caps: all-small-caps;
+        letter-spacing: .05rem;
+        line-height: 1.25;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .author-education {
+        @include make-col(4);
+    }
+
+    .author-practice,
+    .author-admissions {
+        @include make-col(4);
+        border-left: 1px solid $beige;
+    }
+
+    .honors-or-activities {
+        .author-education,
+        .author-practice {
+            @include make-col(6);
+        }
+
+        .author-admissions {
+            @include make-col(6);
+        }
+
+        .author-honors,
+        .author-activities {
+            @include make-col(6);
+            border-left: 1px solid $beige;
+        }
+    }
+
+    .honors-and-activities {
+        .author-education,
+        .author-practice {
+            @include make-col(6);
+        }
+
+        .author-admissions {
+            @include make-col(4);
+        }
+
+        .author-honors,
+        .author-activities {
+            @include make-col(4);
+            border-left: 1px solid $beige;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .author-education,
+    .author-practice,
+    .author-admissions {
+        @include make-col(4);
+    }
+
+    .honors-or-activities {
+        .author-education {
+            @include make-col(3);
+        }
+
+        .author-practice,
+        .author-admissions,
+        .author-honors,
+        .author-activities {
+            @include make-col(3);
+            border-left: 1px solid $beige;
+        }
+    }
+
+    .honors-and-activities {
+        .author-education,
+        .author-practice {
+            @include make-col(3);
+        }
+
+        .author-admissions,
+        .author-honors,
+        .author-activities {
+            @include make-col(2);
+            border-left: 1px solid $beige;
+        }
+    }
+}
+
+.blog-content {
+    .blog-content-header {
+        h2 {      
+            border-top: 1px solid $beige;    
+            font-family: $essonnes;
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: -.05rem;
+            line-height: 1;
+            margin-bottom: 0;
+            padding-top: $paragraph-margin-bottom;
+
+            .subheading {
+                color: rgba($body-color, .5);
+                display: block;
+                font-family: $proxima;
+                font-size: 1.5rem;
+                font-variant-caps: all-small-caps;
+                font-weight: 300;
+                letter-spacing: .125rem;
+            }
+        }
+    }
+
+    .post {
+        &:hover .has-post-thumbnail .post-thumbnail:after {
+            background-color: transparent;
+        }
+
+        & > header {
+            margin-top: $paragraph-margin-bottom;
+        }
+
+        .post-title {
+            @include make-col-ready;
+            @include make-col(8);
+            @include make-col-offset(4);
+            align-self: flex-end;
+            position: relative;
+            z-index: 1;
+            
+            &:after {
+                background-color: $blue;
+                bottom: 0;
+                content: "";
+                margin-left: calc(var(--bs-gutter-x) * -.5);
+                position: absolute;
+                top: 0;
+                width: calc(100% - var(--bs-gutter-x) / 2);
+                z-index: -1;
+            }
+
+            h3 {
+                font-family: $proxima;
+                font-size: 3rem;
+                font-variant-caps: all-small-caps;
+                font-weight: 300;
+                letter-spacing: .25rem;
+                line-height: .875;
+                margin-bottom: 0;
+                padding: $paragraph-margin-bottom calc(var(--bs-gutter-x) / 2) $paragraph-margin-bottom 0;
+
+                a {
+                    color: rgba($white, .875);
+                    text-decoration: none;
+
+                    &:hover {
+                        color: $white;
+                    }
+                }
+
+                .subheading {
+                    display: block;
+                    font-family: $essonnes;
+                    font-size: 1.5rem;
+                    font-variant-caps: normal;
+                    font-weight: 300;
+                    letter-spacing: 0;
+                    margin-top: $paragraph-margin-bottom;
+                }
+            }
+
+            .permalink {
+                .permalink-icon {
+                    font-size: 50%;
+                    padding-left: .5rem;
+                    vertical-align: .25rem;
+                    visibility: hidden;
+                }
+
+                &:hover .permalink-icon {
+                    opacity: .5;
+                    text-decoration: none;
+                    visibility: visible;
+                }
+            }
+        }
+        
+        header.has-post-thumbnail {
+            position: relative;
+
+            .post-thumbnail {
+                --bs-gutter-x: 0;
+                @include make-col-ready;
+                @include make-col(6);
+
+                img {
+                    height: 100%;
+                    left: 50%;
+                    margin-left: calc(50% - 50vw);
+                    margin-right: calc(50% - 50vw);
+                    max-width: 50vw;
+                    object-fit: cover;
+                    position: relative;
+                    right: 50%;
+                    width: 50vw;
+                }
+
+                &:after {
+                    background-color: rgba($blue, .25);
+                    bottom: 0;
+                    content: "";
+                    height: 100%;
+                    margin-left: calc(50% - 50vw);
+                    max-width: 50vw;
+                    position: absolute;
+                    right: 50%;
+                    top: 0;
+                    transition: all .25s ease-in-out;
+                    width: 50vw;
+                }
+            }
+
+            .post-title {
+                --bs-gutter-x: 0;
+                @include make-col-ready;
+                @include make-col(6);
+                @include make-col-offset(0);
+                align-self: flex-end;
+                position: inherit;
+                z-index: 1;
+                
+                &:after {
+                    width: 50vw;
+                }
+
+                h3 {
+                    padding: $paragraph-margin-bottom;
+                }
+            }
+        }
+
+        .post-meta {
+            @include make-col-ready;
+            @include make-col(4);
+            font-family: $proxima;
+            font-size: .875rem;
+            font-variant-caps: all-small-caps;
+            font-weight: 300;
+            letter-spacing: .05rem;
+            line-height: 2;
+            margin-top: $paragraph-margin-bottom;
+            text-align: right;
+        }
+
+        .post-content {
+            @include make-col-ready;
+            @include make-col(8);
+            border-left: 1px solid $beige;
+            margin-bottom: $paragraph-margin-bottom;
+            margin-top: $paragraph-margin-bottom;
+
+            p:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

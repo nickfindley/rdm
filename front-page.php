@@ -27,11 +27,9 @@
                             </div>
                         <?php endif ?>
                             <h3><?php the_title(); ?></h3>
+                            <p class="byline">By <?php coauthors_posts_links(); ?> &bull; <?php echo get_the_date(); ?></p>
                         </header>
                         <?php the_excerpt(); ?>
-                        <footer>
-                            <p>Posted <?php echo get_the_date(); ?></p>
-                        </footer>
                     </article>
                             <?php
                         endwhile;
@@ -39,12 +37,43 @@
                     wp_reset_postdata();
                 ?>
                 </div>
-                <div class="additional-content">
+
+                <div class="attorneys">
+                    <h3>Members &amp; <br>Associates</h3>
+                    <ul>
+                    <?php
+                        $args = array(
+                            'number' => 10,
+                            'meta_key' => 'start_date',
+                            'orderby' => 'start_date',
+                            'order' => 'ASC',
+                            'role' => 'contributor',
+                            'fields' => 'all'
+                        );
+                        $attorneys_query = new WP_User_Query( $args );
+                        $attorneys = $attorneys_query->get_results();
+                        if ( ! empty ( $attorneys ) ) :
+                            foreach ( $attorneys as $attorney ) :
+                                $info = get_userdata( $attorney->ID );
+                                $user_id = 'user_' . $attorney->ID;
+                                ?>
+                        <li>
+                            <a href="<?php echo get_author_posts_url( $attorney->ID ); ?>"><span class="attorney-name"><?php echo $info->first_name . ' ' . $info->last_name; ?></span><br>
+                            <span class="attorney-title"><?php the_field( 'title', $user_id ); ?></span></a>
+                        </li>
+                                <?php
+                            endforeach;
+                        endif;
+                    ?>
+                    </ul>
+                </div>
+
+                <div class="additional-content additional-content-col-1">
                     <h3>Practice <br>Areas</h3>
                     <ul>
                     <?php
                         $args = array(
-                            'post_type' => 'services',
+                            'post_type' => 'practice_areas',
                             'posts_per_page' => -1,
                             'orderby' => 'title',
                             'order' => 'ASC'
@@ -54,25 +83,61 @@
                             while ( $services_query->have_posts() ) :
                                 $services_query->the_post();
                                 ?>
-                                <li><?php the_title(); ?></l1>
+                                <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></l1>
                                 <?php
                             endwhile;
                         endif;
                         wp_reset_postdata();
                     ?>
                     </ul>
+
+                    <h3>Diversity &amp; <br>Inclusion</h3>
+                    <p>RDM is committed to promoting diversity and inclusion regardless of race, gender, sexual orientation, religion, or any other factor. <a href="#">Read our diversity statement here.</a></p>
+
+                    <h3>Knowledge <br>&amp; Expertise</h3>
+                    <p>RDM brings decades of experience and deep industry knowledge to our clients. Read our <a href="/knowledge/">Knowledge Blog</a> for insight and opinions on news that affects our corner of the legal world.</p>
+                    <h4>News Categories</h4>
+                    <ul>
+                        <?php wp_list_categories( array( 'title_li' => '', 'hide_empty' => 0, 'exclude' => '1' ) ); ?>
+                    </ul>
                 </div>
-                <div class="additional-content">
+
+                <div class="additional-content additional-content-col-2">
                     <h3>Office <br>Locations</h3>
                     <ul>
-                        <li>Kansas City</li>
-                        <li>St. Louis</li>
-                        <li>Los Angeles</li>
-                        <li>Chicago</li>
+                    <?php
+                        $args = array(
+                            'post_type' => 'offices',
+                            'posts_per_page' => -1,
+                            'orderby' => 'menu_order',
+                            'order' => 'ASC'
+                        );
+                        $offices_query = new WP_Query( $args );
+                        if ( $offices_query->have_posts() ) :
+                            while ( $offices_query->have_posts() ) :
+                                $offices_query->the_post();
+                                ?>
+                                <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></l1>
+                                <?php
+                            endwhile;
+                        endif;
+                        wp_reset_postdata();
+                    ?>
                     </ul>
 
-                    <h3>Diversity &amp;<br>Inclusion</h3>
-                    <p>RDM is committed to promoting diversity and inclusion regardless of race, gender, sexual orientation, religion, or any other factor. <a href="#">Read our diversity statement here.</a></p>
+                    <h3>Licensed <br>to Practice</h3>
+                    <ul class="admissions">
+                    <?php
+                    wp_list_pages( array(
+                            'post_type' => 'admissions', // replace with your cpt's slug
+                            'title_li' => '', // don't include a title LI
+                            'post_status' => 'publish', // don't include private/draft/etc.
+                            'sort_column' => 'post_title', // order by post title
+                            'walker' => new rdm_walker
+                        )
+                    );
+                    ?>
+                    </ul>
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 var navbarWrapper = document.getElementById('navbarWrapper');
-var headerHeight = document.getElementById('pageHeader').clientHeight - 86;
+var headerHeight = document.getElementById('pageHeader').clientHeight - navbarWrapper.clientHeight;
 window.onscroll = function () { 
     "use strict";
     if (document.body.scrollTop >= headerHeight || document.documentElement.scrollTop >= headerHeight) {

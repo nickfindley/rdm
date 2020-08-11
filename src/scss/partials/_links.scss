@@ -1,0 +1,10 @@
+a {
+    text-decoration: underline;
+    text-decoration-color: rgba($link-color, .75);
+    transition: all .5s ease-in-out;
+
+    &:hover {
+        text-decoration: underline;
+        text-decoration-color: rgba($link-hover-color, .75);
+    }
+}

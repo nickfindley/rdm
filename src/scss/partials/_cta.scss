@@ -1,0 +1,108 @@
+.cta {
+    box-shadow: none;
+    color: rgba($white, .875);
+    margin-bottom: $paragraph-margin-bottom;
+    padding: $paragraph-margin-bottom;
+    transition: all .25s ease-in-out;
+
+    &:hover {
+        box-shadow: $box-shadow-light;
+        color: $white;
+    }
+
+    h3 {
+        font-family: $essonnes;
+        font-size: 1.5rem;
+        font-variant-caps: normal;
+        font-weight: 300;
+        letter-spacing: 0;
+        line-height: 1.25;
+
+        @include media-breakpoint-up(xl) {
+            font-size: 2rem;
+        }
+    }
+
+    p {
+        font-size: 1rem;
+        margin-bottom: $paragraph-margin-bottom / 2;
+
+        @include media-breakpoint-up(xl) {
+            font-size: 1.25rem;
+        }
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+
+    &.align-left,
+    &.align-right {
+        @include media-breakpoint-up(lg) {
+            width: 50%;
+        }
+
+        @include media-breakpoint-up(xl) {
+            width: 33.3333%;
+        }
+    }
+
+    &.align-left {
+        @include media-breakpoint-up(lg) {
+            float: left;
+            margin: $paragraph-margin-bottom / 2 $paragraph-margin-bottom $paragraph-margin-bottom / 2 0;
+        }            
+    }
+
+    &.align-right {
+        @include media-breakpoint-up(lg) {
+            float: right;
+            margin: $paragraph-margin-bottom / 2 0 $paragraph-margin-bottom / 2 $paragraph-margin-bottom;
+        }            
+    }
+}
+
+.cta-brown {
+    background-color: $brown;
+
+    .btn {
+        @extend .btn-beige;
+    }
+}
+
+.cta-taupe {
+    background-color: $taupe;
+
+    .btn {
+        @extend .btn-brown;
+    }
+}
+
+.cta-beige {
+    background-color: $beige;
+    color: rgba($brown, .875);
+
+    &:hover {
+        color: $brown;
+    }
+
+    .btn {
+        @extend .btn-brown;
+    }
+}
+
+.cta-red {
+    background-color: $red;
+
+    .btn {
+        @extend .btn-beige;
+    }
+}
+
+.cta-blue {
+    background-color: $blue;
+
+    .btn {
+        @extend .btn-taupe;
+    }
+}

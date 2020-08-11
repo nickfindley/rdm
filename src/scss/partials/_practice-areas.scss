@@ -1,0 +1,110 @@
+.practice-content {
+    @include make-col-ready;
+    margin-top: $paragraph-margin-bottom;
+
+    @include media-breakpoint-up(md) {
+        @include make-col(8);
+    }
+
+    @include media-breakpoint-up(lg) {
+        @include make-col(9);
+    }
+
+    & p:first-child {
+        font-size: 125%;
+    }
+}
+
+.practice-sidebar {
+    @include make-col-ready;
+    font-size: .875rem;
+    line-height: 1.25;
+    margin-bottom: $paragraph-margin-bottom;
+    margin-top: $paragraph-margin-bottom;
+
+    @include media-breakpoint-up(md) {
+        @include make-col(4);
+        border-left: 1px solid $beige;
+    }
+
+    @include media-breakpoint-up(lg) {
+        @include make-col(3);
+    }
+
+    h3 {
+        font-family: $proxima;
+        font-size: 1.5rem;
+        font-variant-caps: all-small-caps;
+        font-weight: 400;
+        letter-spacing: .25rem;
+        margin-top: $paragraph-margin-bottom;
+
+        @include media-breakpoint-up(md) {
+            font-size: 1.25rem;
+
+            br {
+                display: none;
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: 1.375rem;
+            letter-spacing: .125rem;
+        }
+
+        @include media-breakpoint-up(xl) {
+            font-size: 1.5rem;
+        }
+    }
+
+    & div:first-child h3 {
+        margin-top: 0;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    li {
+        border-bottom: 1px solid rgba($beige, .5);
+        padding: .5rem 0;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        h4 {
+            font-family: $proxima;
+            font-size: 1rem;
+            font-variant-caps: all-small-caps;
+            font-weight: 400;
+            letter-spacing: .125rem;
+            line-height: .875;
+            margin: 0 0 .5rem;
+        }
+
+        p {
+            color: rgba($body-color, .75);
+            margin-bottom: 0;
+        }
+    }
+
+    .post-author {
+        color: rgba($body-color, .5);
+        display: block;
+        font-family: $proxima;
+        font-size: .75rem;
+        font-variant-caps: all-small-caps;
+        letter-spacing: .05rem;
+        margin-top: .25rem;
+    }
+}

@@ -10,6 +10,51 @@ body {
     line-height: 1.75;
 }
 
+h2 {
+    font-family: $proxima;
+    font-size: 3rem;
+    font-variant-caps: all-small-caps;
+    font-weight: 400;
+    letter-spacing: .25rem;
+    line-height: 1;
+}
+
+h3 {
+    font-family: $proxima;
+    font-size: 2rem;
+    font-variant-caps: all-small-caps;
+    font-weight: 400;
+    letter-spacing: .125rem;
+    line-height: 1;
+}
+
+h4 {
+    font-family: $proxima;
+    font-size: 1.5rem;
+    font-variant-caps: all-small-caps;
+    font-weight: 300;
+    letter-spacing: .0875rem;
+    line-height: 1;
+}
+
+h5 {
+    font-family: $proxima;
+    font-size: 1.25rem;
+    font-variant-caps: all-small-caps;
+    font-weight: 300;
+    letter-spacing: .075rem;
+    line-height: 1;
+}
+
+h6 {
+    font-family: $proxima;
+    font-size: 1rem;
+    font-variant-caps: all-small-caps;
+    font-weight: 300;
+    letter-spacing: .075rem;
+    line-height: 1;
+}
+
 blockquote {
     p {
         color: rgba($brown, .875);

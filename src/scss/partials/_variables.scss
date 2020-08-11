@@ -7,8 +7,8 @@ $beige: #ccc7bf;
 $primary: $blue;
 $secondary: $red;
 
-$link-color: $primary;
-$link-hover-color: $red;
+$link-color: $taupe;
+$link-hover-color: $brown;
 
 $paragraph-margin-bottom: 2rem;
 
@@ -25,3 +25,6 @@ $proxima: 'proxima-nova', 'montserrat', 'verdana', sans-serif;
 $box-shadow-light: 0 .125rem 1rem rgba($black, .25);
 $box-shadow: 0 .125rem 1rem rgba($black, .75);
 $box-shadow-dark: 0 .125rem 1rem rgba($black, .75);
+
+$navbar-toggler-icon-bg:      url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28203,199,190,0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+$navbar-toggler-border-color: rgba($taupe, .75);
