@@ -1,7 +1,7 @@
-.page-header {
+.big-image-header {
     position: relative;
 
-    img {
+    & > img {
         min-height: 100vh;
         object-fit: cover;
     }

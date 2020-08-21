@@ -12,7 +12,7 @@ if ( ! function_exists( 'rdm_setup' ) ) :
 
 		register_nav_menus( array(
 			'primary' => __( 'Primary Nav', 'rdm' ),
-            'locations' => __( 'Locations Nav', 'rdm' )
+            'secondary' => __( 'Secondary Nav', 'rdm' )
 		) );
 
 		add_theme_support( 'html5', array(

@@ -1,6 +1,9 @@
-<?php get_header(); ?>
+<?php
+    get_header();
+    $post_color = get_field( 'post_color' ) ? get_field( 'post_color' ) : 'blue';
+?>
 <main id="content">
-    <header class="page-header" id="pageHeader">
+    <header class="page-header page-header-<?php echo $post_color; ?> big-image-header" id="pageHeader">
         <?php the_post_thumbnail(); ?>
         <div class="overlay">     
             <h1>
@@ -60,7 +63,7 @@
                 </div>
 
                 <?php
-                    $category = get_the_category();
+                    $category = get_the_category( get_the_ID() );
                     $categories = array();
                     foreach ( $category as $cat ) :
                         $categories[] = $cat->term_id;
@@ -79,8 +82,19 @@
                     <?php
                         while ( $posts_query->have_posts() ) :
                             $posts_query->the_post();
+
+                            $users = get_field( 'post_authors' );
+                            if ( $users ) :
+                                $authors = array();
+                                foreach ( $users as $user ) :
+                                    $authors[] = $user->display_name;
+                                endforeach;
+                                $author_string = natural_language_join( $authors );
+                            else : 
+                                $author_string = get_the_author_meta( 'display_name' );
+                            endif;
                     ?>
-                        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?> <span class="post-author">by <?php coauthors(); ?></span></a></li>
+                        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?> <span class="post-author">by <?php echo $author_string; ?></span></a></li>
                 <?php endwhile; ?>
                     </ul>
                 </div>

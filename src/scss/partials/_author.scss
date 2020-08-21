@@ -66,7 +66,6 @@
 }
 
 .author-intro {
-    border-bottom: 1px solid $beige;
     padding-bottom: $paragraph-margin-bottom;
 }
 
@@ -165,6 +164,24 @@
     }
 }
 
+.author-details {
+    border-top: 1px solid $beige;
+    margin: 0;
+    padding: $paragraph-margin-bottom / 2 0;
+
+    @include media-breakpoint-up(md) {
+        padding: 0;
+    }
+}
+
+.author-education,
+.author-practice,
+.author-admissions,
+.honors-or-activities .author-honors,
+.honors-and-activities .author-honors {
+    border-bottom: 1px solid $beige;
+}
+
 .author-education,
 .author-practice,
 .author-admissions,
@@ -174,12 +191,11 @@
     @include make-col(12);
     font-size: .875rem;
     line-height: 1.25;
-    margin-bottom: $paragraph-margin-bottom;
-    margin-top: $paragraph-margin-bottom;
+    padding: $paragraph-margin-bottom / 2 0;
 
-    @include media-breakpoint-up(md) {
-        @include make-col(2);
-    }
+    // @include media-breakpoint-up(md) {
+    //     @include make-col(2);
+    // }
 
     h3 {
         font-family: $proxima;
@@ -188,11 +204,15 @@
         font-weight: 400;
         letter-spacing: .25rem;
 
+        br {
+            display: none;
+        }
+
         @include media-breakpoint-up(md) {
             font-size: 1.25rem;
 
             br {
-                display: none;
+                display: inline;
             }
         }
 
@@ -245,7 +265,7 @@
 }
 
 .author-education li {
-    padding: 1rem 0;
+    padding: .5rem 0;
 
     &:first-child {
         padding-top: .5rem;
@@ -283,14 +303,51 @@
 }
 
 @include media-breakpoint-up(md) {
+    .author-education,
+    .author-practice,
+    .author-admissions,
+    .author-honors,
+    .author-activities {
+        border-bottom: 0 !important;
+        margin-bottom: $paragraph-margin-bottom / 2;
+        margin-top: 0;
+        padding: $paragraph-margin-bottom / 2 0;
+
+        ul:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .author-wrap {
+        height: calc(100% - #{$paragraph-margin-bottom} / 2);
+        // margin-bottom: $paragraph-margin-bottom / 2;
+        margin-top: $paragraph-margin-bottom / 2;
+    }
+
     .author-education {
         @include make-col(4);
+        
+        .author-wrap {
+            padding: 0 15px 0 0;
+        }
+    }
+
+    .author-practice {
+        .author-wrap {
+            border-left: 1px solid $beige;
+            padding: 0 0 0 15px;
+        }
     }
 
     .author-practice,
     .author-admissions {
         @include make-col(4);
-        border-left: 1px solid $beige;
+    }
+
+    .author-admissions,
+    .author-honors,
+    .author-activites {
+        border-bottom: 0;
     }
 
     .honors-or-activities {
@@ -301,12 +358,22 @@
 
         .author-admissions {
             @include make-col(6);
+            border-top: 1px solid $beige;
+
+            .author-wrap {
+                padding: 0 15px 0 0;
+            }
         }
 
         .author-honors,
         .author-activities {
             @include make-col(6);
-            border-left: 1px solid $beige;
+            border-top: 1px solid $beige;
+
+            .author-wrap {
+                border-left: 1px solid $beige;
+                padding: 0 0 0 15px;
+            }
         }
     }
 
@@ -316,14 +383,39 @@
             @include make-col(6);
         }
 
+        .author-admissions,
+        .author-honors,
+        .author-activities {
+            border-top: 1px solid $beige;
+        }
+
         .author-admissions {
             @include make-col(4);
+
+            .author-wrap {
+                padding: 0 15px 0 0;
+            }
+        }
+
+        .author-honors {
+            .author-wrap {
+                padding: 0 15px;
+            }
+        }
+
+        .author-activities {
+            .author-wrap {
+                padding: 0 0 0 15px;
+            }
         }
 
         .author-honors,
         .author-activities {
             @include make-col(4);
-            border-left: 1px solid $beige;
+            
+            .author-wrap {
+                border-left: 1px solid $beige;
+            }
         }
     }
 }
@@ -331,8 +423,23 @@
 @include media-breakpoint-up(lg) {
     .author-education,
     .author-practice,
+    .author-admissions,
+    .author-honors,
+    .author-activities {
+        border-bottom: 0;
+    }
+
+    .author-education,
+    .author-practice,
     .author-admissions {
         @include make-col(4);
+    }
+
+    .author-admissions {
+        .author-wrap {
+            border-left: 1px solid $beige;
+            padding: 0 0 0 15px;
+        }
     }
 
     .honors-or-activities {
@@ -345,7 +452,14 @@
         .author-honors,
         .author-activities {
             @include make-col(3);
-            border-left: 1px solid $beige;
+            border-top: 0;
+        }
+
+        .author-practice,
+        .author-admissions {
+            .author-wrap {
+                padding: 0 15px;
+            }
         }
     }
 
@@ -355,190 +469,19 @@
             @include make-col(3);
         }
 
+        .author-practice,
+        .author-admissions {
+            .author-wrap {
+                padding: 0 15px;
+            }
+        }
+
         .author-admissions,
         .author-honors,
         .author-activities {
             @include make-col(2);
-            border-left: 1px solid $beige;
-        }
-    }
-}
-
-.blog-content {
-    .blog-content-header {
-        h2 {      
-            border-top: 1px solid $beige;    
-            font-family: $essonnes;
-            font-size: 3rem;
-            font-weight: 400;
-            letter-spacing: -.05rem;
-            line-height: 1;
-            margin-bottom: 0;
-            padding-top: $paragraph-margin-bottom;
-
-            .subheading {
-                color: rgba($body-color, .5);
-                display: block;
-                font-family: $proxima;
-                font-size: 1.5rem;
-                font-variant-caps: all-small-caps;
-                font-weight: 300;
-                letter-spacing: .125rem;
-            }
-        }
-    }
-
-    .post {
-        &:hover .has-post-thumbnail .post-thumbnail:after {
-            background-color: transparent;
-        }
-
-        & > header {
-            margin-top: $paragraph-margin-bottom;
-        }
-
-        .post-title {
-            @include make-col-ready;
-            @include make-col(8);
-            @include make-col-offset(4);
-            align-self: flex-end;
-            position: relative;
-            z-index: 1;
-            
-            &:after {
-                background-color: $blue;
-                bottom: 0;
-                content: "";
-                margin-left: calc(var(--bs-gutter-x) * -.5);
-                position: absolute;
-                top: 0;
-                width: calc(100% - var(--bs-gutter-x) / 2);
-                z-index: -1;
-            }
-
-            h3 {
-                font-family: $proxima;
-                font-size: 3rem;
-                font-variant-caps: all-small-caps;
-                font-weight: 300;
-                letter-spacing: .25rem;
-                line-height: .875;
-                margin-bottom: 0;
-                padding: $paragraph-margin-bottom calc(var(--bs-gutter-x) / 2) $paragraph-margin-bottom 0;
-
-                a {
-                    color: rgba($white, .875);
-                    text-decoration: none;
-
-                    &:hover {
-                        color: $white;
-                    }
-                }
-
-                .subheading {
-                    display: block;
-                    font-family: $essonnes;
-                    font-size: 1.5rem;
-                    font-variant-caps: normal;
-                    font-weight: 300;
-                    letter-spacing: 0;
-                    margin-top: $paragraph-margin-bottom;
-                }
-            }
-
-            .permalink {
-                .permalink-icon {
-                    font-size: 50%;
-                    padding-left: .5rem;
-                    vertical-align: .25rem;
-                    visibility: hidden;
-                }
-
-                &:hover .permalink-icon {
-                    opacity: .5;
-                    text-decoration: none;
-                    visibility: visible;
-                }
-            }
-        }
-        
-        header.has-post-thumbnail {
-            position: relative;
-
-            .post-thumbnail {
-                --bs-gutter-x: 0;
-                @include make-col-ready;
-                @include make-col(6);
-
-                img {
-                    height: 100%;
-                    left: 50%;
-                    margin-left: calc(50% - 50vw);
-                    margin-right: calc(50% - 50vw);
-                    max-width: 50vw;
-                    object-fit: cover;
-                    position: relative;
-                    right: 50%;
-                    width: 50vw;
-                }
-
-                &:after {
-                    background-color: rgba($blue, .25);
-                    bottom: 0;
-                    content: "";
-                    height: 100%;
-                    margin-left: calc(50% - 50vw);
-                    max-width: 50vw;
-                    position: absolute;
-                    right: 50%;
-                    top: 0;
-                    transition: all .25s ease-in-out;
-                    width: 50vw;
-                }
-            }
-
-            .post-title {
-                --bs-gutter-x: 0;
-                @include make-col-ready;
-                @include make-col(6);
-                @include make-col-offset(0);
-                align-self: flex-end;
-                position: inherit;
-                z-index: 1;
-                
-                &:after {
-                    width: 50vw;
-                }
-
-                h3 {
-                    padding: $paragraph-margin-bottom;
-                }
-            }
-        }
-
-        .post-meta {
-            @include make-col-ready;
-            @include make-col(4);
-            font-family: $proxima;
-            font-size: .875rem;
-            font-variant-caps: all-small-caps;
-            font-weight: 300;
-            letter-spacing: .05rem;
-            line-height: 2;
-            margin-top: $paragraph-margin-bottom;
-            text-align: right;
-        }
-
-        .post-content {
-            @include make-col-ready;
-            @include make-col(8);
-            border-left: 1px solid $beige;
-            margin-bottom: $paragraph-margin-bottom;
-            margin-top: $paragraph-margin-bottom;
-
-            p:last-child {
-                margin-bottom: 0;
-            }
+            border-bottom: 0;
+            border-top: 0;
         }
     }
 }

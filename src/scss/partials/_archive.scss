@@ -1,0 +1,212 @@
+.archive-header.big-image-header {
+    box-shadow: $box-shadow;
+    z-index: 1;
+
+    & > img {
+        min-height: 50vh;
+    }
+
+    .overlay {
+        @include media-breakpoint-up(md) {
+            align-items: flex-end;
+            padding-bottom: $paragraph-margin-bottom;
+        }
+    }
+}
+
+.archive-content article {
+    border-bottom: 1px solid $beige;
+    margin-bottom: $paragraph-margin-bottom;
+    margin-top: $paragraph-margin-bottom;
+    padding-bottom: $paragraph-margin-bottom;
+
+    &:last-child {
+        border-bottom: 0;
+    }
+
+    &:hover {
+        .has-post-thumbnail {
+            img {
+                box-shadow: $box-shadow;
+            }
+
+            h2 {
+                box-shadow: $box-shadow-top;
+            }
+
+            .overlay {
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+.archive-section-content {
+    @include make-col-ready;
+    @include make-col(12);
+
+    @include media-breakpoint-up(md) {
+        @include make-col(8);
+    }
+
+    @include media-breakpoint-up(lg) {
+        @include make-col(9);
+    }
+}
+
+.archive-even {
+    .archive-section-content {
+        @include media-breakpoint-up(md) {
+            order: 2 !important;
+        }
+    }
+}
+
+.archive-section-title {
+    padding-bottom: $paragraph-margin-bottom;
+    position: relative;
+
+    h2 {
+        a {
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &.has-post-thumbnail {
+        h2 {
+            align-self: flex-end;
+            backdrop-filter: blur(3px);
+            background-color: rgba($red, .25);
+            box-shadow: $box-shadow-top-light;
+            font-size: 2.5rem;
+            line-height: 1;
+            margin-bottom: 2rem;
+            padding: $paragraph-margin-bottom / 2;
+            text-shadow: 0 .125rem 1rem rgba($black, .5);
+            transition: all .25s ease-in-out;
+            width: 100%;
+
+            a {
+                color: rgba($white, .875);
+                text-decoration: none;
+
+                &:hover {
+                    color: $white;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        img {
+            box-shadow: $box-shadow-light;
+            height: 4rem;
+            min-height: 33vh;
+            object-fit: cover;
+            transition: all .25s ease-in-out;
+            width: 100%;
+        }
+
+        .overlay {
+            transition: all .25s ease-in-out;
+            width: 100%;
+        }
+    }
+}
+
+.archive-section-body {
+    p:first-child {
+        font-size: 1.125rem;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.archive-section-related {
+    @include make-col-ready;
+    @include make-col(12);
+    border-top: 1px solid rgba($beige, .5);
+    flex: auto;
+    flex-shrink: 1;
+    margin-left: calc(var(--bs-gutter-x) / 2);
+    margin-right: calc(var(--bs-gutter-x) / 2);
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: $paragraph-margin-bottom;
+
+    @include media-breakpoint-up(md) {
+        @include make-col(4);
+        border-left: 1px solid $beige;
+        border-top: 0;
+        flex: 1;
+        margin: 0;
+        padding-left: calc(var(--bs-gutter-x) / 2);
+        padding-right: calc(var(--bs-gutter-x) / 2);
+        padding-top: 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+        @include make-col(3);
+    }
+
+    h3 {
+        font-family: $proxima;
+        font-size: 1.25rem;
+        font-variant-caps: all-small-caps;
+        letter-spacing: .125rem;
+        line-height: 1;
+        margin-top: $paragraph-margin-bottom;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    ul {
+        font-size: .875rem;
+        line-height: 1.25;
+        list-style: none;
+        margin-left: 0;
+        padding-left: 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        li {
+            border-bottom: 1px solid rgba($beige, .5);
+            padding: .5rem 0;
+
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.archive-even .archive-section-related {
+    @include media-breakpoint-up(md) {
+        border-left: 0;
+        border-right: 1px solid $beige;
+        order: 1 !important;
+    }
+}
+
+.post-author {
+    color: rgba($body-color, .5);
+    display: block;
+    font-family: $proxima;
+    font-size: .75rem;
+    font-variant-caps: all-small-caps;
+    letter-spacing: .05rem;
+    margin-top: .25rem;
+}

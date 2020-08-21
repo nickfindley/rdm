@@ -78,14 +78,15 @@ endif;
             </div>
 
             <?php
-                if ( have_rows( 'civic_activities', $user_id ) AND have_rows( 'honors', $user_id ) ) :
+                if ( have_rows( 'civic_activities', $user_id ) AND ( have_rows( 'honors', $user_id ) ) || have_rows( 'memberships' , $user_id ) ) :
                     $class = ' honors-and-activities';
-                elseif ( have_rows( 'honors', $user_id ) OR have_rows( 'civic_activities', $user_id ) ) :
+                elseif ( ( have_rows( 'honors', $user_id ) || have_rows( 'memberships' , $user_id ) ) OR have_rows( 'civic_activities', $user_id ) ) :
                     $class = ' honors-or-activities';
                 endif;
             ?>
             <div class="row author-details<?php echo $class; ?>">
                 <div class="author-education">
+                    <div class="author-wrap">
                     <h3>Education</h3>
                     <ul>
                     <?php
@@ -146,9 +147,11 @@ endif;
                         endif;
                     ?>
                     </ul>
+                    </div>
                 </div>
 
                 <div class="author-practice">
+                    <div class="author-wrap">
                     <h3>Practice Areas</h3>
                     <ul>
                     <?php
@@ -161,9 +164,11 @@ endif;
                         endforeach;
                     ?>
                     </ul>
+                    </div>
                 </div>
 
                 <div class="author-admissions">
+                    <div class="author-wrap">
                     <h3>Admissions</h3>  
                     <ul>
                     <?php
@@ -206,10 +211,13 @@ endif;
                         endforeach;
                     ?>
                     </ul>
+                    </div>
                 </div>
 
-                <?php if ( have_rows( 'honors', $user_id ) ) : ?>
+                <?php if ( have_rows( 'honors', $user_id ) || have_rows( 'memberships' , $user_id ) ) : ?>
                 <div class="author-honors">
+                    <div class="author-wrap">
+                    <?php if ( have_rows( 'honors', $user_id ) ) : ?>
                     <h3>Honors <br>&amp; Awards</h3>
                     <ul>
                     <?php
@@ -241,13 +249,38 @@ endif;
                         </li>
                     <?php
                         endwhile;
+                    endif;
                     ?>
                     </ul>
+
+                    <?php if ( have_rows( 'memberships', $user_id ) ) : ?>
+                    <h3>Memberships</h3>
+                    <ul>
+                    <?php
+                        while ( have_rows( 'memberships', $user_id ) ) :
+                            the_row();
+                    ?>
+                        <li>
+                            <?php if ( get_sub_field( 'membership_url' ) ) : ?>
+                            <a href="<?php the_sub_field( 'membership_url' ); ?>">
+                            <?php endif; ?>
+                            <span class="honor"><?php the_sub_field( 'membership' ); ?></span>
+                            <?php if ( get_sub_field( 'membership_url' ) ) : ?>
+                            </a>
+                            <?php endif; ?>
+                        </li>
+                    <?php
+                        endwhile;
+                    endif;
+                    ?>
+                    </ul>
+                    </div>
                 </div>
                 <?php endif; ?>
 
                 <?php if ( have_rows( 'civic_activities', $user_id ) ) : ?>
                 <div class="author-activities">
+                    <div class="author-wrap">
                     <h3>Civic <br>Activities</h3>
                     <ul>
                     <?php
@@ -275,6 +308,7 @@ endif;
                         endwhile;
                     ?>
                     </ul>
+                    </div>
                 </div>
                 <?php endif; ?>
             </div>
@@ -282,19 +316,36 @@ endif;
     </section>
 
     <?php if ( have_posts() ) : ?>
-    <section class="blog-content">
-        <div class="container">
-            <header class="blog-content-header">
+    <div class="container">
+        <section class="attorney-blog">       
+            <header class="blog-header">
                 <h2>RDM's Knowledge Blog <span class="subheading">Posts by <?php echo $first_name . ' ' . $last_name; ?></span></h2>
             </header>
             <?php
-                while ( have_posts() ) :
-                    the_post();
-                    get_template_part( 'content/author-post' );
-                endwhile;
+                $args = array(
+                    'post_type' => 'post',
+                    'meta_query' => array(
+                        array(
+                            'key' => 'post_authors',
+                            'value' => '"' . $attorney->ID . '"',
+                            'compare' => 'LIKE'
+                        )
+                    )
+                );
+
+                $posts_query = new WP_Query( $args );
+                if ( $posts_query->have_posts() ) :
+                    while ( $posts_query->have_posts() ) :
+                        $posts_query->the_post();
+                        get_template_part( 'content/author-post' );
+                    endwhile;
+                    wp_reset_postdata();
+                endif;
+                // echo '<pre>' . print_r( $posts_query ) . '</pre>';
             ?>
-        </div>
-    </section>
+       
+        </section>
+    </div>
     <?php endif; ?>
 </main>
 <?php get_footer(); ?>

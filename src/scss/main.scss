@@ -45,6 +45,7 @@
 @import "bootstrap/utilities/api";
 // scss-docs-end import-stack
 
+@import "partials/archive";
 @import "partials/author";
 @import "partials/base";
 @import "partials/block-big-image-header";
@@ -57,9 +58,9 @@
 @import "partials/front-page";
 @import "partials/images";
 @import "partials/links";
+@import "partials/modals";
 @import "partials/navbar";
 @import "partials/overlay";
-@import "partials/post";
 @import "partials/practice-areas";
 @import "partials/quotes";
 @import "partials/site-footer";

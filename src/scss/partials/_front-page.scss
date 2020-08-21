@@ -2,7 +2,7 @@
     margin: $paragraph-margin-bottom * 2 0;
 }
 
-.blog {
+.front-page-blog {
     @include make-col-ready;
     
     @include media-breakpoint-up(md) {
@@ -41,57 +41,6 @@
                 color: rgba($link-color, .5);
             }
         }
-    }
-}
-
-.blog-post {
-    border-top: 1px solid $beige;
-    margin-bottom: $paragraph-margin-bottom;
-    padding-top: .75rem;
-
-    &:last-child {
-        margin-bottom: 0;
-    }
-
-    .blog-post-featured-image {
-        margin-bottom: $paragraph-margin-bottom;
-        position: relative;
-        
-        &:after {
-            background-color: rgba($red, .25);
-            bottom: 0;
-            content: "";
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            transition: .5s all ease-in-out;
-        }
-    }
-
-    &:hover .blog-post-featured-image:after {
-        background-color: transparent;
-    }
-
-    h3 {
-        font-family: $proxima;
-        font-size: 1.5rem;
-        font-variant-caps: all-small-caps;
-        font-weight: 400;
-        letter-spacing: .125rem;
-        line-height: 1;
-    }
-
-    .byline {
-        color: rgba($body-color, .75);
-        font-variant-caps: all-small-caps;
-        font-size: .875rem;
-        letter-spacing: .05rem;
-        margin-bottom: $paragraph-margin-bottom / 2;
-    }
-
-    & > p:last-child {
-        margin-bottom: 0;
     }
 }
 

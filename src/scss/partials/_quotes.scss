@@ -1,5 +1,25 @@
 blockquote {
-    border-left: .5rem solid $blue;
+    border-left: .5rem solid rgba($body-color, .5);
     margin: 0 0 $paragraph-margin-bottom;
     padding-left: 1rem;
+}
+
+.post-color-blue blockquote {
+    border-color: $blue;
+}
+
+.post-color-red blockquote {
+    border-color: $red;
+}
+
+.post-color-beige blockquote {
+    border-color: $beige;
+}
+
+.post-color-taupe blockquote {
+    border-color: $taupe;
+}
+
+.post-color-brown blockquote {
+    border-color: $brown;
 }

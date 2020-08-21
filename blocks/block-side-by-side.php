@@ -28,7 +28,7 @@ $position = get_field( 'photo_position' );
             <div class="side-by-side-text">
                 <div class="side-by-side-text-wrapper">
                     <h2><?php echo $headline; ?></h2>
-                    <?php echo $text; ?>
+                    <p><?php echo $text; ?></p>
                     <p><a class="btn btn-lg" href="<?php $button_link; ?>"><?php echo $button_text; ?></a></p>
                 </div>
             </div>

@@ -5,40 +5,28 @@
     <section class="front-page-content">
         <div class="container">
             <div class="row">
-                <div class="blog">
+                <div class="front-page-blog">
                     <header>
                         <h2>From RDM&apos;s Knowledge Blog</h2>
                         <p>Read more at <a href="#">rdm.law/knowledge</a>.</p>
                     </header>
                 <?php 
                     $args = array(
-                        'posts_per_page' => 3
+                        'posts_per_page' => 6
                     );
                     $blog_query = new WP_Query( $args );
                     if ( $blog_query->have_posts() ) :
                         while ( $blog_query->have_posts() ) :
                             $blog_query->the_post();
-                            ?>
-                    <article class="blog-post">
-                        <header>
-                        <?php if ( has_post_thumbnail() ) : ?>
-                            <div class="blog-post-featured-image">
-                                <?php the_post_thumbnail(); ?>
-                            </div>
-                        <?php endif ?>
-                            <h3><?php the_title(); ?></h3>
-                            <p class="byline">By <?php coauthors_posts_links(); ?> &bull; <?php echo get_the_date(); ?></p>
-                        </header>
-                        <?php the_excerpt(); ?>
-                    </article>
-                            <?php
+                            $post_color = get_field( 'post_color' ) ? get_field( 'post_color' ) : 'blue';
+                            get_template_part( 'content/front-page-post' );
                         endwhile;
                     endif;
                     wp_reset_postdata();
                 ?>
                 </div>
 
-                <div class="attorneys">
+                <aside class="attorneys">
                     <h3>Members &amp; <br>Associates</h3>
                     <ul>
                     <?php
@@ -66,9 +54,12 @@
                         endif;
                     ?>
                     </ul>
-                </div>
 
-                <div class="additional-content additional-content-col-1">
+                    <h3>Diversity &amp; <br>Inclusion</h3>
+                    <p>RDM is committed to promoting diversity and inclusion regardless of race, gender, sexual orientation, religion, or any other factor. <a href="/diversity/">Read our diversity statement here.</a></p>
+                </aside>
+
+                <aside class="additional-content additional-content-col-1">
                     <h3>Practice <br>Areas</h3>
                     <ul>
                     <?php
@@ -91,18 +82,15 @@
                     ?>
                     </ul>
 
-                    <h3>Diversity &amp; <br>Inclusion</h3>
-                    <p>RDM is committed to promoting diversity and inclusion regardless of race, gender, sexual orientation, religion, or any other factor. <a href="#">Read our diversity statement here.</a></p>
-
                     <h3>Knowledge <br>&amp; Expertise</h3>
                     <p>RDM brings decades of experience and deep industry knowledge to our clients. Read our <a href="/knowledge/">Knowledge Blog</a> for insight and opinions on news that affects our corner of the legal world.</p>
                     <h4>News Categories</h4>
                     <ul>
                         <?php wp_list_categories( array( 'title_li' => '', 'hide_empty' => 0, 'exclude' => '1' ) ); ?>
                     </ul>
-                </div>
+                </aside>
 
-                <div class="additional-content additional-content-col-2">
+                <aside class="additional-content additional-content-col-2">
                     <h3>Office <br>Locations</h3>
                     <ul>
                     <?php
@@ -138,7 +126,7 @@
                     );
                     ?>
                     </ul>
-                </div>
+                </aside>
             </div>
         </div>
     </section>

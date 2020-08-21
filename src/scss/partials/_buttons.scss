@@ -8,12 +8,13 @@
     font-weight: 400;
     letter-spacing: .125rem;
     line-height: 1;
-    padding: 1rem 1.5rem;
+    padding: .5rem 1rem;
     text-decoration: none;
     transition: all .25s ease-in-out;
 
     @include media-breakpoint-up(md) {
         font-size: 1.25rem;
+        padding: 1rem 1.5rem;
     }
 
     &:hover {
@@ -23,6 +24,7 @@
     }
 }
 
+button:focus,
 .btn:focus {
     box-shadow: 0 0 0 .25rem rgba($beige, .25);
     outline: 0;
@@ -35,6 +37,7 @@
 
     &:hover {
         background-color: $blue;
+        border-color: $blue;
     }
 }
 
@@ -44,9 +47,11 @@
 
     &:hover {
         background-color: $red;
+        border-color: $red;
     }
 }
 
+.btn-secondary,
 .btn-beige {
     background-color: rgba($beige, .875);
     border-color: $beige;
@@ -54,6 +59,7 @@
 
     &:hover {
         background-color: $beige;
+        border-color: $beige;
         color: $brown;
     }
 }
@@ -64,6 +70,7 @@
 
     &:hover {
         background-color: $taupe;
+        border-color: $taupe;
     }
 }
 
@@ -73,5 +80,6 @@
 
     &:hover {
         background-color: $brown;
+        border-color: $brown;
     }
 }
