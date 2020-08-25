@@ -12,7 +12,7 @@
                     </header>
                 <?php 
                     $args = array(
-                        'posts_per_page' => 6
+                        'posts_per_page' => 3
                     );
                     $blog_query = new WP_Query( $args );
                     if ( $blog_query->have_posts() ) :

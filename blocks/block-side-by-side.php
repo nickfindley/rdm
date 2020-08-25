@@ -16,7 +16,7 @@ $position = get_field( 'photo_position' );
 ?>
 
 <?php
-    $color_class = 'side-by-side-' . $color;
+    $color_class = 'bg-' . $color;
     $side_class = 'side-by-side-' . $position;
 ?>
 <section class="side-by-side <?php echo $color_class . ' ' . $side_class; ?>">

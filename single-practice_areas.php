@@ -3,7 +3,7 @@
     $post_color = get_field( 'post_color' ) ? get_field( 'post_color' ) : 'blue';
 ?>
 <main id="content">
-    <header class="page-header page-header-<?php echo $post_color; ?> big-image-header" id="pageHeader">
+    <header class="page-header bg-<?php echo $post_color; ?> big-image-header" id="pageHeader">
         <?php the_post_thumbnail(); ?>
         <div class="overlay">     
             <h1>

@@ -1,0 +1,152 @@
+.bg-brown {
+    background-color: $brown;
+
+    .btn {
+        @extend .btn-beige;
+    }
+
+    h1 {
+        background-color: rgba($brown, .5);
+    }
+
+    .overlay {
+        background-color: rgba($brown, .25);
+    }
+
+    .side-by-side-image {
+        &:before {
+            @extend .bg-brown;
+        }
+
+        &:after {
+            background-color: rgba($brown, .25);
+        }
+    }
+}
+
+.bg-taupe {
+    background-color: $taupe;
+
+    .btn {
+        @extend .btn-brown;
+    }
+
+    h1 {
+        background-color: rgba($taupe, .5);
+    }
+
+    .overlay {
+        background-color: rgba($taupe, .25);
+    }
+
+    .side-by-side-image {
+        &:before {
+            background-color: $taupe;
+        }
+
+        &:after {
+            background-color: rgba($taupe, .25);
+        }
+    }
+}
+
+.bg-beige {
+    background-color: $beige;
+    color: rgba($brown, .875);
+
+    .btn {
+        @extend .btn-brown;
+    }
+
+    h1 {
+        background-color: rgba($beige, .5);
+    }
+
+    .overlay {
+        background-color: rgba($beige, .25);
+    }
+
+    .side-by-side-image {
+        &:before {
+            background-color: $beige;
+        }
+
+        &:after {
+            background-color: rgba($beige, .25);
+        }
+    }
+}
+
+.bg-blue {
+    background-color: $blue;
+
+    .btn {
+        @extend .btn-taupe;
+    }
+
+    h1 {
+        background-color: rgba($blue, .5);
+    }
+
+    .overlay {
+        background-color: rgba($blue, .25);
+    }
+
+    .side-by-side-image {
+        &:before {
+            background-color: $blue;
+        }
+
+        &:after {
+            background-color: rgba($blue, .25);
+        }
+    }
+}
+
+.bg-red {
+    background-color: $red;
+
+    .btn {
+        @extend .btn-taupe;
+    }
+
+    h1 {
+        background-color: rgba($red, .5);
+    }
+
+    .overlay {
+        background-color: rgba($red, .25);
+    }
+
+    .side-by-side-image {
+        &:before {
+            background-color: $red;
+        }
+
+        &:after {
+            background-color: rgba($red, .25);
+        }
+    }
+}
+
+
+
+.post-color-blue blockquote {
+    border-color: $blue;
+}
+
+.post-color-red blockquote {
+    border-color: $red;
+}
+
+.post-color-beige blockquote {
+    border-color: $beige;
+}
+
+.post-color-taupe blockquote {
+    border-color: $taupe;
+}
+
+.post-color-brown blockquote {
+    border-color: $brown;
+}

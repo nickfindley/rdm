@@ -320,7 +320,6 @@
 
     .author-wrap {
         height: calc(100% - #{$paragraph-margin-bottom} / 2);
-        // margin-bottom: $paragraph-margin-bottom / 2;
         margin-top: $paragraph-margin-bottom / 2;
     }
 
@@ -332,10 +331,11 @@
         }
     }
 
-    .author-practice {
+    .author-practice,
+    .author-admissions {
         .author-wrap {
             border-left: 1px solid $beige;
-            padding: 0 0 0 15px;
+            padding: 0 15px;
         }
     }
 
@@ -361,6 +361,7 @@
             border-top: 1px solid $beige;
 
             .author-wrap {
+                border-left: 0;
                 padding: 0 15px 0 0;
             }
         }
@@ -393,6 +394,7 @@
             @include make-col(4);
 
             .author-wrap {
+                border-left: 0;
                 padding: 0 15px 0 0;
             }
         }
@@ -435,6 +437,12 @@
         @include make-col(4);
     }
 
+    .author-practice {
+        .author-wrap {
+            padding: 0 15px;
+        }
+    }
+
     .author-admissions {
         .author-wrap {
             border-left: 1px solid $beige;
@@ -458,6 +466,7 @@
         .author-practice,
         .author-admissions {
             .author-wrap {
+                border-left: 1px solid $beige;
                 padding: 0 15px;
             }
         }
@@ -472,6 +481,7 @@
         .author-practice,
         .author-admissions {
             .author-wrap {
+                border-left: 1px solid $beige;
                 padding: 0 15px;
             }
         }

@@ -6,7 +6,7 @@
                     </div>
 
                     <div class="footer-section">
-                        <p>&copy; <?php echo date('Y'); ?> Rasmussen Dickey Moore LLC. <a href="#navbarCollapse">Back to the top</a>.</p>
+                        <p>&copy; <?php echo date('Y'); ?> Rasmussen Dickey Moore LLC. <a href="#content">Back to the top</a>.</p>
                     </div>
 
                     <div class="footer-section">

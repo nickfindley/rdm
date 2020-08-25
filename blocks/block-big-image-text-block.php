@@ -13,7 +13,7 @@ $color = get_field( 'color' );
 $position = get_field( 'position' );
 ?>
 
-<section class="big-image-text big-image-text-<?php echo $position; ?> big-image-text-<?php echo $color . $className; ?>">
+<section class="big-image-text big-image-text-<?php echo $position; ?> bg-<?php echo $color . $className; ?>">
     <?php echo wp_get_attachment_image( $image, 'full' ); ?>
     <div class="overlay">
         <div class="container">

@@ -20,6 +20,8 @@
             </header>
             <div class="archive-section-body">
                 <?php the_excerpt(); ?>
+
+                <p><a href="<?php the_permalink(); ?>">Learn more about <?php the_title(); ?> &hellip;</a></p>
             </div>
         </div>
         <div class="archive-section-related">

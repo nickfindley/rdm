@@ -3,7 +3,7 @@
     $page_color = get_field( 'archive_page_color', 'option' ) ? get_field( 'archive_page_color', 'option' ) : 'blue';
 ?>
 <main id="content">
-    <header class="archive-header big-image-header page-header page-header-<?php echo $page_color; ?>" id="pageHeader">
+    <header class="archive-header big-image-header page-header bg-<?php echo $page_color; ?>" id="pageHeader">
         <?php echo wp_get_attachment_image( get_field( 'archive_page_image', 'option' ), 'full' ); ?>
         <div class="overlay">
             <h1>

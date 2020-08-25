@@ -17,6 +17,7 @@
         font-weight: 300;
         letter-spacing: 0;
         line-height: 1.25;
+        padding: 0;
 
         @include media-breakpoint-up(xl) {
             font-size: 2rem;
@@ -62,47 +63,14 @@
     }
 }
 
-.cta-brown {
-    background-color: $brown;
+.author-bio .cta:last-child {
+    margin-bottom: 0;
+    
+    h3 {
+        font-size: 1.75rem;
 
-    .btn {
-        @extend .btn-beige;
-    }
-}
-
-.cta-taupe {
-    background-color: $taupe;
-
-    .btn {
-        @extend .btn-brown;
-    }
-}
-
-.cta-beige {
-    background-color: $beige;
-    color: rgba($brown, .875);
-
-    &:hover {
-        color: $brown;
-    }
-
-    .btn {
-        @extend .btn-brown;
-    }
-}
-
-.cta-red {
-    background-color: $red;
-
-    .btn {
-        @extend .btn-beige;
-    }
-}
-
-.cta-blue {
-    background-color: $blue;
-
-    .btn {
-        @extend .btn-taupe;
+        @include media-breakpoint-up(md) {
+            font-size: 2.25rem;
+        }
     }
 }

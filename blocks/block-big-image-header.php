@@ -12,7 +12,7 @@ $subhead = get_field( 'subhead' );
 $color = get_field( 'color' );
 ?>
 
-<header class="big-image-header page-header page-header-<?php echo $color . $className; ?>" id="pageHeader">
+<header class="big-image-header page-header bg-<?php echo $color . $className; ?>" id="pageHeader">
     <?php echo wp_get_attachment_image( $image, 'full' ); ?>
     <div class="overlay">
         <h1>

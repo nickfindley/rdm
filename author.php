@@ -73,7 +73,17 @@ endif;
                     </ul>
                 </div>
                 <div class="author-bio">
-                    <?php the_field( 'attorney_bio', $user_id ); ?>
+                    <?php 
+                        the_field( 'attorney_bio', $user_id );
+                        $cta = get_field( 'cta', $user_id );
+                        if ( $cta ) :
+                    ?>
+                    <div class="cta cta-<?php echo $cta['color']; ?>">
+                        <h3><?php echo $cta['headline']; ?></h3>
+                        <?php echo $cta['body']; ?>
+                        <p><a class="btn" href="<?php echo $cta['button_link']; ?>"><?php echo $cta['button_text']; ?></a></p>
+                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
 
@@ -200,7 +210,6 @@ endif;
                         }
 
                         usort( $adm, arrSortObjsByKey( 'post_parent_title', 'ASC' ));
-
                         foreach ( $adm as $post ) :
                             if ( $post->post_parent_title == 'State Courts' ) :
                                 $parent_title = '';
@@ -315,37 +324,38 @@ endif;
         </div>
     </section>
 
-    <?php if ( have_posts() ) : ?>
+    <?php
+        $args = array(
+            'post_type' => 'post',
+            'meta_query' => array(
+                array(
+                    'key' => 'post_authors',
+                    'value' => '"' . $attorney->ID . '"',
+                    'compare' => 'LIKE'
+                )
+            )
+        );
+
+        $posts_query = new WP_Query( $args );
+        if ( $posts_query->have_posts() ) :
+    ?>
     <div class="container">
         <section class="attorney-blog">       
             <header class="blog-header">
                 <h2>RDM's Knowledge Blog <span class="subheading">Posts by <?php echo $first_name . ' ' . $last_name; ?></span></h2>
             </header>
             <?php
-                $args = array(
-                    'post_type' => 'post',
-                    'meta_query' => array(
-                        array(
-                            'key' => 'post_authors',
-                            'value' => '"' . $attorney->ID . '"',
-                            'compare' => 'LIKE'
-                        )
-                    )
-                );
-
-                $posts_query = new WP_Query( $args );
-                if ( $posts_query->have_posts() ) :
-                    while ( $posts_query->have_posts() ) :
-                        $posts_query->the_post();
-                        get_template_part( 'content/author-post' );
-                    endwhile;
-                    wp_reset_postdata();
-                endif;
-                // echo '<pre>' . print_r( $posts_query ) . '</pre>';
+                while ( $posts_query->have_posts() ) :
+                    $posts_query->the_post();
+                    get_template_part( 'content/author-post' );
+                endwhile;
             ?>
-       
         </section>
     </div>
-    <?php endif; ?>
+    <?php
+        wp_reset_postdata();
+        endif;
+        // echo '<pre>' . print_r( $posts_query ) . '</pre>';endif; 
+    ?>
 </main>
 <?php get_footer(); ?>

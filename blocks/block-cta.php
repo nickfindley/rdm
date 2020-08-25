@@ -23,7 +23,7 @@ $button_link = get_field( 'button_link' );
 $color = get_field( 'color' );
 ?>
 
-<div class="cta cta-<?php echo $color . $className; ?>" id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $className ); ?>">
+<div class="cta bg-<?php echo $color . $className; ?>" id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $className ); ?>">
     <h3><?php echo $headline; ?></h3>
     <?php echo $text; ?>
     <p><a class="btn" href="<?php echo $button_link; ?>"><?php echo $button_text; ?></a></p>

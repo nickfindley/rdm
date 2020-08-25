@@ -54,36 +54,6 @@
         }
     }
 
-    &.big-image-text-blue {
-        .overlay {
-            background-color: rgba($blue, .25);
-        }
-    }
-
-    &.big-image-text-red {
-        .overlay {
-            background-color: rgba($red, .25);
-        }
-    }
-
-    &.big-image-text-brown {
-        .overlay {
-            background-color: rgba($brown, .25);
-        }
-    }
-
-    &.big-image-text-taupe {
-        .overlay {
-            background-color: rgba($taupe, .25);
-        }
-    }
-
-    &.big-image-text-beige {
-        .overlay {
-            background-color: rgba($beige, .25);
-        }
-    }
-
     &.big-image-text-top-left .block-container {
         align-items: flex-start;
         justify-content: flex-start;
