@@ -55,19 +55,11 @@ img.rdm-logo {
 
 .blog-page {
     .blog-content {
-        @include make-col-ready;
-
-        @include media-breakpoint-up(md) {
-            @include make-col(8);
-        }
+        @extend .col-md-8;
     }
 
     .blog-sidebars {
-        @include make-col-ready;
-
-        @include media-breakpoint-up(md) {
-            @include make-col(4);
-        }
+        @extend .col-md-4;
 
         @include media-breakpoint-up(lg) {
             margin-bottom: $paragraph-margin-bottom;
@@ -88,7 +80,6 @@ img.rdm-logo {
 
         @include media-breakpoint-up(md) {
             border-top: 0;
-            margin-top: 0;
             padding-top: 0;
         }
 
@@ -181,61 +172,6 @@ img.rdm-logo {
             .subheading {
                 margin-top: $paragraph-margin-bottom / 2;
             }
-        }
-    }
-
-    &.post-color-blue {
-        .post-title {
-            background-color: $blue;
-        }
-
-        .overlay,
-        .post-thumbnail:after {
-            background-color: rgba($blue, .25);
-        }
-    }
-
-    &.post-color-red {
-        .post-title {
-            background-color: $red;
-        }
-
-        .overlay,
-        .post-thumbnail:after {
-            background-color: rgba($red, .25);
-        }
-    }
-
-    &.post-color-beige {
-        .post-title {
-            background-color: $beige;
-        }
-
-        .overlay,
-        .post-thumbnail:after {
-            background-color: rgba($beige, .25);
-        }
-    }
-
-    &.post-color-taupe {
-        .post-title {
-            background-color: $taupe;
-        }
-
-        .overlay,
-        .post-thumbnail:after {
-            background-color: rgba($taupe, .25);
-        }
-    }
-
-    &.post-color-brown {
-        .post-title {
-            background-color: $brown;
-        }
-
-        .overlay,
-        .post-thumbnail:after {
-            background-color: rgba($brown, .25);
         }
     }
 
@@ -350,23 +286,19 @@ img.rdm-logo {
     }
 
     .post-meta {
-        @include make-col-ready;
-        @include make-col(12);
+        @extend .col-md-4;
         margin-top: $paragraph-margin-bottom / 2;
 
         @include media-breakpoint-up(md) {
-            @include make-col(4);
             margin-top: $paragraph-margin-bottom;
             text-align: right;
         }
     }
 
     .post-content {
-        @include make-col-ready;
-        @include make-col(12);
+        @extend .col-md-8;
         
         @include media-breakpoint-up(md) {
-            @include make-col(8);
             border-left: 1px solid $beige;
             margin-top: $paragraph-margin-bottom;
         }

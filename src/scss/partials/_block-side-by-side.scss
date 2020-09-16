@@ -10,8 +10,7 @@
 
 .side-by-side-image,
 .side-by-side-text {
-    @include make-col-ready;
-    @include make-col(6);
+    @extend .col-6;
     display: flex;
     position: relative;
 }

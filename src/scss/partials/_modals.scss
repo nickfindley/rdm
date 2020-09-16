@@ -12,7 +12,7 @@
     }
 }
 
-#navContact .modal-dialog {
+#navOffices .modal-dialog {
     max-width: 87.5vw;
 }
 
@@ -71,10 +71,11 @@
     padding: 1rem .75rem $paragraph-margin-bottom;
 
     button[data-dismiss="modal"] {
-        color: rgba($brown, .25);
+        @extend .btn-taupe;
+        color: rgba($white, .5);
 
         &:hover {
-            color: rgba($brown, .5);
+            color: rgba($white, .75);
         }
     }
 }
@@ -96,7 +97,7 @@
     }
 
     h5 {
-        font-size: 2rem;
+        font-size: 1.75rem;
         font-weight: 400;
         letter-spacing: .25rem;
     }
@@ -141,7 +142,7 @@
     }
 }
 
-#navContact {
+#navOffices {
     .row {
         margin: 0 calc(var(--bs-gutter-x) * -1);
     }

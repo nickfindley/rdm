@@ -18,10 +18,10 @@
     }
 
     .footer-section {
-        @include make-col-ready;
+        @extend .col;
+        @extend .col-md-4;
 
         @include media-breakpoint-up(md) {
-            @include make-col(4);
             border-left: 1px solid rgba($beige, .5);
 
             &:first-child {

@@ -1,0 +1,46 @@
+$card-height: 100%;
+
+.blurb-container {
+    margin-bottom: $paragraph-margin-bottom;
+}
+
+.blurb-box {
+    @extend .col-md-4;
+    margin-bottom: calc(var(--bs-gutter-x) / 2);
+    margin-top: calc(var(--bs-gutter-x) / 2);
+
+    @include media-breakpoint-up(xl) {
+        width: 20%;
+    }
+
+    h3 {
+        @include media-breakpoint-up(md) {
+            font-size: 1.625rem;
+        }
+    }
+}
+
+.blurb-box-inner {
+    @extend .card;
+    background-clip: border-box;
+    border: 0;
+    border-radius: 0;
+    box-shadow: $box-shadow;
+    color: rgba($white, .75);
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.core-values {
+    .blurb-box:nth-child(n+4) {
+        @include media-breakpoint-up(md) {
+            width: 50%;
+        }
+
+        @include media-breakpoint-up(xl) {
+            width: 20%;
+        }
+    }
+}

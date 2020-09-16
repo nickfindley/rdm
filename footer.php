@@ -19,6 +19,7 @@
             </div>
         </footer> 
     </div>
+    <?php require_once 'nav-modals.php'; ?>
     <?php wp_footer(); ?>
 </body>
 </html>

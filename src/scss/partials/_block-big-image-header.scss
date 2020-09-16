@@ -56,3 +56,10 @@
         }
     }
 }
+
+.page-header.big-image-header {
+    & > img {
+        min-height: 50vh;
+        object-fit: cover;
+    }
+}

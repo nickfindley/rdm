@@ -18,5 +18,5 @@
     <?php wp_body_open(); ?>
     <a href="#content" class="sr-only">Skip to content</a>
     <header class="site-header">
-        <?php require_once 'site-nav.php'; ?>
+        <?php require_once 'nav.php'; ?>
     </header>

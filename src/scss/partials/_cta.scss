@@ -49,14 +49,45 @@
     }
 
     &.align-left {
-        @include media-breakpoint-up(lg) {
+        @include media-breakpoint-up(md) {
             float: left;
             margin: $paragraph-margin-bottom / 2 $paragraph-margin-bottom $paragraph-margin-bottom / 2 0;
         }            
     }
 
     &.align-right {
+        @include media-breakpoint-up(md) {
+            float: right;
+            margin: $paragraph-margin-bottom / 2 0 $paragraph-margin-bottom / 2 $paragraph-margin-bottom;
+        }            
+    }
+}
+
+.cta.mini-cta {
+    &.align-left,
+    &.align-right {
+        @include media-breakpoint-up(sm) {
+            width: 50%;
+        }
+
+        @include media-breakpoint-up(md) {
+            width: 33.3333%;
+        }
+
         @include media-breakpoint-up(lg) {
+            width: 25%;
+        }
+    }
+
+    &.align-left {
+        @include media-breakpoint-up(sm) {
+            float: left;
+            margin: $paragraph-margin-bottom / 2 $paragraph-margin-bottom $paragraph-margin-bottom / 2 0;
+        }            
+    }
+
+    &.align-right {
+        @include media-breakpoint-up(sm) {
             float: right;
             margin: $paragraph-margin-bottom / 2 0 $paragraph-margin-bottom / 2 $paragraph-margin-bottom;
         }            

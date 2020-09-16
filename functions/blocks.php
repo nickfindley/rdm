@@ -55,6 +55,32 @@ function rdm_acf_init_block_types()
             'icon'              => 'testimonial',
             'keywords'          => array( 'cta', 'call to action' ),
         ));
+
+        acf_register_block_type(array(
+            'name'              => 'blurb_container',
+            'title'             => __('Blurb Container'),
+            'description'       => __('A container to hold blurb boxes'),
+            'render_template'   => 'blocks/block-blurb-container.php',
+            'category'          => 'formatting',
+            'icon'              => 'testimonial',
+            'keywords'          => array( 'blurb', 'box', 'container' ),
+            'supports'          => array(
+                'align' => false,
+                'jsx' => true,
+                'mode' => 'edit'
+            ),
+        ));
+
+        acf_register_block_type(array(
+            'name'              => 'blurb_box',
+            'title'             => __('Blurb Box'),
+            'description'       => __('A small block for a short piece of info to be highlighted.'),
+            'render_template'   => 'blocks/block-blurb-box.php',
+            'category'          => 'formatting',
+            'icon'              => 'testimonial',
+            'keywords'          => array( 'blurb', 'box', 'text' ),
+            'supports'          => array( 'mode' => 'edit' )
+        ));
     endif;
 }
 ?>

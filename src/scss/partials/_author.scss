@@ -74,13 +74,12 @@
 }
 
 .author-info {
-    @include make-col-ready;
+    @extend .col-md-4;
     position: relative;
     z-index: 2;
 
 
     @include media-breakpoint-up(md) {
-        @include make-col(4);
         z-index: 0;
     }
 
@@ -122,6 +121,7 @@
     li {
         border-bottom: 1px solid rgba($beige, .5);
         padding: .5rem 0;
+        position: relative;
 
         &:last-child {
             border-bottom: 0;
@@ -129,6 +129,11 @@
 
         a {
             text-decoration: none;
+        }
+
+        .contact {
+            left: .5rem;
+            position: relative;
         }
     }
 
@@ -139,22 +144,22 @@
 
     address {
         display: inline;
+        margin-left: -.25rem;
 
         .addr-2,
         .addr-csz,
         .addr-ph {
             display: block;
-            margin-left: 2rem;
+            margin-left: calc(24px + .25rem);
         }
     }
 }
 
 .author-bio {
-    @include make-col-ready;
+    @extend .col-md-8;
     padding-top: $paragraph-margin-bottom;
 
     @include media-breakpoint-up(md) {
-        @include make-col(8);
         border-left: 1px solid $beige;
         padding-top: 0;
     }
@@ -192,10 +197,6 @@
     font-size: .875rem;
     line-height: 1.25;
     padding: $paragraph-margin-bottom / 2 0;
-
-    // @include media-breakpoint-up(md) {
-    //     @include make-col(2);
-    // }
 
     h3 {
         font-family: $proxima;

@@ -4,6 +4,9 @@ if ( ! function_exists( 'rdm_enqueue_scrips' ) ) :
     {
         if ( ! is_admin() ) :
             wp_deregister_script( 'jquery' );
+
+            wp_register_script( 'jquery', 'https://code.jquery.com/jquery-3.5.1.min.js', false, '3.5.1', true );
+            wp_enqueue_script( 'jquery' );
         endif;
 
         wp_deregister_script( 'wp-embed' );

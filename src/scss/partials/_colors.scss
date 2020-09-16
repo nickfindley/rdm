@@ -1,7 +1,12 @@
 .bg-brown {
     background-color: $brown;
 
-    .btn {
+    .post-title {
+        background-color: $brown;
+    }
+
+    a.btn,
+    button.btn {
         @extend .btn-beige;
     }
 
@@ -9,13 +14,14 @@
         background-color: rgba($brown, .5);
     }
 
-    .overlay {
+    .overlay,
+    .post-thumbnail:after {
         background-color: rgba($brown, .25);
     }
 
     .side-by-side-image {
         &:before {
-            @extend .bg-brown;
+            background-color: $brown;
         }
 
         &:after {
@@ -27,7 +33,12 @@
 .bg-taupe {
     background-color: $taupe;
 
-    .btn {
+    .post-title {
+        background-color: $taupe;
+    }
+
+    a.btn,
+    button.btn {
         @extend .btn-brown;
     }
 
@@ -35,7 +46,8 @@
         background-color: rgba($taupe, .5);
     }
 
-    .overlay {
+    .overlay,
+    .post-thumbnail:after {
         background-color: rgba($taupe, .25);
     }
 
@@ -54,7 +66,12 @@
     background-color: $beige;
     color: rgba($brown, .875);
 
-    .btn {
+    .post-title {
+        background-color: $beige;
+    }
+
+    a.btn,
+    button.btn {
         @extend .btn-brown;
     }
 
@@ -62,7 +79,8 @@
         background-color: rgba($beige, .5);
     }
 
-    .overlay {
+    .overlay,
+    .post-thumbnail:after {
         background-color: rgba($beige, .25);
     }
 
@@ -80,7 +98,12 @@
 .bg-blue {
     background-color: $blue;
 
-    .btn {
+    .post-title {
+        background-color: $blue;
+    }
+
+    a.btn,
+    button.btn {
         @extend .btn-taupe;
     }
 
@@ -88,7 +111,8 @@
         background-color: rgba($blue, .5);
     }
 
-    .overlay {
+    .overlay,
+    .post-thumbnail:after {
         background-color: rgba($blue, .25);
     }
 
@@ -101,12 +125,17 @@
             background-color: rgba($blue, .25);
         }
     }
-}
+} 
 
 .bg-red {
     background-color: $red;
 
-    .btn {
+    .post-title {
+        background-color: $red;
+    }
+
+    a.btn,
+    button.btn {
         @extend .btn-taupe;
     }
 
@@ -114,7 +143,8 @@
         background-color: rgba($red, .5);
     }
 
-    .overlay {
+    .overlay,
+    .post-thumbnail:after {
         background-color: rgba($red, .25);
     }
 
@@ -129,24 +159,77 @@
     }
 }
 
+// &.post-color-blue {
+//         .post-title {
+//             background-color: $blue;
+//         }
 
+//         .overlay,
+//         .post-thumbnail:after {
+//             background-color: rgba($blue, .25);
+//         }
+//     }
 
-.post-color-blue blockquote {
+//     &.post-color-red {
+//         .post-title {
+//             background-color: $red;
+//         }
+
+//         .overlay,
+//         .post-thumbnail:after {
+//             background-color: rgba($red, .25);
+//         }
+//     }
+
+//     &.post-color-beige {
+//         .post-title {
+//             background-color: $beige;
+//         }
+
+//         .overlay,
+//         .post-thumbnail:after {
+//             background-color: rgba($beige, .25);
+//         }
+//     }
+
+//     &.post-color-taupe {
+//         .post-title {
+//             background-color: $taupe;
+//         }
+
+//         .overlay,
+//         .post-thumbnail:after {
+//             background-color: rgba($taupe, .25);
+//         }
+//     }
+
+    // .bg-brown {
+    //     .post-title {
+    //         background-color: $brown;
+    //     }
+
+    //     .overlay,
+    //     .post-thumbnail:after {
+    //         background-color: rgba($brown, .25);
+    //     }
+    // }
+
+.post-blue blockquote {
     border-color: $blue;
 }
 
-.post-color-red blockquote {
+.post-red blockquote {
     border-color: $red;
 }
 
-.post-color-beige blockquote {
+.post-beige blockquote {
     border-color: $beige;
 }
 
-.post-color-taupe blockquote {
+.post-taupe blockquote {
     border-color: $taupe;
 }
 
-.post-color-brown blockquote {
+.post-brown blockquote {
     border-color: $brown;
 }

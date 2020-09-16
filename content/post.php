@@ -1,8 +1,8 @@
 <?php 
     $post_color = get_field( 'post_color' ) ? get_field( 'post_color' ) : 'blue';
 ?>
-<article class="blog-post post post-color-<?php echo $post_color; ?>">
-    <header class="post-header post-header-<?php echo $post_color; ?><?php if ( has_post_thumbnail() ) : ?> has-post-thumbnail<?php endif; ?>">
+<article class="blog-post post post-<?php echo $post_color; ?>">
+    <header class="post-header bg-<?php echo $post_color; ?><?php if ( has_post_thumbnail() ) : ?> has-post-thumbnail<?php endif; ?>">
         <?php if ( has_post_thumbnail() ) : ?>
         <div class="post-thumbnail">
             <?php the_post_thumbnail(); ?>

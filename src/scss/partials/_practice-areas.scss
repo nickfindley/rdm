@@ -1,14 +1,7 @@
 .practice-content {
-    @include make-col-ready;
+    @extend .col-md-8;
+    @extend .col-lg-9;
     margin-top: $paragraph-margin-bottom;
-
-    @include media-breakpoint-up(md) {
-        @include make-col(8);
-    }
-
-    @include media-breakpoint-up(lg) {
-        @include make-col(9);
-    }
 
     & p:first-child {
         font-size: 125%;
@@ -16,19 +9,15 @@
 }
 
 .practice-sidebar {
-    @include make-col-ready;
+    @extend .col-md-4;
+    @extend .col-lg-3;
     font-size: .875rem;
     line-height: 1.25;
     margin-bottom: $paragraph-margin-bottom;
     margin-top: $paragraph-margin-bottom;
 
     @include media-breakpoint-up(md) {
-        @include make-col(4);
         border-left: 1px solid $beige;
-    }
-
-    @include media-breakpoint-up(lg) {
-        @include make-col(3);
     }
 
     h3 {
