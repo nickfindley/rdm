@@ -81,6 +81,42 @@ function rdm_acf_init_block_types()
             'keywords'          => array( 'blurb', 'box', 'text' ),
             'supports'          => array( 'mode' => 'edit' )
         ));
+
+        acf_register_block_type(array(
+            'name'              => 'big_image_form',
+            'title'             => __('Big Image Form'),
+            'description'       => __('Text and a form over a big image.'),
+            'render_template'   => 'blocks/block-big-image-form.php',
+            'category'          => 'formatting',
+            'icon'              => 'testimonial',
+            'keywords'          => array( 'image', 'form', 'text' ),
+            'supports'          => array(
+                'align' => false,
+                'mode' => 'edit'
+            ),
+        ));
+
+        acf_register_block_type(array(
+            'name'              => 'landing_page_text',
+            'title'             => __('Landing Page Text'),
+            'description'       => __('Headline and text block for landing page.'),
+            'render_template'   => 'blocks/block-landing-page-text.php',
+            'category'          => 'formatting',
+            'icon'              => 'testimonial',
+            'keywords'          => array( 'landing page', 'text' ),
+            'supports'          => array( 'mode' => 'edit' ),
+        ));
+
+        acf_register_block_type(array(
+            'name'              => 'landing_page_image_columns',
+            'title'             => __('Landing Page Image Columns'),
+            'description'       => __('Columns overlaid on an image.'),
+            'render_template'   => 'blocks/block-landing-page-image-columns.php',
+            'category'          => 'formatting',
+            'icon'              => 'testimonial',
+            'keywords'          => array( 'landing page', 'text', 'image' ),
+            'supports'          => array( 'mode' => 'edit' ),
+        ));
     endif;
 }
 ?>

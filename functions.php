@@ -1,6 +1,7 @@
 <?php
 require_once 'functions/acf.php';
-require_once 'functions/archive-sort.php';
+require_once 'functions/array-sort.php';
+require_once 'functions/archives.php';
 require_once 'functions/autoversion.php';
 require_once 'functions/blocks.php';
 require_once 'functions/bootstrap-navwalker.php';

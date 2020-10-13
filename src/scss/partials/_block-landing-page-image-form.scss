@@ -1,0 +1,81 @@
+$bif-input-bg-color: rgba($white, .75);
+$bif-input-bg-focus-color: rgba($white, .875);
+$bif-input-bg-hover-color: rgba($white, .875);
+$bif-input-radio-bg-color: rgba($white, .75);
+
+$bif-input-bg-error-color: rgba($red, .725);
+$bif-input-bg-error-focus-color: rgba($white, .875);
+$bif-input-bg-error-hover-color: rgba($white, .875);
+
+$bif-input-border-color: rgba($white, .125);
+$bif-input-border-focus-color: rgba($white, .25);
+$bif-input-selected-border-color: rgba($white, .5);
+
+.big-image-form {
+    .forminator-label {
+        color: $white;
+        text-shadow: 0 .125rem 1rem rgba($black, .875);
+    }
+
+    .forminator-design--none {
+        input,
+        textarea {
+            background-color: $bif-input-bg-color;
+            border: 1px solid $bif-input-border-color;
+            font-size: 100%;
+
+            &:focus {
+                background-color: $bif-input-bg-focus-color;
+                border-color: $bif-input-border-focus-color;
+                box-shadow: inset 0 0 0 .25rem $primary;
+                outline: 0;
+            }
+
+            &:hover {
+                background-color: $bif-input-bg-hover-color;
+            }
+        }
+    }
+
+    .forminator-checkbox,
+    .forminator-radio {
+        span[aria-hidden] {
+            background-color: $bif-input-radio-bg-color;
+            border: 1px solid $bif-input-border-color;
+
+            &:before {
+                color: rgba($white, .75);
+            }
+        }
+
+        input:checked + span[aria-hidden] {
+            border-color: $bif-input-selected-border-color;
+        }
+    }
+
+    .forminator-value-wrapper {
+        background-color: $bif-input-bg-color;
+        border: 1px solid $bif-input-border-color;
+        position: relative;
+    }
+
+    .forminator-dropdown-list {
+        li {
+            &.current {
+                background-color: $bif-input-bg-focus-color;
+
+                &:hover {
+                    background-color: $bif-input-bg-focus-color;
+                }
+            }
+
+            &:hover {
+                background-color: $bif-input-bg-hover-color;
+            }
+        }
+    }
+
+    .forminator-is_open .forminator-dropdown-list {
+        border: 1px solid $bif-input-border-color;
+    }
+}

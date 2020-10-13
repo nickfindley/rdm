@@ -48,6 +48,7 @@ img.rdm-logo {
                 font-variant-caps: all-small-caps;
                 font-weight: 300;
                 letter-spacing: .125rem;
+                margin-top: .25rem;
             }
         }
     }
@@ -235,7 +236,8 @@ img.rdm-logo {
     .post-content {
         margin-top: $paragraph-margin-bottom / 2;
 
-        p:last-child {
+        p:last-child,
+        ul:last-child {
             margin-bottom: 0;
         }
     }
@@ -307,4 +309,12 @@ img.rdm-logo {
 
 .attorney-blog {
     --bs-gutter-x: 1.5rem;
+}
+
+.view-all {
+    font-weight: 400;
+
+    .mdi {
+        vertical-align: -.05rem;
+    }
 }

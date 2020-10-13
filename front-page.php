@@ -31,7 +31,7 @@
                     <ul>
                     <?php
                         $args = array(
-                            'number' => 10,
+                            'number' => -1,
                             'meta_key' => 'start_date',
                             'orderby' => 'start_date',
                             'order' => 'ASC',

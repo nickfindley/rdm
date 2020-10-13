@@ -1,0 +1,206 @@
+.header-text {
+    @include media-breakpoint-up(md) {
+        @extend .col-md-8;
+        align-self: center;
+    }
+
+    h1 {
+        font-family: $garamond;
+        font-variant: normal;
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: 1.25;
+        text-align: left;
+
+        .subheading {
+            font-family: $proxima;
+            font-variant: normal;
+            font-weight: 300;
+            letter-spacing: 0;
+            line-height: 1.5;
+        }
+    }
+}
+
+.header-form {
+    @include media-breakpoint-up(md) {
+        @extend .col-md-4;
+        align-self: center;
+        padding-left: $paragraph-margin-bottom;
+    }
+}
+
+.big-image-form {
+    position: relative;
+
+    & > img {
+        min-height: 100vh;
+        object-fit: cover;
+    }
+
+    .overlay {
+        align-items: center;
+    }
+
+    .header-text {
+        backdrop-filter: blur(3px);
+        box-shadow: 0 .125rem 1rem rgba($black, .5);
+        color: $white;
+        margin: 0;
+        padding: 1rem 2rem;
+        text-align: left;
+
+        h1 {
+            background-color: transparent;
+            font-family: $garamond;
+            font-size: 2.5rem;
+            font-variant-caps: normal;
+            font-weight: 400;
+            letter-spacing: 0;
+            line-height: 1.125;
+            text-shadow: 0 .125rem 1rem rgba($black, .5);
+
+            @include media-breakpoint-up(md) {
+                font-size: 3rem;
+            }
+
+            @include media-breakpoint-up(lg) {
+                font-size: 4rem;
+            }
+        }
+
+        h2 {
+            font-family: $proxima;
+            font-size: 1.25rem;
+            font-variant-caps: normal;
+            font-weight: 400;
+            letter-spacing: 0;
+            line-height: 1.5;
+
+            @include media-breakpoint-up(md) {
+                font-size: 1.5rem;
+            }
+
+            @include media-breakpoint-up(lg) {
+                font-size: 2rem;
+            }        
+        }
+
+        .body-text {
+            font-size: 1rem;
+
+            @include media-breakpoint-up(md) {
+                font-size: 1.25rem;
+            }
+
+            @include media-breakpoint-up(lg) {
+                font-size: 1.5rem;
+            }
+
+            p:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .header-form {
+        h3 {
+            color: rgba($white, .875);
+            text-shadow: 0 .125rem 1rem rgba($black, .75);
+        }
+
+        .form-after {
+            color: rgba($white, .875);
+            font-size: 1.25rem;
+            text-shadow: 0 .125rem 1rem rgba($black, .75);
+
+            p:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+// .page-header.big-image-header {
+//     & > img {
+//         min-height: 50vh;
+//         object-fit: cover;
+//     }
+// }
+
+.landing-page-text {
+    background-color: transparent;
+    margin-bottom: $paragraph-margin-bottom;
+    margin-top: $paragraph-margin-bottom;
+
+    .block-header {
+        @include media-breakpoint-up(md) {
+            @extend .col-md-8;
+            box-shadow: $box-shadow-light;
+            color: $white;
+            margin-bottom: $paragraph-margin-bottom;
+            padding: $paragraph-margin-bottom;
+            text-align: right;
+        }
+
+        h2 {
+            margin-bottom: 0;
+        }
+    }
+    
+    .block-body {
+        font-size: 1.125rem;
+
+        @include media-breakpoint-up(md) {
+            @extend .col-md-8;
+            @extend .offset-md-4;
+            font-size: 1.25rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.landing-page-image-columns {
+    position: relative;
+
+    & > .overlay > .container {
+        align-items: center;
+        display: flex;
+        padding: 0;
+    }
+}
+
+.image-column {
+    @extend .col-md-4;
+}
+
+.image-column-content {
+    @extend .card;
+    @extend .h-100;
+    // backdrop-filter: blur(3px);
+    background-color: rgba($red, .5);
+    border: 0;
+    border-radius: 0;
+    box-shadow: $box-shadow;
+    color: $white;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    padding: $paragraph-margin-bottom / 2;
+    text-align: center;
+    text-shadow: 0 .125rem 1rem rgba($black, .75);
+
+    @include media-breakpoint-up(md) {
+        font-size: 1.25rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.375rem;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}

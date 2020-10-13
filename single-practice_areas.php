@@ -18,6 +18,50 @@
         <div class="row">
             <div class="practice-content">
                 <?php the_content(); ?>
+
+                <h3>RDM Attorneys Specializing in <?php the_title(); ?></h3>
+                <ul class="content-attorneys">
+                <?php
+                    $practice_id = get_the_ID();
+
+                    $args = array(
+                        'role' => 'contributor',
+                        'fields' => 'all',
+                        'meta_query' => array(
+                            'relation' => 'AND',
+                            'practice_clause' => array(
+                                'key' => 'practice_areas',
+                                'value' => $practice_id,
+                                'compare' => 'LIKE'
+                            ),
+                            'order_clause' => array(
+                                'key' => 'start_date',
+                                'compare' => 'EXISTS'
+                            )
+                        ),
+                        'orderby' => 'order_clause'
+                    );
+                    $attorneys_query = new WP_User_Query( $args );
+                    $attorneys = $attorneys_query->get_results();
+                    if ( ! empty ( $attorneys ) ) :
+                        foreach ( $attorneys as $attorney ) :
+                            $info = get_userdata( $attorney->ID );
+                            $user_id = 'user_' . $attorney->ID;
+                            ?>
+                    <li>
+                        <div class="card">
+                            <?php echo wp_get_attachment_image( get_field( 'photo', $user_id ), 'full' ); ?>
+                            <div class="card-body">
+                                <a class="stretched-link" href="<?php echo get_author_posts_url( $attorney->ID ); ?>"><span class="attorney-name"><?php echo $info->first_name . ' ' . $info->last_name; ?></span><br>
+                                <span class="attorney-title"><?php the_field( 'title', $user_id ); ?></span></a>
+                            </div>
+                        </div>
+                    </li>
+                            <?php
+                        endforeach;
+                    endif;
+                ?>
+                </ul>
             </div>
 
             <div class="practice-sidebar">

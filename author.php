@@ -75,7 +75,7 @@ endif;
                     <?php 
                         the_field( 'attorney_bio', $user_id );
                         $cta = get_field( 'cta', $user_id );
-                        if ( $cta ) :
+                        if ( $cta['headline'] ) :
                     ?>
                     <div class="cta bg-<?php echo $cta['color']; ?>">
                         <h3><?php echo $cta['headline']; ?></h3>
@@ -106,12 +106,12 @@ endif;
                         if ( ! empty ( $law_school['name'] ) ) :
                     ?>
                         <li>
-                            <h4><?php echo $law_school['name']; ?> <span class="year"><?php echo $law_school['year']; ?></span></h4>
+                            <h4><?php echo $law_school['name']; ?><?php if ( $law_school['year'] ) : ?> <span class="year"><?php echo $law_school['year']; ?></span><?php endif; ?></h4>
                             <p>
                             <?php
                                 echo $law_school['degree'];
-                                if ( $law_scool['honors'] ) : 
-                                    echo '<br><span class="honors">';
+                                if ( $law_school['honors'] ) : 
+                                    echo ', <span class="honors">';
                                     echo $law_school['honors'];
                                     echo '</span>';
                                 endif;
@@ -123,12 +123,12 @@ endif;
                         if ( ! empty ( $grad_school['name'] ) ) :
                     ?>
                         <li>
-                            <h4><?php echo $grad_school['name']; ?> <span class="year"><?php echo $grad_school['year']; ?></span></h4>
+                            <h4><?php echo $grad_school['name']; ?><?php if ( $grad_school['year'] ) : ?> <span class="year"><?php echo $grad_school['year']; ?></span><?php endif; ?></h4>
                             <p>
                             <?php
                                 echo $grad_school['degree'];
-                                if ( $grad_scool['honors'] ) : 
-                                    echo '<br><span class="honors">';
+                                if ( $grad_school['honors'] ) : 
+                                    echo ', <span class="honors">';
                                     echo $grad_school['honors'];
                                     echo '</span>';
                                 endif;
@@ -140,12 +140,12 @@ endif;
                         if ( ! empty ( $college['name'] ) ) :
                     ?>
                         <li>
-                            <h4><?php echo $college['name']; ?> <span class="year"><?php echo $college['year']; ?></span></h4>
+                            <h4><?php echo $college['name']; ?><?php if ( $college['year'] ) : ?> <span class="year"><?php echo $college['year']; ?></span><?php endif; ?></h4>
                             <p>
                             <?php
                                 echo $college['degree'];
                                 if ( $college['honors'] ) : 
-                                    echo '<br><span class="honors">';
+                                    echo ', <span class="honors">';
                                     echo $college['honors'];
                                     echo '</span>';
                                 endif;

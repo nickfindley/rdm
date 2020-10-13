@@ -28,14 +28,9 @@
         <section class="archive-content">
         <?php
             $post_type = get_post_type();
-            if ( $post_type ) :
-                $post_type_data = get_post_type_object( $post_type );
-                $post_type_slug = $post_type_data->rewrite['slug'];
-            endif;
 
             $args = array(
                 'post_type' => $post_type,
-                'number' => -1,
                 'orderby' => 'post_title',
                 'order' => 'ASC'
             );
@@ -48,7 +43,7 @@
                     $count++;
                     if ( $count % 2 ) : $odd_even = 'odd'; else : $odd_even = 'even'; endif;
                     $posts_query->the_post();
-                    get_template_part( 'content/archive-' . $post_type_slug );
+                    get_template_part( 'content/archive-' . $post_type );
                 endwhile;
                 wp_reset_postdata();
             endif;

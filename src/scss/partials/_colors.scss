@@ -1,7 +1,8 @@
 .bg-brown {
     background-color: $brown;
 
-    .post-title {
+    .post-title,
+    .block-header {
         background-color: $brown;
     }
 
@@ -10,7 +11,8 @@
         @extend .btn-beige;
     }
 
-    h1 {
+    h1,
+    &.big-image-form .header-text {
         background-color: rgba($brown, .5);
     }
 
@@ -33,7 +35,8 @@
 .bg-taupe {
     background-color: $taupe;
 
-    .post-title {
+    .post-title,
+    .block-header  {
         background-color: $taupe;
     }
 
@@ -42,7 +45,8 @@
         @extend .btn-brown;
     }
 
-    h1 {
+    h1,
+    &.big-image-form .header-text  {
         background-color: rgba($taupe, .5);
     }
 
@@ -66,7 +70,8 @@
     background-color: $beige;
     color: rgba($brown, .875);
 
-    .post-title {
+    .post-title,
+    .block-header  {
         background-color: $beige;
     }
 
@@ -75,7 +80,8 @@
         @extend .btn-brown;
     }
 
-    h1 {
+    h1,
+    &.big-image-form .header-text  {
         background-color: rgba($beige, .5);
     }
 
@@ -98,7 +104,8 @@
 .bg-blue {
     background-color: $blue;
 
-    .post-title {
+    .post-title,
+    .block-header  {
         background-color: $blue;
     }
 
@@ -107,7 +114,8 @@
         @extend .btn-taupe;
     }
 
-    h1 {
+    h1,
+    &.big-image-form .header-text  {
         background-color: rgba($blue, .5);
     }
 
@@ -130,7 +138,8 @@
 .bg-red {
     background-color: $red;
 
-    .post-title {
+    .post-title,
+    .block-header  {
         background-color: $red;
     }
 
@@ -139,7 +148,8 @@
         @extend .btn-taupe;
     }
 
-    h1 {
+    h1,
+    &.big-image-form .header-text  {
         background-color: rgba($red, .5);
     }
 

@@ -10,6 +10,10 @@ body {
     line-height: 1.75;
 }
 
+b, strong {
+    font-weight: 700;
+}
+
 h2,
 h3,
 h4,
@@ -21,30 +25,30 @@ h6 {
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     font-weight: 400;
     letter-spacing: .25rem;
 
     @include media-breakpoint-up(md) {
-        font-size: 2.75rem;
+        font-size: 2.5rem;
     }
 
     @include media-breakpoint-up(lg) {
-        font-size: 3rem;
+        font-size: 2.75rem;
     }
 }
 
 h3 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 400;
     letter-spacing: .125rem;
 
     @include media-breakpoint-up(md) {
-        font-size: 2.25rem;
+        font-size: 2rem;
     }
 
     @include media-breakpoint-up(lg) {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
     }
 }
 

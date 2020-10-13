@@ -270,3 +270,31 @@
         }
     }
 }
+
+.navbar-simple {
+    &.navbar-wrapper {
+        background-color: $brown;
+        padding-bottom: .5rem;
+        padding-top: .5rem;
+    }
+
+    .navbar-brand svg {
+        fill: rgba($white, .875);
+
+        &:hover {
+            fill: $white;
+        }
+    }
+
+    .navbar {
+        flex: 0;
+
+        .mdi {
+            fill: rgba($white, .75);
+
+            &:hover {
+                fill: $white;
+            }
+        }
+    }
+}

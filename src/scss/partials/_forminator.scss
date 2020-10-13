@@ -1,0 +1,579 @@
+$input-bg-color: rgba($black, .05);
+$input-bg-focus-color: rgba($black, .125);
+$input-bg-hover-color: rgba($black, .125);
+$input-radio-bg-color: rgba($black, .125);
+
+$input-bg-error-color: rgba($red, .25);
+$input-bg-error-focus-color: rgba($black, .125);
+$input-bg-error-hover-color: rgba($black, .125);
+
+$input-border-color: rgba($black, .125);
+$input-border-focus-color: rgba($black, .25);
+$input-selected-border-color: rgba($black, .5);
+
+.forminator-title {
+    font-size: 1.25rem;
+    letter-spacing: 0;
+    margin-bottom: $paragraph-margin-bottom / 4;
+
+    @include media-breakpoint-up(md) {
+        font-size: 1.75rem;
+    }
+}
+
+.forminator-subtitle {
+    color: rgba($black, .5);
+    font-size: .875rem;
+    font-weight: 300;
+    letter-spacing: 0;
+    margin-bottom: 0;
+
+    @include media-breakpoint-up(md) {
+        font-size: 1rem;
+    }
+}
+
+.forminator-custom-form:focus {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+}
+
+.forminator-design--none {
+    input,
+    textarea {
+        background-color: $input-bg-color;
+        border: 1px solid $input-border-color;
+        font-size: 75%;
+        line-height: 1.5;
+        transition: .25s ease-in-out;
+
+        &::placeholder {
+            color: rgba($body-color, .25);
+        }
+
+        &:focus {
+            background-color: $input-bg-focus-color;
+            border-color: $input-border-focus-color;
+            box-shadow: inset 0 0 0 .25rem $primary;
+            outline: 0;
+        }
+
+        &:hover {
+            background-color: $input-bg-hover-color;
+        }
+    }
+}
+
+.forminator-required {
+    color: $red;
+    font-weight: 700;
+    vertical-align: middle;
+}
+
+.forminator-error-message[aria-hidden="true"] {
+    display: none;
+}
+
+.forminator-has_error {
+    .forminator-error-message {
+        background-color: $red;
+        border: 1px solid $red;
+        color: $white;
+        display: block;
+        font-size: .875rem;
+        margin: 0 0 .5rem 0;
+        padding: .25rem 1rem;
+    }
+
+    input,
+    textarea,
+    .forminator-checkbox span[aria-hidden],
+    .forminator-radio span[aria-hidden] {
+        background-color: $input-bg-error-color;
+        border-color: $red;
+        transition: .25s ease-in-out;
+
+        &:focus {
+            background-color: $input-bg-error-focus-color;
+            box-shadow: inset 0 0 0 .25rem $red;
+            outline: 0;
+        }
+
+        &:hover {
+            background-color: $input-bg-error-hover-color;
+        }
+    }
+}
+
+.forminator-label {
+    display: block;
+}
+
+.forminator-description {
+    color: rgba($body-color, .5);
+    display: flex;
+    font-size: 75%;
+    font-weight: 300;
+    margin-top: $paragraph-margin-bottom / 4;
+}
+
+.forminator-field[role="radiogroup"] .forminator-description {
+    margin-top: $paragraph-margin-bottom / 2;
+}
+
+.forminator-checkbox input,
+.forminator-file-upload input[type=file],
+.forminator-radio input,
+.forminator-select,
+.ui-corner-all .ui-icon,
+.forminator-screen-reader-only {
+    border: 0!important;
+    clip: rect(0 0 0 0)!important;
+    clip-path: inset(50%)!important;
+    height: 1px!important;
+    margin: -1px!important;
+    padding: 0!important;
+    overflow: hidden!important;
+    position: absolute!important;
+    white-space: nowrap!important;
+    width: 1px!important;
+}
+
+.forminator-checkbox,
+.forminator-radio {
+    display: flex;
+    line-height: 1;
+    margin: $paragraph-margin-bottom / 2 0;
+    position: relative;
+
+    span {
+        display: block;
+    }
+
+    span[aria-hidden] {
+        background-color: $input-radio-bg-color;
+        border: 1px solid $input-border-color;
+        flex: 0 0 1.25rem;
+        height: 1.25rem;
+        position: relative;
+        width: 1.25rem;
+
+        &:before {
+            color: rgba($black, .75);
+            content: "✓";
+            display: block;
+            left: 50%;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            transition: .25s ease-in-out;
+            transform: translate(-50%,-50%);
+        }
+    }
+
+    input:checked + span[aria-hidden] {
+        border-color: $input-selected-border-color;
+
+        &:before {
+            opacity: 1;
+        }
+    }
+
+    span:not([aria-hidden]) {
+        align-self: center;
+        flex: 0 1 auto;
+        line-height: 1.5;
+        margin-left: 10px;
+    }
+}
+
+label.forminator-checkbox,
+label.forminator-radio {
+    font-size: 87.5%;
+}
+
+.forminator-radio span[aria-hidden] {
+    border-radius: 50%;
+
+    &:before {
+        background-color: rgba($black, .75);
+        border-radius: 100%;
+        content: " ";
+        height: 10px;
+        width: 10px;
+    }
+}
+
+.forminator-checkbox-inline,
+.forminator-radio-inline {
+    display: inline-flex;
+    margin-bottom: 0;
+    margin-right: $paragraph-margin-bottom;
+    vertical-align: middle;
+}
+
+.forminator-input,
+.forminator-textarea {
+    border: 0;
+    border-radius: 0;
+    display: block;
+    height: auto;
+    margin: 0;
+    padding: $paragraph-margin-bottom / 4;
+    width: 100%;
+}
+
+.forminator-phone {
+    display: block;
+    position: relative;
+    width: 100%;
+
+    &:not(.allow-dropdown) .forminator-input {
+        padding-right: 51px;
+    }
+}
+
+.forminator-select-list {
+    font-size: 75%;
+    line-height: 1.5;
+    position: relative;
+}
+
+.forminator-value-wrapper {
+    background-color: $input-bg-color;
+    border: 1px solid $input-border-color;
+    position: relative;
+}
+
+.forminator-value {
+    padding: $paragraph-margin-bottom / 4 40px $paragraph-margin-bottom / 4 $paragraph-margin-bottom / 4;
+    transition: .25s ease-in-out;
+}
+
+.forminator-dropdown-handle {
+    align-items: center;
+    display: flex;
+    height: 20px;
+    justify-content: center;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    .forminator-icon-chevron-down:before {
+        content: "⌄";
+    }
+
+    [class*=forminator-icon-] {
+        display: block;
+        transition: .25s ease-in-out;
+
+        &:before {
+            display: block;
+            font-family: 'forminator-icons-font';
+            line-height: 1;
+        }
+    }
+}
+
+.forminator-is_open .forminator-dropdown-handle [class*=forminator-icon-] {
+    transform: rotate(180deg)
+}
+
+.forminator-dropdown-list {
+    border: 0;
+    height: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 210px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    transform: scale(0);
+    transform-origin: right top;
+    transition: .25s ease-in-out;
+
+    li {
+        cursor: pointer;
+        display: block;
+        padding: $paragraph-margin-bottom / 4;
+        transition: .25s ease-in-out;
+
+        &.current {
+            background-color: $input-bg-focus-color;
+
+            &:hover {
+                background-color: $input-bg-focus-color;
+            }
+        }
+
+        &:hover {
+            background-color: $input-bg-hover-color;
+        }
+    }
+}
+
+.forminator-is_open .forminator-dropdown-list {
+    border: 1px solid $input-border-color;
+    border-top: 0;
+    height: auto;
+    transform: scale(1);
+}
+
+.forminator-textarea {
+    font-size: .875rem;
+    line-height: 1.25;
+    min-height: 6rem;
+}
+
+.forminator-button {
+    @extend .btn;
+}
+
+.forminator-input-with-icon {
+    border-radius: 0;
+    position: relative;
+
+    [class*=forminator-icon-] {
+        display: block;
+        left: 10px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: .25s ease-in-out;
+    }
+
+    .forminator-input {
+        padding-left: 36px;
+    }
+}
+
+.forminator-calendar {
+    &:before {
+        background-color: $primary;
+        bottom: 1px;
+        box-shadow: $box-shadow;
+        content: " ";
+        display: block;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+.ui-datepicker-header {
+    display: block;
+    padding: .875rem;
+    position: relative;
+    z-index: 1;
+}
+
+.ui-datepicker-header .ui-corner-all {
+    align-items: center;
+    border-bottom: 0;
+    color: rgba($black, .875);
+    display: flex;
+    font-size: 1rem;
+    height: 30px;
+    justify-content: center;
+    position: absolute;
+    top: 11px;
+    transition: .25s ease-in-out;
+    width: 30px;
+
+    &:hover {
+        background-color: transparent;
+        color: $black;
+    }
+}
+
+.ui-datepicker-prev {
+    left: 10px;
+    right: unset;
+    
+    &:before {
+        content: "❮";
+        font-family: 'forminator-icons-font';
+        line-height: 1;
+    }
+}
+
+.ui-datepicker-next {
+    left: unset;
+    right: 10px;
+
+    &:before {  
+        content: "❯";
+        font-family: 'forminator-icons-font';
+        line-height: 1;
+    }
+}
+
+.ui-datepicker-title {
+    display: flex;
+    padding: 0 40px;
+
+    select {
+        appearance: none;
+        background-color: #dddddd;
+        border: 1px solid #cccccc;
+        border-radius: 0;
+        font-size: .875rem;
+        flex: 1;
+        height: 1.5rem;
+        letter-spacing: .05rem;
+        line-height: 1.5rem;
+        margin: 0 5px;
+        padding: 0 10px;
+        text-transform: uppercase;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.ui-datepicker-calendar {
+    font-size: .875rem;
+    font-weight: 300;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    table-layout: fixed;
+    width: auto;
+    z-index: 1;
+
+    tr {
+        margin: 0;
+        padding: 0;
+    }
+
+    th {
+        padding: .5rem .75rem;
+    }
+
+    td {
+        padding: 0 .25rem;
+    }
+
+    th,
+    td {
+        text-align: center;
+
+        &:first-child {
+            padding-left: 1rem;
+        }
+
+        &:last-child {
+            padding-right: 1rem;
+        }
+    }
+
+    td a {
+        border-bottom: 0;
+        color: rgba($black, .875);
+        display: block;
+        padding: .5rem;
+        transition: .25s ease-in-out;
+
+        &:hover {
+            background-color: transparent;
+            color: $black;
+        }
+    }
+}
+
+.forminator-ui.forminator-custom-form:not(.forminator-size--small)[data-grid=open] .forminator-timepicker .forminator-col-4 {
+    flex: 0 0 11.11111%;
+
+    .forminator-select-list:before {
+        color: transparent;
+        content: ".";
+        display: block;
+        font-size: 1rem;
+        line-height: 1.75;
+        margin: 0;
+
+        @include media-breakpoint-up(md) {
+            font-size: 1.25rem;
+        }
+    }
+}
+
+.forminator-file-upload {
+    align-items: center;
+    display: flex;
+
+    .forminator-button-upload {
+        background-color: $input-bg-color;
+        border: 1px solid $input-border-color;
+        box-shadow: $box-shadow-light;
+        display: block;
+        font-size: 1rem;
+        height: auto;
+        line-height: inherit;
+        margin-right: 1rem;
+        padding: $paragraph-margin-bottom / 4 $paragraph-margin-bottom;
+        transition: .25s ease-in-out;
+
+        &:hover {
+            background-color: $input-bg-hover-color;
+            box-shadow: $box-shadow;
+        }
+    }
+
+    & > span {
+        color: rgba($body-color, .5);
+        display: block;
+        flex: 0 1 auto;
+        font-size: .875rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &:not(:last-child) {
+            margin-right: 1rem;
+        }
+    }
+}
+
+.forminator-button-delete {
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    border-radius: 100%;
+    box-shadow: none;
+    color: $red;
+    display: flex;
+    flex: 0 0 auto;
+    height: 1rem;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: 1rem;
+
+    [class*=forminator-icon-] {
+        display: block;
+    }
+}
+
+.forminator-button-submit {
+    @extend .btn-primary;
+}
+
+i.forminator-loading:before {
+    display: none;
+}
+
+#captcha-1 {
+    display: none;
+}
