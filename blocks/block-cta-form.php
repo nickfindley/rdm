@@ -18,13 +18,11 @@ endif;
 // Load values and assign defaults.
 $headline = get_field( 'headline' );
 $text = get_field( 'text' );
-$button_text = get_field( 'button_text' );
-$button_link = get_field( 'button_link' );
 $color = get_field( 'color' );
 ?>
 
-<div class="cta bg-<?php echo $color . $className; ?>" id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $className ); ?>">
+<div class="cta cta-form bg-<?php echo $color . $className; ?>" id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $className ); ?>">
     <h3><?php echo $headline; ?></h3>
     <?php echo $text; ?>
-    <p><a class="btn" href="<?php echo $button_link; ?>"><?php echo $button_text; ?></a></p>
+    <?php echo do_shortcode( '[forminator_form id="' . get_field( 'form' ) . '"]' ); ?>
 </div>

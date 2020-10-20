@@ -23,6 +23,7 @@
                         the_post();
                         get_template_part( 'content/post' );
                     endwhile;
+                    echo bootstrap_pagination();
                 endif;
             ?>
             </section>
@@ -33,15 +34,15 @@
                         <h3>RDM's Knowledge Blog</h3>
                         <p>Vivamus mattis tincidunt velit id dictum. Integer tincidunt mattis convallis. Pellentesque convallis, mauris eget efficitur lobortis, ex lacus vehicula nisi, quis faucibus nunc tellus sit amet dolor.</p>
 
-                        <h3>News Categories</h3>
-                        <ul>
+                        <h3>Post Categories</h3>
+                        <ul class="blog-sidebar-categories">
                             <?php wp_list_categories( array( 'title_li' => '', 'hide_empty' => 0, 'exclude' => '1' ) ); ?>
                         </ul>
                     </aside>
 
                     <aside class="blog-sidebar">
                         <h3>Members &amp; <br>Associates</h3>
-                        <ul>
+                        <ul class="blog-sidebar-attorneys">
                         <?php
                             $args = array(
                                 'number' => 10,

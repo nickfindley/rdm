@@ -57,6 +57,16 @@ function rdm_acf_init_block_types()
         ));
 
         acf_register_block_type(array(
+            'name'              => 'cta-form',
+            'title'             => __('Call to Action Form'),
+            'description'       => __('A call to action with a form.'),
+            'render_template'   => 'blocks/block-cta-form.php',
+            'category'          => 'formatting',
+            'icon'              => 'testimonial',
+            'keywords'          => array( 'cta', 'call to action', 'form' ),
+        ));
+
+        acf_register_block_type(array(
             'name'              => 'blurb_container',
             'title'             => __('Blurb Container'),
             'description'       => __('A container to hold blurb boxes'),

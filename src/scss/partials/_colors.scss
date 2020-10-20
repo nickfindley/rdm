@@ -30,6 +30,15 @@
             background-color: rgba($brown, .25);
         }
     }
+
+    .forminator-design--none {
+        input,
+        textarea {
+            &:focus {
+                box-shadow: inset 0 0 0 .25rem $brown;
+            }
+        }
+    }
 }
 
 .bg-taupe {
@@ -62,6 +71,15 @@
 
         &:after {
             background-color: rgba($taupe, .25);
+        }
+    }
+
+    .forminator-design--none {
+        input,
+        textarea {
+            &:focus {
+                box-shadow: inset 0 0 0 .25rem $taupe;
+            }
         }
     }
 }
@@ -99,6 +117,15 @@
             background-color: rgba($beige, .25);
         }
     }
+
+    .forminator-design--none {
+        input,
+        textarea {
+            &:focus {
+                box-shadow: inset 0 0 0 .25rem $beige;
+            }
+        }
+    }
 }
 
 .bg-blue {
@@ -131,6 +158,15 @@
 
         &:after {
             background-color: rgba($blue, .25);
+        }
+    }
+
+    .forminator-design--none {
+        input,
+        textarea {
+            &:focus {
+                box-shadow: inset 0 0 0 .25rem $blue;
+            }
         }
     }
 } 
@@ -167,62 +203,16 @@
             background-color: rgba($red, .25);
         }
     }
+
+    .forminator-design--none {
+        input,
+        textarea {
+            &:focus {
+                box-shadow: inset 0 0 0 .25rem $red;
+            }
+        }
+    }
 }
-
-// &.post-color-blue {
-//         .post-title {
-//             background-color: $blue;
-//         }
-
-//         .overlay,
-//         .post-thumbnail:after {
-//             background-color: rgba($blue, .25);
-//         }
-//     }
-
-//     &.post-color-red {
-//         .post-title {
-//             background-color: $red;
-//         }
-
-//         .overlay,
-//         .post-thumbnail:after {
-//             background-color: rgba($red, .25);
-//         }
-//     }
-
-//     &.post-color-beige {
-//         .post-title {
-//             background-color: $beige;
-//         }
-
-//         .overlay,
-//         .post-thumbnail:after {
-//             background-color: rgba($beige, .25);
-//         }
-//     }
-
-//     &.post-color-taupe {
-//         .post-title {
-//             background-color: $taupe;
-//         }
-
-//         .overlay,
-//         .post-thumbnail:after {
-//             background-color: rgba($taupe, .25);
-//         }
-//     }
-
-    // .bg-brown {
-    //     .post-title {
-    //         background-color: $brown;
-    //     }
-
-    //     .overlay,
-    //     .post-thumbnail:after {
-    //         background-color: rgba($brown, .25);
-    //     }
-    // }
 
 .post-blue blockquote {
     border-color: $blue;

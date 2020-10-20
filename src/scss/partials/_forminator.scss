@@ -3,7 +3,7 @@ $input-bg-focus-color: rgba($black, .125);
 $input-bg-hover-color: rgba($black, .125);
 $input-radio-bg-color: rgba($black, .125);
 
-$input-bg-error-color: rgba($red, .25);
+$input-bg-error-color: rgba(255, 0, 0, .75);
 $input-bg-error-focus-color: rgba($black, .125);
 $input-bg-error-hover-color: rgba($black, .125);
 
@@ -56,7 +56,6 @@ $input-selected-border-color: rgba($black, .5);
         &:focus {
             background-color: $input-bg-focus-color;
             border-color: $input-border-focus-color;
-            box-shadow: inset 0 0 0 .25rem $primary;
             outline: 0;
         }
 
@@ -67,7 +66,7 @@ $input-selected-border-color: rgba($black, .5);
 }
 
 .forminator-required {
-    color: $red;
+    color: rgba(255,0,0,.75);
     font-weight: 700;
     vertical-align: middle;
 }
@@ -78,8 +77,8 @@ $input-selected-border-color: rgba($black, .5);
 
 .forminator-has_error {
     .forminator-error-message {
-        background-color: $red;
-        border: 1px solid $red;
+        background-color: $input-bg-error-color;
+        border: 1px solid $input-bg-error-color;
         color: $white;
         display: block;
         font-size: .875rem;

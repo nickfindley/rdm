@@ -106,16 +106,34 @@
                     </ul>
                 </div>
 
-                <?php
-                    $category = get_the_category( get_the_ID() );
-                    $categories = array();
-                    foreach ( $category as $cat ) :
-                        $categories[] = $cat->term_id;
-                    endforeach;
+                <div class="practice-areas">
+                    <h3>Other Practice Areas</h3>
+                    <ul>
+                    <?php
+                        $args = array(
+                            'post_type' => 'practice_areas',
+                            'posts_per_page' => -1,
+                            'orderby' => 'title',
+                            'order' => 'ASC',
+                            'post__not_in' => array( get_the_ID() )
+                        );
+                        $services_query = new WP_Query( $args );
+                        if ( $services_query->have_posts() ) :
+                            while ( $services_query->have_posts() ) :
+                                $services_query->the_post();
+                                ?>
+                                <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></l1>
+                                <?php
+                            endwhile;
+                        endif;
+                        wp_reset_postdata();
+                    ?>
+                    </ul>
+                </div>
 
+                <?php
                     $args = array(
-                        'posts_per_page' => 5,
-                        'category__in' => $categories
+                        'posts_per_page' => 15
                     );
                     $posts_query = new WP_Query( $args );
                     if ( $posts_query->have_posts() ) :
@@ -141,36 +159,12 @@
                         <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?> <span class="post-author">by <?php echo $author_string; ?></span></a></li>
                 <?php endwhile; ?>
                     </ul>
+                    <p><a href="/knowledge/">Visit RDM's Knowledge Blog</a></p>
                 </div>
                 <?php
                     endif;
                     wp_reset_postdata();
                 ?>
-
-                <div class="practice-areas">
-                    <h3>Other Practice Areas</h3>
-                    <ul>
-                    <?php
-                        $args = array(
-                            'post_type' => 'practice_areas',
-                            'posts_per_page' => -1,
-                            'orderby' => 'title',
-                            'order' => 'ASC',
-                            'post__not_in' => array( get_the_ID() )
-                        );
-                        $services_query = new WP_Query( $args );
-                        if ( $services_query->have_posts() ) :
-                            while ( $services_query->have_posts() ) :
-                                $services_query->the_post();
-                                ?>
-                                <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></l1>
-                                <?php
-                            endwhile;
-                        endif;
-                        wp_reset_postdata();
-                    ?>
-                    </ul>
-                </div>
             </div>
         </div>
     </div>

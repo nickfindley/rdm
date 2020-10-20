@@ -1,0 +1,65 @@
+.single {
+    @extend .row;
+    padding-bottom: $paragraph-margin-bottom;
+    padding-top: $paragraph-margin-bottom;
+}
+
+.single-content {
+    @extend .col-md-8;
+    @extend .col-lg-9;
+    
+    @include media-breakpoint-up(md) {
+        border-right: 1px solid $beige;
+    }
+
+     & > p:first-child {
+        font-size: 125%;
+    }
+
+    div:last-child,
+    p:last-child,
+    ul:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.single-meta {
+    @extend .col-md-4;
+    @extend .col-lg-3;
+
+    .post-authors {
+        font-size: 1rem;
+
+        li {
+            position: relative;
+        }
+
+        .attorney-title {
+            font-size: .875rem;
+        }
+    }
+
+    .attorney-photo {
+        margin-bottom: .5rem;
+    }
+
+    .post-published .permalink {
+        font-family: $proxima;
+        font-size: .75rem;
+        font-variant-caps: all-small-caps;
+        letter-spacing: .05rem;
+        line-height: 1;
+        margin-top: -.5rem;
+    }
+
+    .post-categories {
+        li {
+            border-bottom: 1px solid rgba($beige, .5);
+            padding: .5rem 0;
+
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+    }
+}

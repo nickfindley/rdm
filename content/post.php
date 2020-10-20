@@ -40,11 +40,11 @@
                         foreach ( $users as $user ) :
                             $authors[] = '<a href="' . get_author_posts_url( $user->ID ) . '">' . $user->display_name . '</a>';
                         endforeach;
-                        echo '<p class="byline">By ' . natural_language_join( $authors ) . '<br>';
+                        echo '<p class="byline">By ' . natural_language_join( $authors ) . '<br class="byline-br"><span class="byline-divider">&nbsp;&middot;&nbsp;</span>';
                     else : 
-                        echo '<p class="byline">By <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '"> ' . get_the_author_meta( 'display_name' ) . '</a><br>';
+                        echo 'By <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '"> ' . get_the_author_meta( 'display_name' ) . '</a><br class="byline-br"><span class="byline-divider">&nbsp;&middot;&nbsp;</span>';
                     endif;
-                    echo get_the_date() . '</p>';
+                    echo '<a href="' . get_the_permalink() . '">' . get_the_date() . '</a></p>';
                 ?>
                 <ul class="post-categories">
                     <li>Filed under</li>

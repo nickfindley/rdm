@@ -5,6 +5,7 @@ require_once 'functions/archives.php';
 require_once 'functions/autoversion.php';
 require_once 'functions/blocks.php';
 require_once 'functions/bootstrap-navwalker.php';
+require_once 'functions/bootstrap-pagination.php';
 require_once 'functions/comments.php';
 require_once 'functions/cp-walker.php';
 require_once 'functions/custom-post-types.php';

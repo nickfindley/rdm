@@ -1,13 +1,27 @@
 .cta {
     box-shadow: none;
-    color: rgba($white, .875);
     margin-bottom: $paragraph-margin-bottom;
-    padding: $paragraph-margin-bottom;
+    padding: $paragraph-margin-bottom / 2;
     transition: all .25s ease-in-out;
+
+    @include media-breakpoint-up(sm) {
+        padding: $paragraph-margin-bottom;
+    }
+
+    &:not(.bg-beige) {
+        color: rgba($white, .875);
+
+        &:hover {
+            color: $white;
+        }
+
+        label {
+            color: rgba($white, .875);
+        }
+    }
 
     &:hover {
         box-shadow: $box-shadow-light;
-        color: $white;
     }
 
     h3 {
@@ -17,6 +31,7 @@
         font-weight: 300;
         letter-spacing: 0;
         line-height: 1.25;
+        margin-bottom: $paragraph-margin-bottom / 2;
         padding: 0 !important;
 
         @include media-breakpoint-up(xl) {
@@ -61,6 +76,28 @@
             margin: $paragraph-margin-bottom / 2 0 $paragraph-margin-bottom / 2 $paragraph-margin-bottom;
         }            
     }
+
+    &:not(.bg-beige) a {
+        color: rgba($white, .875);
+
+        &:hover {
+            color: $white;
+        }
+    }
+
+    .forminator-design--none input,
+    .forminator-design--none textarea {
+        background-color: rgba($white, .75);
+
+        &:focus,
+        &:hover {
+            background-color: rgba($white, .875);
+        }
+
+        &::placeholder {
+            color: rgba($body-color, .75);
+        }
+    }
 }
 
 .cta.mini-cta {
@@ -91,6 +128,12 @@
             float: right;
             margin: $paragraph-margin-bottom / 2 0 $paragraph-margin-bottom / 2 $paragraph-margin-bottom;
         }            
+    }
+}
+
+.cta-form {
+    .forminator-ui.forminator-custom-form:not(.forminator-size--small)[data-grid=open] .forminator-row.forminator-row-last {
+        margin-bottom: 0;
     }
 }
 

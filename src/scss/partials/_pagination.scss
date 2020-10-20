@@ -1,0 +1,130 @@
+nav.pagination-container {
+    border-top: 1px solid $beige;
+    margin: $paragraph-margin-bottom / 2 auto $paragraph-margin-bottom;
+    padding-top: $paragraph-margin-bottom;
+}
+
+ul.pagination {
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.page-item {
+    margin: 0 $paragraph-margin-bottom / 2;
+}
+
+.page-link {
+    border: 0;
+    color: rgba($brown, .875);
+    padding: .75rem .75rem .5rem;
+
+    @include media-breakpoint-up(sm) {
+        padding: .5rem 1rem;
+    }
+
+    &:hover {
+        background-color: $red;
+        border: 0;
+        color: $white;
+        text-decoration: none;
+    }
+
+    &.dots:hover {
+        background-color: transparent;
+    }
+
+    &.current:not(:disabled):not(.disabled),
+    &.dots:not(:disabled):not(.disabled) {
+        cursor: default;
+    }
+
+    &.prev i {
+        margin-right: .25rem;
+    }
+
+    &.next i {
+        margin-left: .25rem;
+    }
+
+    .pagination-expanded-text {
+        display: none;
+
+        @include media-breakpoint-up(sm) {
+            display: inline;
+        }
+    }
+}
+
+.page-item.active .page-link {
+    background-color: $brown;
+    border: 0;
+    box-shadow: $box-shadow-light;
+    color: rgba($white, .875);
+    z-index: 100;
+}
+
+.page-item:first-child .page-link,
+.page-item:last-child .page-link {
+    border-radius: 0;
+}
+
+.page-item:first-child .page-link {
+    margin-left: -.75rem;
+}
+
+.page-item:last-child .page-link {
+    margin-right: -.75rem;
+}
+
+.date-page-small {
+    display: inline;
+
+    @include media-breakpoint-up(sm) {
+        display: none;
+    }
+}
+
+.date-page-medium {
+    display: none;
+
+    @include media-breakpoint-up(sm) {
+        display: inline;
+    }
+
+    @include media-breakpoint-up(lg) {
+        display: none;
+    }
+}
+
+.date-page-large {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+        display: inline;
+    }
+}
+
+.event-nav-previous {
+    text-align: left;
+}
+
+.event-nav-next {
+    text-align: right;
+}
+
+.event-nav-previous,
+.event-nav-next {
+    span {
+        display: none;
+
+        @include media-breakpoint-up(lg) {
+            display: inline;
+        }
+    }
+}
+
+.main-calendar .pagination,
+.main-events .pagination,
+.main-single-event .pagination {
+    justify-content: space-between;
+}
