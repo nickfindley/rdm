@@ -8,7 +8,7 @@
 
     .overlay {
         @include media-breakpoint-up(md) {
-            align-items: flex-end;
+            align-items: center;
             padding-bottom: $paragraph-margin-bottom;
         }
     }

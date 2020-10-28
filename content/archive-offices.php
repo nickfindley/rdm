@@ -21,75 +21,67 @@
             <div class="archive-section-body">
                 <?php the_excerpt(); ?>
 
-                <p><a href="<?php the_permalink(); ?>">Learn more about <?php the_title(); ?> <i class="fas fa-angle-right"></i></a></p>
+                <p><a href="<?php the_permalink(); ?>">Learn more about <?php the_title(); ?> &hellip;</a></p>
             </div>
         </div>
         <div class="archive-section-related">
-            <h3><?php the_title(); ?> Attorneys</h3>
+            <h3><?php the_title(); ?> <br>Attorneys</h3>
             <ul>
             <?php
                 $temp_post = $post;
                 $args = array(
-                    'number' => 6,
+                    'number' => 5,
                     'meta_key' => 'start_date',
                     'orderby' => 'start_date',
                     'order' => 'ASC',
                     'role' => 'contributor',
                     'fields' => 'all',
                     'meta_query' => array(
-                        array(
-                            'key' => 'practice_areas',
-                            'value' => '"' . get_the_ID() . '"',
-                            'compare' => 'LIKE'
-                        )
+                        'key' => 'practice_areas',
+                        'value' => get_the_ID(),
+                        'compare' => 'LIKE'
                     )
                 );
                 $attorneys_query = new WP_User_Query( $args );
                 $attorneys_count = $attorneys_query->found_posts;
                 $attorneys = $attorneys_query->get_results();
                 if ( ! empty ( $attorneys ) ) :
-                    $count = 0;
                     foreach ( $attorneys as $attorney ) :
-                        $count++;
-                        if ( $count > 5 ) : break; endif;
                         $info = get_userdata( $attorney->ID );
                         $user_id = 'user_' . $attorney->ID;
                         ?>
                 <li>
                     <a href="<?php echo get_author_posts_url( $attorney->ID ); ?>"><span class="attorney-name"><?php echo $info->first_name . ' ' . $info->last_name; ?></span><br>
                     <span class="attorney-title"><?php the_field( 'title', $user_id ); ?></span></a>
-                    <br><?php echo $attorneys_count; ?>
                 </li>
                         <?php
                     endforeach;
                     wp_reset_postdata();
                 endif;
                 $post = $temp_post;
-                if ( $count > 5 ) :
+                if ( $attorneys_count > 5 ) :
                 ?>
-                <li class="view-all"><a href="<?php the_permalink(); ?>">See all <?php the_title(); ?> <span class="nobr">attorneys <i class="fas fa-angle-right"></i></span></a></li>
+                <li class="view-all"><a href="<?php the_permalink(); ?>">See all <?php the_title(); ?> attorneys <svg class="mdi" width="12" height="12" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg></a></li>
                 <?php
                 endif;
                 ?>
             </ul>
 
             <?php
-            global $post;
-            $slug = $post->post_name;
-            
+                $category = get_the_category( $post );
+                $categories = array();
+                foreach ( $category as $cat ) :
+                    $categories[] = $cat->term_id;
+                endforeach;
+                // echo '<pre>' . var_dump( $category ) . '</pre>';
+                if ( ! empty( $categories ) ) :
+
                 $args = array(
-                    'post_type' => 'post',
                     'posts_per_page' => 3,
+                    'category__in' => $categories,
                     'orderby' => 'date',
                     'order' => 'DESC',
-                    'suppress_filters' => true,
-                    'meta_query' => array(
-                        array(
-                            'key' => 'post_practice_areas',
-                            'value' => '"' . get_the_ID() . '"',
-                            'compare' => 'LIKE'
-                        )
-                    )
+                    'suppress_filters' => true
                 );
                 $posts_query = new WP_Query( $args );
                 if ( $posts_query->have_posts() ) :
@@ -117,6 +109,7 @@
             <?php
                 endif;
                 wp_reset_postdata();
+                endif;
             ?>
         </div>
     </div>

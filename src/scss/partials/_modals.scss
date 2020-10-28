@@ -147,6 +147,10 @@
         margin: 0 calc(var(--bs-gutter-x) * -1);
     }
 
+    .office {
+        position: relative;
+    }
+
     .modal-body {
         padding: $paragraph-margin-bottom 0;
     }

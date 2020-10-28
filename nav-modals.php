@@ -84,36 +84,6 @@
     </div>
 </div>
 
-<div class="modal nav-modal fade" id="navKnowledge" data-keyboard="false" tabindex="-1" aria-labelledby="knowledgeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="knowledgeModalLabel">
-                    Knowledge: The RDM Blog
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>RDM's Knowledge Blog features the latest news and insights on the fields we serve. We provide in-depth analysis of cases and subjects important to our clients.</p>
-                <h5>Subscribe</h5>
-                <p>Get updates from RDM's Knowledge Blog delivered to your inbox.</p>
-                <form>
-                    <p>
-                        <input type="email">
-                        <input type="submit">
-                    </p>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <a href="/knowledge/" role="button" class="btn btn-primary">Visit Our Blog</a>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="modal nav-modal fade" id="navContact" data-keyboard="false" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -126,7 +96,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Send us a message using the form below. You can also call our Kansas City Headquarters at <a href="tel:8169601611"></p>
+                <p>Send us a message using the form below. You can also call our Kansas City Headquarters at <a href="tel:8169601611">816-960-1611</a></p>
                 <form>
                     <p>
                         <input type="email">
@@ -170,7 +140,7 @@
                                 ?>
                                 <div class="office col-sm-4">
                                     <?php the_post_thumbnail(); ?>
-                                    <h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
+                                    <h6><a class="stretched-link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
                                     <ul>
                                         <li><?php echo phone_format( get_field( 'main_phone' ) ); ?></li>
                                         <li><?php the_field( 'address' ); ?><br><?php the_field( 'address_2' ); ?><br><?php the_field( 'city' ); ?>, <?php the_field( 'state' ); ?> <?php the_field( 'zip' ); ?></li>

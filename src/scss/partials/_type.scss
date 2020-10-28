@@ -10,6 +10,10 @@ body {
     line-height: 1.75;
 }
 
+p, ul, ol, dl, blockquote {
+    margin-bottom: $paragraph-margin-bottom;
+}
+
 b, strong {
     font-weight: 700;
 }
@@ -150,9 +154,17 @@ aside {
     }
 }
 
+.nobr {
+    white-space: nowrap;
+}
+
 // https://materialdesignicons.com/
 .mdi {
     fill: $taupe;
     margin: 0 .5rem 0 -.125rem;
     vertical-align: text-bottom;
+}
+
+.fab, .fas {
+    font-size: 75%;
 }

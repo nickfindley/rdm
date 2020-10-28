@@ -19,7 +19,7 @@
             <div class="practice-content">
                 <?php the_content(); ?>
 
-                <h3>RDM Attorneys Specializing in <?php the_title(); ?></h3>
+                <h3>RDM&apos;s <?php the_title(); ?> Attorneys</h3>
                 <ul class="content-attorneys">
                 <?php
                     $practice_id = get_the_ID();
@@ -66,7 +66,7 @@
 
             <div class="practice-sidebar">
                 <div class="practice-attorneys">
-                    <h3>Attorneys Specializing in <?php the_title(); ?></h3>
+                    <h3><?php the_title(); ?> Attorneys</h3>
                     <ul>
                     <?php
                         $practice_id = get_the_ID();

@@ -25,7 +25,7 @@
     }
 
     .attorney-photo {
-        @extend .col-md-4;
+        @extend .col-md-3;
         padding-left: 0;
         padding-right: 0;
         
@@ -42,7 +42,7 @@
     }
 
     .attorney-info {
-        @extend .col-md-8;
+        @extend .col-md-9;
         padding: $paragraph-margin-bottom / 2 0 0;
 
         @include media-breakpoint-up(md) {

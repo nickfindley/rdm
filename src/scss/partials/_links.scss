@@ -8,3 +8,17 @@ a {
         text-decoration-color: rgba($link-hover-color, .75);
     }
 }
+
+.more-link {
+    font-weight: 400;
+    text-decoration: none;
+
+    span {
+        font-weight: 600;
+        text-decoration: underline;
+    }
+
+    .mdi {
+        vertical-align: unset;
+    }
+}
