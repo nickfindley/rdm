@@ -576,3 +576,30 @@ i.forminator-loading:before {
 #captcha-1 {
     display: none;
 }
+
+.forminator-row {
+    display: flex;
+    margin-bottom: $paragraph-margin-bottom / 2 !important;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.forminator-ui.forminator-custom-form[data-grid=open] .forminator-row:not(:last-child),
+.forminator-ui.forminator-custom-form[data-grid=open] .forminator-col {
+    margin-bottom: $paragraph-margin-bottom / 2 !important;
+}
+
+.forminator-col {
+    flex-grow: 1;
+    margin-bottom: 0;
+    min-width: 0;
+    padding: 0 15px;
+}
+
+.forminator-col-4 {
+    flex: 33.3333%;
+}
+
+.forminator-col-6 {
+    flex: 50%;
+}

@@ -1,136 +1,115 @@
-.attorneys-content {
-    .attorneys-intro {
-        border-bottom: 1px solid $beige;
-        font-size: 112.5%;
-        margin-bottom: $paragraph-margin-bottom /2;
-        padding: $paragraph-margin-bottom 0 0;
+.attorneys-content .attorneys-intro {
+    border-bottom: 1px solid $beige;
+    font-size: 112.5%;
+    margin-bottom: $paragraph-margin-bottom /2;
+    padding: $paragraph-margin-bottom 0;
 
-        p:first-child {
-            font-size: 125%;
-        }
+    p:first-child {
+        font-size: 125%;
     }
+}
 
-    .attorney {
-        border-bottom: 1px solid $beige;
-        margin: 0 0 $paragraph-margin-bottom / 2;
-        padding: 0 0 $paragraph-margin-bottom / 2;
+.attorneys-cards {
+    @extend .row;
+    @extend .row-cols-2;
+    @extend .row-cols-md-3;
+    @extend .row-cols-lg-4;
+    @extend .row-cols-xl-5;
 
-        &:first-child {
-            margin-top: $paragraph-margin-bottom;
-        }
-        
-        &:last-child {
-            border-bottom: 0;
-        }
+    .card {
+        border: 0;
+        border-radius: 0;
+        margin: 0 0 $paragraph-margin-bottom;
     }
 
     .attorney-photo {
-        @extend .col-md-3;
-        padding-left: 0;
-        padding-right: 0;
-        
-        @include media-breakpoint-up(md) {
-            margin-left: calc(var(--bs-gutter-x) * -.5);
-            padding-left: calc(var(--bs-gutter-x) / 2);
-            padding-right: calc(var(--bs-gutter-x) / 2);
-        }
+        margin: 0;
+        padding: 0;
+        width: 100%;
 
         img {
-            max-width: 100%;
             min-width: 100%;
         }
     }
 
-    .attorney-info {
-        @extend .col-md-9;
-        padding: $paragraph-margin-bottom / 2 0 0;
+    h2.card-title {
+        font-size: 150%;
+        letter-spacing: .05rem;
+        padding: $paragraph-margin-bottom / 2 0;
+
+        @include media-breakpoint-up(sm) {
+            font-size: 175%;
+            letter-spacing: .125rem;
+        }
+
+        .attorney-title {
+            font-family: $garamond;
+            font-size: 75%;
+            display: block;
+            letter-spacing: .125rem;
+        }
+
+        a {
+            color: $body-color;
+            text-decoration: none;
+        }
+    }
+
+    .name-split {
+        display: none;
 
         @include media-breakpoint-up(md) {
-            padding: 0 calc(var(--bs-gutter-x) / 2);
+            display: inline;
         }
+    }
 
-        h2 {
-            font-size: 2.25rem;
-            font-weight: 300;
-            letter-spacing: .125rem;
-            text-align: center;
-
-            @include media-breakpoint-up(md) {
-                font-size: 2rem;
-                text-align: left;
-            }
-
-            @include media-breakpoint-up(lg) {
-                font-size: 2.25rem;
-            }
-
-            .subheading {
-                font-family: $garamond;
-                display: block;
-                font-size: 50%;
-            }
-
-            a {
-                color: $body-color;
-                text-decoration: none;
-            }
-        }
+    .card-body {
+        padding: 0;
 
         h3 {
-            font-size: 1.25rem;
+            font-size: 1rem;
             font-weight: 300;
-            letter-spacing: .0875rem;
+            letter-spacing: .05rem;
+            margin-bottom: $paragraph-margin-bottom / 4;
+
+            @include media-breakpoint-up(sm) {
+                font-size: 1.125rem;
+                letter-spacing: .0875rem;
+            }
         }
 
         p {
-            font-size: 125%;
-            margin: $paragraph-margin-bottom / 2 0 $paragraph-margin-bottom;
-            text-align: center;
+            font-size: 100%;
+            margin: 0;
+        }
 
-            .mdi {
-                display: none;
-            }
+        // ul.attorney-admissions,
+        ul.attorney-practice-areas {
+            font-size: 87.5%;
+            list-style: none;
+            margin: 0 0 $paragraph-margin-bottom / 2;
+            padding-left: 0;
+            
+            li {
+                display: inline;
 
-            @include media-breakpoint-up(md) {
-                text-align: left;
-
-                .mdi {
-                    display: inline;
+                &:after {
+                    content: " · ";
                 }
+
+                &:last-child:after {
+                    content: "";
+                }
+
+                // .admission-parent {
+                //     color: rgba($body-color, .5);
+                //     font-size: .875rem;
+                //     font-variant: small-caps;
+                //     letter-spacing: .05rem;
+                //     line-height: 1.25;
+                //     text-transform: lowercase;
+                // }
             }
-        }
-
-        p:last-child,
-        ul:last-child {
-            margin-bottom: 0;
-        }
-    }
-}
-
-ul.attorney-admissions,
-ul.attorney-practice-areas {
-    font-size: 87.5%;
-    list-style: none;
-    margin-left: 0;
-    padding-left: 0;
-    
-    li {
-        display: inline;
-
-        &:after {
-            content: " · ";
-        }
-
-        &:last-child:after {
-            content: "";
-        }
-
-        .admission-parent {
-            color: rgba($body-color, .875);
-            font-size: .875rem;
-            font-variant-caps: all-small-caps;
-            letter-spacing: .05rem;
-            line-height: 1.25;
         }
     }
 }

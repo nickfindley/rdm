@@ -17,30 +17,36 @@ add_action( 'pre_get_posts', 'rdm_pre_get_posts' );
 if( function_exists( 'acf_add_options_page' ) ) :
     function rdm_options_pages()
     {
-        acf_add_options_page(array(
+        acf_add_options_sub_page(array(
+            'page_title' 	=> '404 Page Settings',
+            'menu_title'	=> '404 Page Settings',
+            'menu_slug' 	=> '404-page-settings',
+            'capability'	=> 'edit_posts',
+            'redirect'		=> false
+        ));
+
+        acf_add_options_sub_page(array(
             'page_title' 	=> 'Archive Page Settings',
-            'menu_title'	=> 'Page Settings',
+            'menu_title'	=> 'Archive Page Settings',
             'menu_slug' 	=> 'archive-page-settings',
             'capability'	=> 'edit_posts',
             'redirect'		=> false
         ));
-        
-        acf_add_options_sub_page(array(
-            'page_title' 	=> 'Admissions Page Settings',
-            'menu_title'	=> 'Admissions Page',
-            'parent_slug'	=> 'archive-page-settings',
-        ));
-        
+
         acf_add_options_sub_page(array(
             'page_title' 	=> 'Office Page Settings',
-            'menu_title'	=> 'Office Page',
-            'parent_slug'	=> 'archive-page-settings',
+            'menu_title'	=> 'Office Page Settings',
+            'menu_slug' 	=> 'office-page-settings',
+            'capability'	=> 'edit_posts',
+            'redirect'		=> false
         ));
 
         acf_add_options_sub_page(array(
-            'page_title' 	=> 'Practice Page Settings',
-            'menu_title'	=> 'Practice Page',
-            'parent_slug'	=> 'archive-page-settings',
+            'page_title' 	=> 'Search Results Page Settings',
+            'menu_title'	=> 'Search Results Page Settings',
+            'menu_slug' 	=> 'search-results-page-settings',
+            'capability'	=> 'edit_posts',
+            'redirect'		=> false
         ));
     }
     add_action('acf/init', 'rdm_options_pages');

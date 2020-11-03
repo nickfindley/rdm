@@ -1,3 +1,64 @@
+.page-content #searchform {
+    align-items: flex-end;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding-bottom: $paragraph-margin-bottom * 4;
+    padding-top: $paragraph-margin-bottom;
+
+    &.search-results-inline {
+        padding-top: 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+        max-width: 50%;
+        padding: $paragraph-margin-bottom * 2 0;
+    }
+
+    .search-input {
+        align-items: flex-end;
+        flex: 75%;
+        padding-right: $paragraph-margin-bottom / 2;
+
+        label {
+            font-family: $proxima;
+            font-size: 1.5rem;
+            font-variant: small-caps;
+    text-transform: lowercase;
+            font-weight: 300;
+            letter-spacing: .0875rem;
+            line-height: .875;
+            margin-bottom: $paragraph-margin-bottom / 4;
+        }
+
+        input {
+            background-color: rgba($beige, .25);
+            border: 1px solid rgba($beige, .75);
+            border-radius: 0;
+            font-size: 1.25rem;
+            min-height: 1.25rem;
+            padding: .5rem;
+
+            &::placeholder {
+                color: $beige;
+            }
+        }
+    }
+
+    input[type="submit"] {
+        align-items: flex-end;
+        flex: 25%;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        padding-bottom: .5rem !important;
+        padding-top: .5rem !important;
+    }
+}
+
+.search-subheading {
+    margin: 0 0 .375rem;
+}
+
 .search-term {
     background-color: rgba($taupe, .25);
 }

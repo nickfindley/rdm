@@ -74,10 +74,11 @@
         color: $white;
         font-family: $essonnes;
         font-size: 1.75rem;
-        font-variant-caps: normal;
+        font-variant: normal;
         font-weight: 400;
         letter-spacing: 0;
         line-height: 1.125;
+        text-transform: none;
 
         @include media-breakpoint-up(md) {
             font-size: 3rem;
@@ -95,7 +96,8 @@
     a.btn {
         border-radius: 0;
         font-size: 1rem;
-        font-variant-caps: all-small-caps;
+        font-variant: small-caps;
+    text-transform: lowercase;
         font-weight: 400;
         letter-spacing: .125rem;
         line-height: 1;

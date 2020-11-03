@@ -5,7 +5,7 @@
             <?php the_post_thumbnail(); ?>
         </div>
     <?php endif ?>
-        <h3><?php the_title(); ?></h3>
+        <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
         <div class="post-meta">
             <p class="byline">
             <?php
@@ -19,7 +19,7 @@
                 else : 
                     echo 'By <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '"> ' . get_the_author_meta( 'display_name' ) . '</a>';
                 endif;
-            ?> &bull; <?php echo get_the_date(); ?>
+            ?> &bull; <a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a>
             </p>
         </div>
     </header>

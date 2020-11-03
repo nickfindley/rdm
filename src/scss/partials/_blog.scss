@@ -37,7 +37,7 @@ img.rdm-logo {
             border-top: 1px solid $beige;    
             font-family: $essonnes;
             font-size: 3rem;
-            font-variant-caps: normal;
+            font-variant: normal;
             font-weight: 400;
             letter-spacing: -.05rem;
             line-height: 1;
@@ -48,10 +48,11 @@ img.rdm-logo {
                 display: block;
                 font-family: $proxima;
                 font-size: 1.5rem;
-                font-variant-caps: all-small-caps;
+                font-variant: small-caps;
                 font-weight: 300;
                 letter-spacing: .125rem;
                 margin-top: .25rem;
+                text-transform: lowercase;
             }
         }
     }
@@ -121,6 +122,10 @@ img.rdm-logo {
         padding-top: 0;
     }
 
+    &:last-child {
+        margin-bottom: 0;
+    }
+
     &:hover .has-post-thumbnail .post-thumbnail:after {
         background-color: transparent;
     }
@@ -143,7 +148,7 @@ img.rdm-logo {
             display: block;
             font-family: $essonnes;
             font-size: 1.5rem;
-            font-variant-caps: normal;
+            font-variant: normal;
             font-weight: 400;
             letter-spacing: 0;
             line-height: 1.125;
@@ -192,6 +197,7 @@ img.rdm-logo {
 
             .subheading {
                 margin-top: $paragraph-margin-bottom / 2;
+                text-transform: none;
             }
         }
     }
@@ -200,7 +206,8 @@ img.rdm-logo {
         color: rgba($body-color, .75);
         font-family: $proxima;
         font-size: .75rem;
-        font-variant-caps: all-small-caps;
+        font-variant: small-caps;
+    text-transform: lowercase;
         font-weight: 300;
         letter-spacing: .05rem;
         line-height: 2;
@@ -306,6 +313,14 @@ img.rdm-logo {
         }
     }
 
+    h3 a {
+        color: $link-color;
+
+        &:hover {
+            color: $link-hover-color;
+        }
+    }
+
     .post-content {
         border-left: 0;
     }
@@ -348,8 +363,4 @@ img.rdm-logo {
 
 .view-all {
     font-weight: 400;
-
-    .mdi {
-        vertical-align: -.05rem;
-    }
 }

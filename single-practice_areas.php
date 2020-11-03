@@ -19,7 +19,7 @@
             <div class="practice-content">
                 <?php the_content(); ?>
 
-                <h3>RDM&apos;s <?php the_title(); ?> Attorneys</h3>
+                <h3>RDM&rsquo;s <?php the_title(); ?> Attorneys</h3>
                 <ul class="content-attorneys">
                 <?php
                     $practice_id = get_the_ID();
@@ -106,6 +106,53 @@
                     </ul>
                 </div>
 
+                <?php
+                    $args = array(
+                        'post_type' => 'post',
+                        'posts_per_page' => 3,
+                        'orderby' => 'date',
+                        'order' => 'DESC',
+                        'suppress_filters' => true,
+                        'meta_query' => array(
+                            array(
+                                'key' => 'post_practice_areas',
+                                'value' => '"' . get_the_ID() . '"',
+                                'compare' => 'LIKE'
+                            )
+                        )
+                    );
+                    
+                    $posts_query = new WP_Query( $args );
+                    if ( $posts_query->have_posts() ) :
+                ?>
+                <div class="practice-posts">
+                    <h3>Recent Posts from RDM's Knowledge Blog</h3>
+                    <ul>
+                    <?php
+                        while ( $posts_query->have_posts() ) :
+                            $posts_query->the_post();
+
+                            $users = get_field( 'post_authors' );
+                            if ( $users ) :
+                                $authors = array();
+                                foreach ( $users as $user ) :
+                                    $authors[] = $user->display_name;
+                                endforeach;
+                                $author_string = natural_language_join( $authors );
+                            else : 
+                                $author_string = get_the_author_meta( 'display_name' );
+                            endif;
+                    ?>
+                        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?> <span class="post-author">by <?php echo $author_string; ?></span></a></li>
+                <?php endwhile; ?>
+                        <li><a href="/knowledge/">Visit RDM's Knowledge Blog <i class="fas fa-angle-right"></i></a></li>
+                    </ul>
+                </div>
+                <?php
+                    endif;
+                    wp_reset_postdata();
+                ?>
+
                 <div class="practice-areas">
                     <h3>Other Practice Areas</h3>
                     <ul>
@@ -130,41 +177,6 @@
                     ?>
                     </ul>
                 </div>
-
-                <?php
-                    $args = array(
-                        'posts_per_page' => 15
-                    );
-                    $posts_query = new WP_Query( $args );
-                    if ( $posts_query->have_posts() ) :
-                ?>
-                <div class="practice-posts">
-                    <h3>Recent Posts from RDM's Knowledge Blog</h3>
-                    <ul>
-                    <?php
-                        while ( $posts_query->have_posts() ) :
-                            $posts_query->the_post();
-
-                            $users = get_field( 'post_authors' );
-                            if ( $users ) :
-                                $authors = array();
-                                foreach ( $users as $user ) :
-                                    $authors[] = $user->display_name;
-                                endforeach;
-                                $author_string = natural_language_join( $authors );
-                            else : 
-                                $author_string = get_the_author_meta( 'display_name' );
-                            endif;
-                    ?>
-                        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?> <span class="post-author">by <?php echo $author_string; ?></span></a></li>
-                <?php endwhile; ?>
-                    </ul>
-                    <p><a href="/knowledge/">Visit RDM's Knowledge Blog</a></p>
-                </div>
-                <?php
-                    endif;
-                    wp_reset_postdata();
-                ?>
             </div>
         </div>
     </div>

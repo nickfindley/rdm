@@ -14,6 +14,7 @@ $card-height: 100%;
     @extend .row;
     @extend .row-cols-3;
     list-style: none;
+    margin-bottom: $paragraph-margin-bottom;
     padding-left: 0;
 
     li {
@@ -57,7 +58,8 @@ $card-height: 100%;
     h3 {
         font-family: $proxima;
         font-size: 1.5rem;
-        font-variant-caps: all-small-caps;
+        font-variant: small-caps;
+    text-transform: lowercase;
         font-weight: 400;
         letter-spacing: .25rem;
         margin-top: $paragraph-margin-bottom;
@@ -108,7 +110,8 @@ $card-height: 100%;
         h4 {
             font-family: $proxima;
             font-size: 1rem;
-            font-variant-caps: all-small-caps;
+            font-variant: small-caps;
+    text-transform: lowercase;
             font-weight: 400;
             letter-spacing: .125rem;
             line-height: .875;
@@ -126,7 +129,8 @@ $card-height: 100%;
         display: block;
         font-family: $proxima;
         font-size: .75rem;
-        font-variant-caps: all-small-caps;
+        font-variant: small-caps;
+    text-transform: lowercase;
         letter-spacing: .05rem;
         margin-top: .25rem;
     }

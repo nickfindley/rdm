@@ -5,3 +5,52 @@
         font-size: 125%;
     }
 }
+
+.contact-page {
+    .page-wrapper {
+        @extend .row;
+        margin-bottom: $paragraph-margin-bottom;
+        padding-top: $paragraph-margin-bottom;
+    }
+
+    .page-content {
+        @extend .col-md-8;
+
+        @include media-breakpoint-up(md) {
+            border-right: 1px solid $beige;
+        }
+    }
+
+    .page-sidebar {
+        @extend .col-md-4;
+
+        .offices {
+            list-style: none;
+            font-size: 100%;
+
+            li {
+                border-bottom: 1px solid rgba($beige, .5);
+                line-height: 1.625;
+                padding: .5rem 0;
+                position: relative;
+
+                &:last-child {
+                    border-bottom: 0;
+                }
+
+                h6 {
+                    font-size: 112.5%;
+                    margin: $paragraph-margin-bottom / 4 0 $paragraph-margin-bottom / 2;
+                }
+
+                &:first-child h6 {
+                    margin-top: 0;
+                }
+
+                a {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

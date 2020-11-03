@@ -1,36 +1,34 @@
 <?php
     get_header();
-    $page_color = get_field( 'archive_page_color', 'option' ) ? get_field( 'archive_page_color', 'option' ) : 'blue';
+    $page_color = get_field( 'page_color', 'option' ) ? get_field( 'page_color', 'option' ) : 'blue';
 ?>
 <main id="content">
     <header class="archive-header big-image-header page-header bg-<?php echo $page_color; ?>" id="pageHeader">
-        <?php echo wp_get_attachment_image( get_field( 'archive_page_image', 'option' ), 'full' ); ?>
+        <?php echo wp_get_attachment_image( get_field( 'page_image', 'option' ), 'full' ); ?>
         <div class="overlay">
             <h1>
                 <div class="container">
-                    <?php
-                        if ( get_field( 'archive_page_title', 'option' ) ) :
-                            echo get_field( 'archive_page_title', 'option' );
-                        else : 
-                            the_archive_title();
-                        endif;
-
-                        if ( get_field( 'archive_page_subtitle', 'option' ) ) :
-                            echo '<span class="subheading">' . get_field( 'archive_page_subtitle', 'option' ) . '</span>';
-                        endif;
-                    ?>
+                    <?php the_field( 'page_title', 'option' ); ?>
+                    <?php if ( get_field( 'page_subtitle', 'option' ) ) : ?>
+                    <span class="subheading"><?php the_field( 'page_subtitle', 'option' ); ?></span>
+                    <?php endif; ?>
                 </div>
             </h1>
         </div>
     </header>
 
     <div class="container">
-        <section class="archive-content"> 
+        <section class="archive-content">
+            <?php if ( get_field( 'page_content', 'option' ) ) : ?>
+            <div class="archive-lede-wrapper">
+                <div class="archive-lede">
+                    <?php the_field( 'page_content', 'option' ); ?>
+                </div>
+            </div>
+            <?php endif; ?>
         <?php
-            $post_type = get_post_type();
-
             $args = array(
-                'post_type' => $post_type,
+                'post_type' => 'practice_areas',
                 'orderby' => 'post_title',
                 'order' => 'ASC'
             );
@@ -43,7 +41,7 @@
                     $count++;
                     if ( $count % 2 ) : $odd_even = 'odd'; else : $odd_even = 'even'; endif;
                     $posts_query->the_post();
-                    get_template_part( 'content/archive-' . $post_type );
+                    get_template_part( 'content/practice-area' );
                 endwhile;
                 wp_reset_postdata();
             endif;

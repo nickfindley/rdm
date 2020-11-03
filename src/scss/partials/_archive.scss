@@ -41,6 +41,26 @@
     }
 }
 
+.archive-lede-wrapper {
+    border-bottom: 1px solid $beige;
+}
+
+.archive-lede {
+    @extend .col-lg-8;
+    @extend .offset-lg-2;
+    font-size: 1.125rem;
+    padding-bottom: $paragraph-margin-bottom;
+    padding-top: $paragraph-margin-bottom;
+
+    p:first-child {
+        font-size: 1.25rem;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
 .archive-section-content {
     @extend .col-md-8;
     @extend .col-lg-9;
@@ -144,7 +164,8 @@
     h3 {
         font-family: $proxima;
         font-size: 1.25rem;
-        font-variant-caps: all-small-caps;
+        font-variant: small-caps;
+    text-transform: lowercase;
         letter-spacing: .125rem;
         line-height: 1;
         margin-top: $paragraph-margin-bottom;
@@ -193,7 +214,8 @@
     display: block;
     font-family: $proxima;
     font-size: .75rem;
-    font-variant-caps: all-small-caps;
+    font-variant: small-caps;
+    text-transform: lowercase;
     letter-spacing: .05rem;
     margin-top: .25rem;
 }

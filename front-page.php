@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="front-page-blog">
                     <header>
-                        <h2>From RDM&apos;s Knowledge Blog</h2>
+                        <h2>From RDM&rsquo;s Knowledge Blog</h2>
                         <p>Read more at <a href="#">rdm.law/knowledge</a>.</p>
                     </header>
                 <?php 
@@ -82,7 +82,7 @@
                     ?>
                     </ul>
 
-                    <h3>Knowledge <br>&amp; Expertise</h3>
+                    <h3>Knowledge</h3>
                     <p>RDM brings decades of experience and deep industry knowledge to our clients. Read our <a href="/knowledge/">Knowledge Blog</a> for insight and opinions on news that affects our corner of the legal world.</p>
                     <h4>News Categories</h4>
                     <ul>

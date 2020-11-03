@@ -45,8 +45,9 @@
             else : 
                 echo '<p class="byline">By <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '"> ' . get_the_author_meta( 'display_name' ) . '</a><br>';
             endif;
-            echo get_the_date() . '</p>';
         ?>
+                <a class="permalink" href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a>
+            </p>
             <ul class="post-categories">
                 <li>Filed under</li>
             <?php

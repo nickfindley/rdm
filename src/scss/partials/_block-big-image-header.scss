@@ -1,22 +1,15 @@
-.big-image-header {
-    position: relative;
-
-    & > img {
-        min-height: 100vh;
-        object-fit: cover;
-    }
-
-    .overlay {
-        align-items: center;
-    }
+.plain-header {
+    align-items: flex-end;
+    display: flex;
+    padding: 20% 0 2rem;
 
     h1 {
-        backdrop-filter: blur(3px);
         box-shadow: 0 .125rem 1rem rgba($black, .5);
         color: $white;
         font-family: $proxima;
         font-size: 2.5rem;
-        font-variant-caps: all-small-caps;
+        font-variant: small-caps;
+    text-transform: lowercase;
         font-weight: 300;
         letter-spacing: .25rem;
         line-height: .875;
@@ -39,7 +32,70 @@
             display: block;
             font-family: $garamond;
             font-size: 1.25rem;
-            font-variant-caps: all-small-caps;
+            font-variant: small-caps;
+    text-transform: lowercase;
+            font-weight: 400;
+            letter-spacing: .25rem;
+            line-height: .875;
+            margin-top: .375rem;
+            position: relative;
+            text-indent: .25rem;
+
+            @include media-breakpoint-up(md) {
+                font-size: 1.5rem;
+            }
+
+            @include media-breakpoint-up(lg) {
+                font-size: 2rem;
+            }        
+        }
+    }
+}
+
+.big-image-header {
+    position: relative;
+
+    & > img {
+        min-height: 100vh;
+        object-fit: cover;
+    }
+
+    .overlay {
+        align-items: center;
+    }
+
+    h1 {
+        backdrop-filter: blur(3px);
+        box-shadow: 0 .125rem 1rem rgba($black, .5);
+        color: $white;
+        font-family: $proxima;
+        font-size: 2.5rem;
+        font-variant: small-caps;
+    text-transform: lowercase;
+        font-weight: 300;
+        letter-spacing: .25rem;
+        line-height: .875;
+        margin: 0;
+        padding: 2rem;
+        text-align: center;
+        text-shadow: 0 .125rem 1rem rgba($black, .5);
+        width: 100%;
+
+        @include media-breakpoint-up(md) {
+            font-size: 3rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: 4rem;
+            letter-spacing: .375rem;
+        }
+
+        .subheading {
+            display: block;
+            font-family: $garamond;
+            font-size: 1.25rem;
+            font-variant: small-caps;
+    text-transform: lowercase;
             font-weight: 400;
             letter-spacing: .25rem;
             line-height: .875;

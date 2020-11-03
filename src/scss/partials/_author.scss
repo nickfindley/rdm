@@ -24,7 +24,8 @@
         color: $white;
         font-family: $proxima;
         font-size: 2.5rem;
-        font-variant-caps: all-small-caps;
+        font-variant: small-caps;
+    text-transform: lowercase;
         font-weight: 300;
         letter-spacing: .25rem;
         line-height: .875;
@@ -47,7 +48,8 @@
             display: block;
             font-family: $garamond;
             font-size: 1.25rem;
-            font-variant-caps: all-small-caps;
+            font-variant: small-caps;
+    text-transform: lowercase;
             font-weight: 400;
             letter-spacing: .25rem;
             line-height: .875;
@@ -150,7 +152,7 @@
         .addr-csz,
         .addr-ph {
             display: block;
-            margin-left: calc(24px + .25rem);
+            margin-left: 32px;
         }
     }
 }
@@ -202,7 +204,8 @@
     h3 {
         font-family: $proxima;
         font-size: 1.5rem;
-        font-variant-caps: all-small-caps;
+        font-variant: small-caps;
+    text-transform: lowercase;
         font-weight: 400;
         letter-spacing: .25rem;
 
@@ -252,7 +255,8 @@
         h4 {
             font-family: $proxima;
             font-size: 1rem;
-            font-variant-caps: all-small-caps;
+            font-variant: small-caps;
+    text-transform: lowercase;
             font-weight: 400;
             letter-spacing: .125rem;
             line-height: .875;
@@ -289,7 +293,8 @@
     .year {
         color: rgba($body-color, .625);
         font-size: .75rem;
-        font-variant-caps: all-small-caps;
+        font-variant: small-caps;
+    text-transform: lowercase;
         letter-spacing: .05rem;
     }
 
@@ -298,7 +303,8 @@
         color: rgba($body-color, .75);
         display: block;
         font-size: .875rem;
-        font-variant-caps: all-small-caps;
+        font-variant: small-caps;
+    text-transform: lowercase;
         letter-spacing: .05rem;
         line-height: 1.25;
     }

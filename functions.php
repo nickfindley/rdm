@@ -20,3 +20,4 @@ require_once 'functions/setup.php';
 require_once 'functions/styles.php';
 require_once 'functions/users.php';
 require_once 'functions/widgets-init.php';
+require_once 'functions/yoast.php';

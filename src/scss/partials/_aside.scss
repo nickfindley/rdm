@@ -1,0 +1,60 @@
+aside {
+    color: rgba($body-color, .875);
+    font-size: .875rem;
+
+    h3 {
+        font-size: 1.25rem;
+        line-height: 1;
+        margin-bottom: $paragraph-margin-bottom / 4;
+        margin-top: $paragraph-margin-bottom;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    h4 {
+        color: rgba($body-color, .75);
+        font-size: 1.125rem;
+        font-weight: 400;
+        line-height: 1;
+        margin: -1.5rem 0 0;
+        padding: .5rem 0;
+    }
+
+    ul {
+        line-height: 1.25;
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+
+        li {
+            padding: .5rem 0;
+            
+            @include media-breakpoint-up(lg) {
+                border-bottom: 1px solid rgba($beige, .5);
+            }
+
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+    }
+
+    a {
+        text-decoration: none;
+
+        .attorney-title {
+            color: rgba($taupe, .75);
+            transition: all .5s ease-in-out;
+        }
+
+        &:hover {
+            text-decoration: none;
+
+            .attorney-title {
+                color: $taupe;
+            }
+        }
+    }
+}

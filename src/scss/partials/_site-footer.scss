@@ -6,6 +6,7 @@
         0 50vh 0 50vh $brown;
     color: rgba($white, .75);
     font-size: .875rem;
+    margin-top: $paragraph-margin-bottom;
     padding: $paragraph-margin-bottom 0;
 
     a {
@@ -15,6 +16,15 @@
         &:hover {
             color: $white;
         }
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        font-weight: 400;
+    }
+
+    p {
+        margin-bottom: $paragraph-margin-bottom / 2;
     }
 
     .footer-section {
@@ -28,5 +38,29 @@
                 border-left: 0;
             }
         }
+    }
+}
+
+.footer-breadcrumbs {
+    @extend .row;
+    margin-bottom: $paragraph-margin-bottom / 2;
+}
+
+.footer-breadcrumbs-wrapper p {
+    border-bottom: 1px solid rgba($beige, .5);
+    padding-bottom: $paragraph-margin-bottom / 2;
+}
+
+.breadcrumbs {
+    font-size: 125%;
+
+    i.fas {
+        padding: 0 .375rem;
+    }
+
+    & > span > span > a:first-child {
+        font-variant: small-caps;
+    text-transform: lowercase;
+        letter-spacing: .05rem;
     }
 }

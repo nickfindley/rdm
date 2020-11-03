@@ -67,7 +67,8 @@
 .nav-item {
     font-family: 'proxima-nova', sans-serif;
     font-size: 1rem;
-    font-variant-caps: all-small-caps;
+    font-variant: small-caps;
+    text-transform: lowercase;
     font-weight: 300;
     letter-spacing: .125rem;
 

@@ -1,19 +1,48 @@
         <footer class="site-footer">
             <div class="container">
+            <?php
+            if ( function_exists( 'yoast_breadcrumb' ) ) :
+                if (
+                    // is_archive() OR
+                    // is_author() OR
+                    // is_page() OR
+                    // is_post_type_archive( 'practice_areas' ) OR
+                    // is_single()
+                    ! is_front_page()
+                ) :
+            ?>
+                <div class="footer-breadcrumbs">
+                    <div class="footer-breadcrumbs-wrapper">
+                        <?php yoast_breadcrumb( '<p class="breadcrumbs">','</p>' ); ?>
+                    </div>
+                </div>
+            <?php
+                endif;
+            endif;
+            ?>
                 <div class="row">
                     <div class="footer-section">
-                        <p>Please read our <a href="/disclaimer/">disclaimer</a> and <a href="/terms/">terms and conditions</a>.
+                    <?php
+                        if ( is_active_sidebar( 'footer-1' ) ) :
+                            dynamic_sidebar( 'footer-1');
+                        endif;
+                    ?>
                     </div>
 
                     <div class="footer-section">
-                        <p>&copy; <?php echo date('Y'); ?> Rasmussen Dickey Moore LLC. <a href="#content">Back to the top</a>.</p>
+                    <?php
+                        if ( is_active_sidebar( 'footer-2' ) ) :
+                            dynamic_sidebar( 'footer-2');
+                        endif;
+                    ?>
                     </div>
 
                     <div class="footer-section">
-                        <p>
-                            <label for="search">Search RDM.law</label><br>
-                            <input type="search" id="search"> <input type="submit" value="Search">
-                        </p>
+                    <?php
+                        if ( is_active_sidebar( 'footer-3' ) ) :
+                            dynamic_sidebar( 'footer-3');
+                        endif;
+                    ?>
                     </div>
                 </div>
             </div>

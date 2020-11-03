@@ -1,6 +1,6 @@
 <?php
     get_header();
-    $acf_prefix = 'search_results';
+    $acf_prefix = '404';
     $page_color = get_field( $acf_prefix . '_page_color', 'option' ) ? get_field( $acf_prefix . '_page_color', 'option' ) : 'red';
 ?>
 <main id="content">
@@ -9,7 +9,10 @@
         <div class="overlay">
             <h1>
                 <div class="container">
-                    <span class="subheading search-subheading"><?php echo $wp_query->found_posts; ?> <?php _e( 'Search results for', 'dutchtown' ); ?> </span><?php the_search_query(); ?>
+                    <?php the_field( $acf_prefix . '_page_title', 'option' ); ?>
+                    <?php if ( get_field( $acf_prefix . '_page_subtitle', 'option' ) ) : ?>
+                    <span class="subheading"><?php the_field( $acf_prefix . '_page_subtitle', 'option' ); ?></span>
+                    <?php endif; ?>
                 </div>
             </h1>
         </div>
@@ -19,15 +22,14 @@
         <div class="row">
             <section class="page-content">
             <?php
-            if ( have_posts() ) :
-                while ( have_posts() ) :
-                    the_post();
-                    get_template_part( 'content/front-page-post' );
-                endwhile;
-                echo bootstrap_pagination();
-            else :
+                if ( get_field( $acf_prefix . '_page_content', 'option' ) ) :
+                    the_field( $acf_prefix . '_page_content', 'option' );
+                else :
+            ?>  
+                <p>It appears the page you were looking for isn&apos;t here. Perhaps you would like to search our website?</p>
+            <?php
+                endif;
             ?>
-                <p>It doesn&rsquo;t look like your search for <b><i><?php the_search_query(); ?></i></b> returned any results. Would you like to try searching for another term?</p>
                 <form id="searchform" role="search" action="<?php echo esc_url( site_url() ); ?>" method="get" class="search-results-inline">
                     <div class="search-input">
                         <label for="s">Search RDM.law</label>
@@ -37,9 +39,7 @@
                         <input type="submit" class="btn btn-primary" value="Go">
                     </div>
                 </form>
-            <?php
-            endif;
-            ?>
+                <?php echo '<p>' . get_post_thumbnail_id()->post_content . '</p>'; ?>
             </section>
         </div>
     </div>

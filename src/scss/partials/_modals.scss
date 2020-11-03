@@ -1,3 +1,7 @@
+.modal {
+    padding-right: 0 !important;
+}
+
 .modal-dialog {
     margin-left: auto;
     margin-right: auto;
@@ -21,12 +25,12 @@
 }
 
 .modal-content {
-    background-color: rgba($beige, .875);
+    background-color: rgba($beige, .9375);
     border-radius: 0;
 }
 
 .modal-header {
-    border-bottom: 1px solid $beige;
+    border-bottom: 1px solid rgba($taupe, .5);
     padding: $paragraph-margin-bottom 1rem 1rem;
 
     h5 {
@@ -44,7 +48,7 @@
     }
 }
 
-#searchform {
+.modal #searchform {
     margin: 0 auto;
 
     .form-control {
@@ -67,7 +71,7 @@
 }
 
 .modal-footer {
-    border-top: 1px solid $beige;
+    border-top: 1px solid rgba($taupe, .5);
     padding: 1rem .75rem $paragraph-margin-bottom;
 
     button[data-dismiss="modal"] {
@@ -109,7 +113,8 @@
     ul {
         font-family: $proxima;
         font-size: 1rem;
-        font-variant-caps: all-small-caps;
+        font-variant: small-caps;
+    text-transform: lowercase;
         font-weight: 300;
         letter-spacing: .05rem;
         list-style: none;
@@ -118,7 +123,7 @@
         text-align: center;
 
         li {
-            border-bottom: 1px solid rgba($beige, .5);
+            border-bottom: 1px solid rgba($taupe, .25);
             padding: .5rem 0;
 
             &:last-child {
@@ -173,7 +178,7 @@
     }
 
     ul {
-        font-variant-caps: normal;
+        font-variant: normal;
         letter-spacing: 0;
         line-height: 1.25;
     }

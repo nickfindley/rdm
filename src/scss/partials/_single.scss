@@ -46,7 +46,8 @@
     .post-published .permalink {
         font-family: $proxima;
         font-size: .75rem;
-        font-variant-caps: all-small-caps;
+        font-variant: small-caps;
+    text-transform: lowercase;
         letter-spacing: .05rem;
         line-height: 1;
         margin-top: -.5rem;

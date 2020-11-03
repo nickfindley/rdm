@@ -4,7 +4,8 @@
     color: rgba($white, .875);
     font-family: $proxima;
     font-size: 1rem;
-    font-variant-caps: all-small-caps;
+    font-variant: small-caps;
+    text-transform: lowercase;
     font-weight: 400;
     letter-spacing: .125rem;
     line-height: 1;
@@ -35,7 +36,8 @@ button:focus,
     background-color: rgba($blue, .875);
     border-color: $blue;
 
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: $blue;
         border-color: $blue;
     }
@@ -45,7 +47,8 @@ button:focus,
     background-color: rgba($red, .875);
     border-color: $red;
 
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: $red;
         border-color: $red;
     }
@@ -57,7 +60,8 @@ button:focus,
     border-color: $beige;
     color: rgba($brown, .875);
 
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: $beige;
         border-color: $beige;
         color: $brown;
@@ -68,7 +72,8 @@ button:focus,
     background-color: rgba($taupe, .875);
     border-color: $taupe;
 
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: $taupe;
         border-color: $taupe;
     }
@@ -78,7 +83,8 @@ button:focus,
     background-color: rgba($brown, .875);
     border-color: $brown;
 
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: $brown;
         border-color: $brown;
     }

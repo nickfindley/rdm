@@ -7,12 +7,14 @@ const maps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify-es').default;
 const concat = require('gulp-concat');
 const rename = require('gulp-rename');
+// const autoprefixer = require('gulp-autoprefixer');
 
 // Compile Custom Sass Files To CSS Minified Directory
 gulp.task('compile-custom-sass', function(){
     return gulp.src("./src/scss/main.scss")
     .pipe(maps.init())
     .pipe(sass({outputStyle: 'compressed'}))
+    // .pipe(autoprefixer())
     .pipe(rename('main.min.css'))
     .pipe(maps.write('./'))
     .pipe(gulp.dest('./dist/css'));

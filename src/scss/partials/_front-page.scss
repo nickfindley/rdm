@@ -13,22 +13,24 @@
     h2 {           
         font-family: $essonnes;
         font-size: 3rem;
-        font-variant-caps: normal;
+        font-variant: normal;
         font-weight: 400;
         letter-spacing: -.05rem;
         line-height: 1;
         margin-bottom: 0;
+        text-transform: none;
 
         & + p {
             color: rgba($body-color, .5);
             font-family: $proxima;
             font-size: 1rem;
-            font-variant-caps: all-small-caps;
+            font-variant: small-caps;
             font-weight: 300;
             letter-spacing: .125rem;
             line-height: 1.5;
             margin-bottom: 0;
             margin-top: $paragraph-margin-bottom / 4;
+            text-transform: lowercase;
 
             a {
                 color: rgba($link-color, .5);
@@ -98,7 +100,9 @@
     }
 
     &.additional-content-col-2 {
-        border-left: 1px solid $beige;
+        @include media-breakpoint-up(md) {
+            border-left: 1px solid $beige;
+        }
     }
 
     @include media-breakpoint-up(lg) {
@@ -125,11 +129,12 @@
             border-bottom: 1px solid rgba($beige, .5);
             font-family: $proxima;
             font-size: 1.125rem;
-            font-variant-caps: all-small-caps;
+            font-variant: small-caps;
             font-weight: 400;
             letter-spacing: .125rem;
             line-height: 1;
             padding: .5rem 0;
+            text-transform: lowercase;
 
             ul.children {
                 padding: .5rem 0 0;
@@ -137,11 +142,12 @@
                 li {
                     border-bottom: 0;
                     font-size: .875rem;
-                    font-variant-caps: normal;
+                    font-variant: normal;
                     font-weight: 300;
                     letter-spacing: 0;
                     line-height: 1.5;
                     padding: 0;
+                    text-transform: none;
                 }
             }
         }
@@ -156,7 +162,8 @@
     h3 {
         font-family: $proxima;
         font-size: 1.25rem;
-        font-variant-caps: all-small-caps;
+        font-variant: small-caps;
+    text-transform: lowercase;
         letter-spacing: .125rem;
         line-height: 1;
         margin-top: $paragraph-margin-bottom;
@@ -170,7 +177,8 @@
         color: rgba($body-color, .75);
         font-family: $proxima;
         font-size: 1.125rem;
-        font-variant-caps: all-small-caps;
+        font-variant: small-caps;
+    text-transform: lowercase;
         font-weight: 400;
         letter-spacing: .125rem;
         line-height: 1;
@@ -215,8 +223,8 @@
 .attorney-title {
     font-family: $proxima;
     font-size: .75rem;
-    font-variant-caps: all-small-caps;
+    font-variant: small-caps;
     letter-spacing: .05rem;
     line-height: 1;
-    margin-top: -.5rem;
+    text-transform: lowercase;
 }

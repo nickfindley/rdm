@@ -97,16 +97,11 @@
             </div>
             <div class="modal-body">
                 <p>Send us a message using the form below. You can also call our Kansas City Headquarters at <a href="tel:8169601611">816-960-1611</a></p>
-                <form>
-                    <p>
-                        <input type="email">
-                        <input type="submit">
-                    </p>
-                </form>
+                <?php echo do_shortcode( '[forminator_form id="823"]' ); ?>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <a href="/knowledge/" role="button" class="btn btn-primary">More Contacts</a>
+                <a href="/contact/" role="button" class="btn btn-primary">More Contacts</a>
             </div>
         </div>
     </div>
