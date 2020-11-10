@@ -1,5 +1,4 @@
 .attorneys-content .attorneys-intro {
-    border-bottom: 1px solid $beige;
     font-size: 112.5%;
     margin-bottom: $paragraph-margin-bottom /2;
     padding: $paragraph-margin-bottom 0;
@@ -19,7 +18,9 @@
     .card {
         border: 0;
         border-radius: 0;
-        margin: 0 0 $paragraph-margin-bottom;
+        border-top: 1px solid $beige;
+        margin: $paragraph-margin-bottom / 2 0;
+        padding-top: $paragraph-margin-bottom / 2;
     }
 
     .attorney-photo {
@@ -87,7 +88,7 @@
         ul.attorney-practice-areas {
             font-size: 87.5%;
             list-style: none;
-            margin: 0 0 $paragraph-margin-bottom / 2;
+            margin: 0;
             padding-left: 0;
             
             li {
@@ -111,5 +112,12 @@
                 // }
             }
         }
+    }
+
+    .card-footer {
+        background: transparent;
+        border: 0;
+        margin: 0 0 1rem;
+        padding: 0 0 $paragraph-margin-bottom / 4;
     }
 }

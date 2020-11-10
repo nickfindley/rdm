@@ -35,8 +35,10 @@
 
     <div class="container">
         <section class="attorneys-content">
-            <div class="attorneys-intro">
-                <?php the_content(); ?>
+            <div class="lede-wrapper">
+                <div class="lede">
+                    <?php the_content(); ?>
+                </div>
             </div>
             <div class="attorneys-cards">
         <?php

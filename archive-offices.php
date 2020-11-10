@@ -1,6 +1,6 @@
 <?php
     get_header();
-    $acf_prefix = 'practice';
+    $acf_prefix = 'office';
     $page_color = get_field( $acf_prefix . '_page_color', 'option' ) ? get_field( $acf_prefix . '_page_color', 'option' ) : 'blue';
 ?>
 <main id="content">
@@ -61,8 +61,7 @@
             <?php endif; ?>
         <?php
             $args = array(
-                'post_type' => 'practice_areas',
-                'orderby' => 'post_title',
+                'post_type' => 'offices',
                 'order' => 'ASC'
             );
 
@@ -72,9 +71,13 @@
                 $odd_even = '';
                 while ( $posts_query->have_posts() ) :
                     $count++;
-                    if ( $count % 2 ) : $odd_even = 'odd'; else : $odd_even = 'even'; endif;
+                    if ( $count % 2 ) :
+                        $odd_even = 'odd';
+                    else :
+                        $odd_even = 'even';
+                    endif;
                     $posts_query->the_post();
-                    get_template_part( 'content/practice-area' );
+                    get_template_part( 'content/office' );
                 endwhile;
                 wp_reset_postdata();
             endif;

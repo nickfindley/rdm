@@ -4,6 +4,8 @@
 $attorney = ( isset( $_GET['author_name'] ) ) ? get_user_by( 'slug', $author_name ) : get_userdata( intval( $author ) );
 $user_id = 'user_' . $attorney->ID;
 
+$color = get_field( 'attorney_color', $user_id ) ? get_field( 'attorney_color', $user_id ) : 'red';
+
 $first_name = $attorney->first_name;
 $last_name = $attorney->last_name;
 $telephone = $attorney->telephone;
@@ -38,7 +40,7 @@ endif;
 ?>
 
 <main id="content">
-    <header class="author-header" id="pageHeader">
+    <header class="page-header big-image-header bg-<?php echo $color; ?>" id="pageHeader">
         <?php echo wp_get_attachment_image( $office_photo_id, 'full' ); ?>
         <div class="overlay">
             <h1>
@@ -68,12 +70,12 @@ endif;
                         <li><a href="mailto:<?php echo $email; ?>"><i class="fas fa-fw fa-envelope"></i><span class="contact"><?php echo $email; ?></span></a></li>
                         <?php endif; ?>
                         <?php if ( $linkedin ) : ?>
-                        <li><a href="<?php echo $linkedin; ?>"><i class="fas fa-fw fa-linkedin"></i><span class="contact">LinkedIn</span></a></li>
+                        <li><a href="<?php echo $linkedin; ?>"><i class="fab fa-fw fa-linkedin"></i><span class="contact">Connect on LinkedIn</span></a></li>
                         <?php endif; ?>
                         <?php if ( $vcard ) : ?>
                         <li><a href="#"><i class="fas fa-fw fa-address-card"></i><span class="contact">vCard</span></a></li>
                         <?php endif; ?>
-                        <li><a href="<?php echo $office_link; ?>"><i class="fas fa-fw fa-map-marker-alt"></i><span class="contact"><address>
+                        <li><a href="<?php echo $office_link; ?>" class="office-address"><i class="fas fa-fw fa-map-marker-alt"></i><span class="contact"><address>
                                 <span class="addr-1"><?php echo $office_address; ?></span>
                                 <span class="addr-2"><?php echo $office_address_2; ?></span>
                                 <span class="addr-csz"><?php echo $office_city; ?>, <?php echo $office_state; ?> <?php echo $office_zip; ?></span>
@@ -85,15 +87,34 @@ endif;
                 <div class="author-bio">
                     <?php 
                         the_field( 'attorney_bio', $user_id );
+                        
                         $cta = get_field( 'cta', $user_id );
                         if ( $cta['headline'] ) :
                     ?>
-                    <div class="cta bg-<?php echo $cta['color']; ?>">
+                    <div class="cta bg-<?php echo $color; ?>">
                         <h3><?php echo $cta['headline']; ?></h3>
                         <?php echo $cta['body']; ?>
-                        <p><a class="btn" href="<?php echo $cta['button_link']; ?>"><?php echo $cta['button_text']; ?></a></p>
+                        
+                        <p class="cta-contact-links">
+                            <a class="btn" href="<?php echo $cta['button_link']; ?>"><?php echo $cta['button_text']; ?></a>
+
+                            <span>
+                                <?php if ( $telephone ) : ?>
+                                <span class="cta-contact-link">
+                                    <a class="btn" href="tel:<?php echo $telephone; ?>"><span class="sr-only">Telephone</span><i class="fas fa-phone"></i></a>
+                                </span>
+                                <?php endif; ?>
+                                <?php if ( $email ) : ?>
+                                <span class="cta-contact-link">
+                                    <a class="btn" href="mailto:<?php echo $email; ?>"><span class="sr-only">Email</span><i class="fas fa-envelope"></i></a>
+                                </span>
+                                <?php endif; ?>
+                            </span>
+                        </p>
                     </div>
-                    <?php endif; ?>
+                    <?php
+                        endif;
+                    ?>
                 </div>
             </div>
 
@@ -134,7 +155,7 @@ endif;
                     <ul>
                     <?php if ( ! empty ( $law_school['name'] ) ) : ?>
                         <li>
-                            <h4><?php echo $law_school['name']; ?><?php if ( $law_school['year'] ) : ?> <span class="year"><?php echo $law_school['year']; ?></span><?php endif; ?></h4>
+                            <h4><?php echo $law_school['name']; ?></h4>
                             <p>
                             <?php
                                 echo $law_school['degree'];
@@ -142,6 +163,11 @@ endif;
                                     echo ', <span class="honors">';
                                     echo $law_school['honors'];
                                     echo '</span>';
+                                endif;
+                                if ( $law_school['year'] ) :
+                            ?>
+                                <span class="year"><?php echo $law_school['year']; ?></span>
+                            <?php
                                 endif;
                             ?>
                             </p>
@@ -151,7 +177,7 @@ endif;
                         if ( ! empty ( $grad_school['name'] ) ) :
                     ?>
                         <li>
-                            <h4><?php echo $grad_school['name']; ?><?php if ( $grad_school['year'] ) : ?> <span class="year"><?php echo $grad_school['year']; ?></span><?php endif; ?></h4>
+                            <h4><?php echo $grad_school['name']; ?></h4>
                             <p>
                             <?php
                                 echo $grad_school['degree'];
@@ -159,6 +185,11 @@ endif;
                                     echo ', <span class="honors">';
                                     echo $grad_school['honors'];
                                     echo '</span>';
+                                endif;
+                                if ( $grad_school['year'] ) :
+                            ?>
+                                <span class="year"><?php echo $grad_school['year']; ?></span>
+                            <?php
                                 endif;
                             ?>
                             </p>
@@ -168,7 +199,7 @@ endif;
                         if ( ! empty ( $college['name'] ) ) :
                     ?>
                         <li>
-                            <h4><?php echo $college['name']; ?><?php if ( $college['year'] ) : ?> <span class="year"><?php echo $college['year']; ?></span><?php endif; ?></h4>
+                            <h4><?php echo $college['name']; ?></h4>
                             <p>
                             <?php
                                 echo $college['degree'];
@@ -176,6 +207,11 @@ endif;
                                     echo ', <span class="honors">';
                                     echo $college['honors'];
                                     echo '</span>';
+                                endif;
+                                if ( $college['year'] ) :
+                            ?>
+                                <span class="year"><?php echo $college['year']; ?></span>
+                            <?php
                                 endif;
                             ?>
                             </p>
@@ -229,7 +265,7 @@ endif;
                             if ( $post->post_parent_title == 'State Courts' ) :
                                 $parent_title = '';
                             else : 
-                                $parent_title = $post->post_parent_title . ', ';
+                                $parent_title = '<span class="court-parent">' . $post->post_parent_title . ' </span>';
                             endif;
                             echo '<li>' . $parent_title . $post->post_title . '</li>';
                         endforeach;
@@ -259,7 +295,7 @@ endif;
                             </a>
                             <?php endif; ?>
                             <?php if ( get_sub_field( 'year' ) ) : ?>
-                            <span class="year"> <?php the_sub_field( 'year' ); ?></span>
+                            <br><span class="year"> <?php the_sub_field( 'year' ); ?></span>
                             <?php endif; ?>
                             <?php if ( get_sub_field( 'source' ) ) : ?>
                             <span class="source">
@@ -322,13 +358,13 @@ endif;
                             <?php if ( get_sub_field( 'organization_url' ) ) : ?>
                             </a>
                             <?php endif; ?>
-                            <?php if ( get_sub_field( 'year' ) ) : ?>
-                            <span class="year"><?php the_sub_field( 'year' ); ?></span>
-                            <?php endif; ?>
                             <?php if ( get_sub_field( 'role' ) ) : ?>
                             <span class="role">
                                 <?php the_sub_field( 'role' ); ?>
                             </span>
+                            <?php endif; ?>
+                            <?php if ( get_sub_field( 'year' ) ) : ?>
+                            <span class="year"><?php the_sub_field( 'year' ); ?></span>
                             <?php endif; ?>
                         </li>
                     <?php

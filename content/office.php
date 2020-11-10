@@ -1,4 +1,8 @@
-<?php global $odd_even; ?><article class="archive-<?php echo $odd_even; ?>">
+<?php 
+    $post_color = get_field( 'page_color' ) ? get_field( 'page_color' ) : 'blue';
+?>
+<?php global $odd_even; global $page_color; ?>
+<article class="archive-<?php echo $odd_even; ?> post-<?php echo $page_color; ?>">
     <div class="row">
         <div class="archive-section-content">
         <?php if ( has_post_thumbnail() ) : ?>
@@ -24,7 +28,23 @@
                 <p><a href="<?php the_permalink(); ?>">Learn more about <?php the_title(); ?> <i class="fas fa-angle-right"></i></a></p>
             </div>
         </div>
+
         <aside class="archive-section-related">
+            <h3>Contact RDM in <span class="nobr"><?php the_title(); ?></span></h3>
+            <ul>
+                <li>
+                    <?php the_field( 'address' ); ?><br>
+                    <?php the_field( 'address_2' ); ?><br>
+                    <?php the_field( 'city' ); ?>, <?php the_field( 'state' ); ?> <?php the_field( 'zip' ); ?>
+                </li>
+                <li>
+                    <a href="tel:<?php the_field( 'main_phone' ); ?>">
+                        <?php echo phone_format( get_field( 'main_phone' ) ); ?>
+                    </a>
+                </li>
+                <li><a href="/contact/">Send us a message</a></li>
+            </ul>
+
             <h3><?php the_title(); ?> Attorneys</h3>
             <ul>
             <?php
@@ -38,7 +58,7 @@
                     'fields' => 'all',
                     'meta_query' => array(
                         array(
-                            'key' => 'practice_areas',
+                            'key' => 'office',
                             'value' => '"' . get_the_ID() . '"',
                             'compare' => 'LIKE'
                         )
@@ -72,49 +92,6 @@
                 endif;
                 ?>
             </ul>
-
-            <?php
-                $args = array(
-                    'post_type' => 'post',
-                    'posts_per_page' => 2,
-                    'orderby' => 'date',
-                    'order' => 'DESC',
-                    'suppress_filters' => true,
-                    'meta_query' => array(
-                        array(
-                            'key' => 'post_practice_areas',
-                            'value' => '"' . get_the_ID() . '"',
-                            'compare' => 'LIKE'
-                        )
-                    )
-                );
-                $posts_query = new WP_Query( $args );
-                if ( $posts_query->have_posts() ) :
-            ?>
-            <h3>Recent Posts from RDM's Knowledge Blog</h3>
-            <ul>
-            <?php
-                while ( $posts_query->have_posts() ) :
-                    $posts_query->the_post();
-
-                    $users = get_field( 'post_authors' );
-                    if ( $users ) :
-                        $authors = array();
-                        foreach ( $users as $user ) :
-                            $authors[] = $user->display_name;
-                        endforeach;
-                        $author_string = natural_language_join( $authors );
-                    else : 
-                        $author_string = get_the_author_meta( 'display_name' );
-                    endif;
-            ?>
-                <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?> <span class="post-author">by <?php echo $author_string; ?></span></a></li>
-            <?php endwhile; ?>
-            </ul>
-            <?php
-                endif;
-                wp_reset_postdata();
-            ?>
         </aside>
     </div>
 </article>

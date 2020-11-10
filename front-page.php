@@ -82,8 +82,8 @@
                     ?>
                     </ul>
 
-                    <h3>Knowledge</h3>
-                    <p>RDM brings decades of experience and deep industry knowledge to our clients. Read our <a href="/knowledge/">Knowledge Blog</a> for insight and opinions on news that affects our corner of the legal world.</p>
+                    <h3>RDM's <?php the_field( 'blog_name', 'options' ); ?> Blog</h3>
+                    <?php the_field( 'blog_description', 'options' ); ?>
                     <h4>News Categories</h4>
                     <ul>
                         <?php wp_list_categories( array( 'title_li' => '', 'hide_empty' => 0, 'exclude' => '1' ) ); ?>
@@ -116,12 +116,13 @@
                     <h3>Licensed <br>to Practice</h3>
                     <ul class="admissions">
                     <?php
-                    wp_list_pages( array(
+                    wp_list_pages(
+                        array(
                             'post_type' => 'admissions', // replace with your cpt's slug
                             'title_li' => '', // don't include a title LI
                             'post_status' => 'publish', // don't include private/draft/etc.
                             'sort_column' => 'post_title', // order by post title
-                            'walker' => new rdm_walker
+                            'walker' => new rdm_no_link_walker
                         )
                     );
                     ?>

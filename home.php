@@ -1,18 +1,38 @@
-<?php get_header(); ?>
+<?php
+    get_header();
+    $page_for_posts = get_option( 'page_for_posts' );
+    $page_color = get_field( 'page_color', $page_for_posts ) ? get_field( 'page_color', $page_for_posts ) : 'blue';
+?>
 <main id="content" class="blog-page">
-    <header class="blog-header big-image-header page-header bg-red" id="pageHeader">
-        <?php
-            $page_for_posts = get_option( 'page_for_posts' );
-            echo get_the_post_thumbnail( $page_for_posts, 'full' );
-        ?>
+    <?php       
+        if ( has_post_thumbnail( $page_for_posts ) ) : ?>
+    <header class="page-header big-image-header bg-<?php echo $page_color; ?>" id="pageHeader">
+        <?php echo get_the_post_thumbnail( $page_for_posts, 'full' ); ?>
         <div class="overlay">
             <h1>
                 <div class="container">
-                    Knowledge <span class="subheading">The <img class="rdm-logo" src="/wp-content/themes/rdm/dist/img/rdm.white.trans.png" alt="RDM"> Blog</span>
+                    <?php the_field( 'blog_name', 'options' ); ?>
+                    <span class="subheading">
+                        The <img class="rdm-logo" src="/wp-content/themes/rdm/dist/img/rdm.white.trans.png" alt="RDM"> Blog
+                    </span>
                 </div>
             </h1>
         </div>
     </header>
+
+    <?php else : ?>
+
+    <header class="page-header plain-header bg-<?php echo $page_color; ?>" id="pageHeader">
+        <h1>
+            <div class="container">
+                <?php the_field( 'blog_name', 'options' ); ?>
+                <span class="subheading">
+                    The <img class="rdm-logo" src="/wp-content/themes/rdm/dist/img/rdm.white.trans.png" alt="RDM"> Blog
+                </span>
+            </div>
+        </h1>
+    </header>
+    <?php endif; ?>
 
     <div class="container">
         <div class="row">
@@ -31,8 +51,8 @@
             <div class="blog-sidebars">
                 <div class="blog-sidebars-row">
                     <aside class="blog-sidebar">
-                        <h3>RDM's Knowledge Blog</h3>
-                        <p>Vivamus mattis tincidunt velit id dictum. Integer tincidunt mattis convallis. Pellentesque convallis, mauris eget efficitur lobortis, ex lacus vehicula nisi, quis faucibus nunc tellus sit amet dolor.</p>
+                        <h3>RDM's <?php the_field( 'blog_name', 'options' ); ?> Blog</h3>
+                        <?php the_field( 'blog_description', 'options' ); ?>
 
                         <h3>Post Categories</h3>
                         <ul class="blog-sidebar-categories">
@@ -41,11 +61,33 @@
                     </aside>
 
                     <aside class="blog-sidebar">
+                        <h3>Practice <br>Areas</h3>
+                        <ul>
+                        <?php
+                            $args = array(
+                                'post_type' => 'practice_areas',
+                                'posts_per_page' => -1,
+                                'orderby' => 'title',
+                                'order' => 'ASC'
+                            );
+                            $services_query = new WP_Query( $args );
+                            if ( $services_query->have_posts() ) :
+                                while ( $services_query->have_posts() ) :
+                                    $services_query->the_post();
+                                    ?>
+                                    <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></l1>
+                                    <?php
+                                endwhile;
+                            endif;
+                            wp_reset_postdata();
+                        ?>
+                        </ul>
+
                         <h3>Members &amp; <br>Associates</h3>
                         <ul class="blog-sidebar-attorneys">
                         <?php
                             $args = array(
-                                'number' => 10,
+                                'number' => 15,
                                 'meta_key' => 'start_date',
                                 'orderby' => 'start_date',
                                 'order' => 'ASC',
@@ -67,7 +109,7 @@
                                 endforeach;
                             endif;
                         ?>
-                            <li class="view-all"><a href="/attorneys/">Meet all of the attorneys at RDM <svg class="mdi" width="12" height="12" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg></a></li>
+                            <li><a href="/attorneys/" class="view-all">Meet all of the attorneys at RDM <i class="fas fa-angle-right"></i></a></li>
                         </ul>
                     </aside>
                 </div>

@@ -20,7 +20,19 @@ $headline = get_field( 'headline' );
 $text = get_field( 'text' );
 $button_text = get_field( 'button_text' );
 $button_link = get_field( 'button_link' );
-$color = get_field( 'color' );
+
+// $color = get_field( 'color' );
+$attorney = ( isset( $_GET['author_name'] ) ) ? get_user_by( 'slug', $author_name ) : get_userdata( intval( $author ) );
+$user_id = 'user_' . $attorney->ID;
+
+global $post;
+if ( get_field( 'post_color', $post->ID ) ) :
+    $color = get_field( 'post_color', $post->ID );
+elseif ( get_field( 'page_color' ) ) :
+    $color = get_field( 'page_color' );
+else :
+    $color = 'blue';
+endif;
 ?>
 
 <div class="cta bg-<?php echo $color . $className; ?>" id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $className ); ?>">

@@ -26,13 +26,13 @@
 
     h3 {
         font-family: $essonnes;
-        font-size: 1.5rem;
         font-variant: normal;
-        font-weight: 300;
+        // font-weight: 300;
         letter-spacing: 0;
         line-height: 1.25;
-        margin-bottom: $paragraph-margin-bottom / 2;
-        padding: 0 !important;
+        // margin-bottom: $paragraph-margin-bottom / 2;
+        // padding: 0 !important;
+        text-transform: none;
 
         @include media-breakpoint-up(xl) {
             font-size: 2rem;
@@ -77,11 +77,23 @@
         }            
     }
 
-    &:not(.bg-beige) a {
+    &:not(.bg-beige) a:not(.btn) {
         color: rgba($white, .875);
+        text-decoration-color: rgba($white, .5);
 
         &:hover {
             color: $white;
+            text-decoration-color: rgba($white, .875);
+        }
+    }
+
+    &.bg-beige a:not(.btn) {
+        color: rgba($brown, .75);
+        text-decoration-color: rgba($brown, .5);
+
+        &:hover {
+            color: $brown;
+            text-decoration-color: rgba($brown, .875);
         }
     }
 

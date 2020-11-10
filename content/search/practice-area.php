@@ -1,4 +1,4 @@
-<?php global $odd_even; ?><article class="archive-<?php echo $odd_even; ?>">
+<article>
     <div class="row">
         <div class="archive-section-content">
         <?php if ( has_post_thumbnail() ) : ?>
@@ -72,49 +72,6 @@
                 endif;
                 ?>
             </ul>
-
-            <?php
-                $args = array(
-                    'post_type' => 'post',
-                    'posts_per_page' => 2,
-                    'orderby' => 'date',
-                    'order' => 'DESC',
-                    'suppress_filters' => true,
-                    'meta_query' => array(
-                        array(
-                            'key' => 'post_practice_areas',
-                            'value' => '"' . get_the_ID() . '"',
-                            'compare' => 'LIKE'
-                        )
-                    )
-                );
-                $posts_query = new WP_Query( $args );
-                if ( $posts_query->have_posts() ) :
-            ?>
-            <h3>Recent Posts from RDM's Knowledge Blog</h3>
-            <ul>
-            <?php
-                while ( $posts_query->have_posts() ) :
-                    $posts_query->the_post();
-
-                    $users = get_field( 'post_authors' );
-                    if ( $users ) :
-                        $authors = array();
-                        foreach ( $users as $user ) :
-                            $authors[] = $user->display_name;
-                        endforeach;
-                        $author_string = natural_language_join( $authors );
-                    else : 
-                        $author_string = get_the_author_meta( 'display_name' );
-                    endif;
-            ?>
-                <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?> <span class="post-author">by <?php echo $author_string; ?></span></a></li>
-            <?php endwhile; ?>
-            </ul>
-            <?php
-                endif;
-                wp_reset_postdata();
-            ?>
         </aside>
     </div>
 </article>

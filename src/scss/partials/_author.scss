@@ -25,7 +25,6 @@
         font-family: $proxima;
         font-size: 2.5rem;
         font-variant: small-caps;
-    text-transform: lowercase;
         font-weight: 300;
         letter-spacing: .25rem;
         line-height: .875;
@@ -33,6 +32,7 @@
         padding: 2rem;
         text-align: center;
         text-shadow: 0 .125rem 1rem rgba($black, .5);
+        text-transform: lowercase;
         width: 100%;
 
         @include media-breakpoint-up(md) {
@@ -49,12 +49,12 @@
             font-family: $garamond;
             font-size: 1.25rem;
             font-variant: small-caps;
-    text-transform: lowercase;
             font-weight: 400;
             letter-spacing: .25rem;
             line-height: .875;
             position: relative;
             text-indent: .25rem;
+            text-transform: lowercase;
 
             @include media-breakpoint-up(md) {
                 font-size: 1.5rem;
@@ -127,15 +127,11 @@
 
         &:last-child {
             border-bottom: 0;
+            padding-bottom: 0;
         }
 
         a {
             text-decoration: none;
-        }
-
-        .contact {
-            left: .5rem;
-            position: relative;
         }
     }
 
@@ -143,18 +139,25 @@
     i.fab {
         padding-right: $paragraph-margin-bottom;
     }
+}
+
+.office-address {
+    align-items: flex-start;
+    display: flex;
 
     address {
-        display: inline;
-        margin-left: -.25rem;
-
-        .addr-2,
-        .addr-csz,
-        .addr-ph {
-            display: block;
-            margin-left: 32px;
-        }
+        margin-bottom: 0;
     }
+
+    i {
+        line-height: 2.25;
+    }
+}
+
+.addr-2,
+.addr-csz,
+.addr-ph {
+    display: block;
 }
 
 .author-bio {
@@ -175,39 +178,44 @@
 .author-details {
     border-top: 1px solid $beige;
     margin: 0;
-    padding: $paragraph-margin-bottom / 2 0;
+    padding-bottom: $paragraph-margin-bottom / 2;
 
     @include media-breakpoint-up(md) {
         padding: 0;
     }
 }
 
-.author-education,
-.author-practice,
-.author-admissions,
-.honors-or-activities .author-honors,
-.honors-and-activities .author-honors {
-    border-bottom: 1px solid $beige;
-}
-
-.author-education,
-.author-practice,
-.author-admissions,
-.author-honors,
-.author-activities {
+.author-details {
     @include make-col-ready;
     @include make-col(12);
     font-size: .875rem;
     line-height: 1.25;
-    padding: $paragraph-margin-bottom / 2 0;
+    padding: $paragraph-margin-bottom 0 0;
+
+    @include media-breakpoint-up(md) {
+        padding: 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+        padding: $paragraph-margin-bottom / 2 0;
+    }
+
+    & > div {
+        margin-bottom: $paragraph-margin-bottom;
+        padding-left: 0;
+        padding-right: 0;
+
+        @include media-breakpoint-up(md) {
+            margin-bottom: 0;
+        }
+    }
 
     h3 {
-        font-family: $proxima;
         font-size: 1.5rem;
         font-variant: small-caps;
-    text-transform: lowercase;
         font-weight: 400;
-        letter-spacing: .25rem;
+        letter-spacing: .125rem;
+        text-transform: lowercase;
 
         br {
             display: none;
@@ -224,6 +232,10 @@
         @include media-breakpoint-up(lg) {
             font-size: 1.375rem;
             letter-spacing: .125rem;
+
+            br {
+                display: none;
+            }
         }
 
         @include media-breakpoint-up(xl) {
@@ -234,9 +246,11 @@
     ul {
         list-style: none;
         padding-left: 0;
+        padding-bottom: $paragraph-margin-bottom;
 
         &:last-child {
             margin-bottom: 0;
+            padding-bottom: 0;
         }
     }
 
@@ -246,6 +260,7 @@
 
         &:last-child {
             border-bottom: 0;
+            padding-bottom: 0;
         }
 
         a {
@@ -256,11 +271,11 @@
             font-family: $proxima;
             font-size: 1rem;
             font-variant: small-caps;
-    text-transform: lowercase;
             font-weight: 400;
             letter-spacing: .125rem;
             line-height: .875;
             margin: 0 0 .5rem;
+            text-transform: lowercase;
         }
 
         p {
@@ -278,8 +293,11 @@
     }
 
     .year {
-        color: rgba($body-color, .75);
-        font-size: 75%;
+        @extend .sc-smaller-light;
+
+        &:before {
+            content: " · ";
+        }
     }
 
     .honors {
@@ -288,27 +306,39 @@
     }
 }
 
+.author-admissions {
+    @include media-breakpoint-between(lg, xl) {
+        h3 {
+            text-indent: -.125rem;
+        }
+    }
+
+    .court-parent {
+        @extend .sc-smaller-light;
+        display: block;
+    }
+}
+
 .author-honors,
 .author-activities {
     .year {
-        color: rgba($body-color, .625);
-        font-size: .75rem;
-        font-variant: small-caps;
-    text-transform: lowercase;
-        letter-spacing: .05rem;
+        @extend .sc-smaller-light;
     }
 
     .source,
     .role {
-        color: rgba($body-color, .75);
+        @extend .sc-small;
         display: block;
-        font-size: .875rem;
-        font-variant: small-caps;
-    text-transform: lowercase;
-        letter-spacing: .05rem;
-        line-height: 1.25;
     }
 }
+
+// .author-education,
+//     .author-practice,
+//     .author-admissions,
+//     .author-honors,
+//     .author-activities {
+//         margin-bottom: $paragraph-margin-bottom;
+//     }
 
 @include media-breakpoint-up(md) {
     .author-education,
@@ -316,26 +346,27 @@
     .author-admissions,
     .author-honors,
     .author-activities {
-        border-bottom: 0 !important;
-        margin-bottom: $paragraph-margin-bottom / 2;
+        margin-bottom: $paragraph-margin-bottom / 2 0;
         margin-top: 0;
         padding: $paragraph-margin-bottom / 2 0;
 
-        ul:last-child {
-            margin-bottom: 0;
-        }
+        
+
+            @include media-breakpoint-up(md) {
+                margin-bottom: 0;
+            }
+    
     }
 
     .author-wrap {
-        height: calc(100% - #{$paragraph-margin-bottom} / 2);
-        margin-top: $paragraph-margin-bottom / 2;
+        height: 100%;
     }
 
     .author-education {
         @include make-col(4);
         
         .author-wrap {
-            padding: 0 15px 0 0;
+            padding: 0 .75rem 0 0;
         }
     }
 
@@ -343,7 +374,7 @@
     .author-admissions {
         .author-wrap {
             border-left: 1px solid $beige;
-            padding: 0 15px;
+            padding: 0 .75rem;
         }
     }
 
@@ -370,7 +401,7 @@
 
             .author-wrap {
                 border-left: 0;
-                padding: 0 15px 0 0;
+                padding: 0 .75rem 0 0;
             }
         }
 
@@ -381,7 +412,7 @@
 
             .author-wrap {
                 border-left: 1px solid $beige;
-                padding: 0 0 0 15px;
+                padding: 0 0 0 .75rem;
             }
         }
     }
@@ -403,19 +434,19 @@
 
             .author-wrap {
                 border-left: 0;
-                padding: 0 15px 0 0;
+                padding: 0 .75rem 0 0;
             }
         }
 
         .author-honors {
             .author-wrap {
-                padding: 0 15px;
+                padding: 0 .75rem;
             }
         }
 
         .author-activities {
             .author-wrap {
-                padding: 0 0 0 15px;
+                padding: 0 0 0 .75rem;
             }
         }
 
@@ -447,14 +478,14 @@
 
     .author-practice {
         .author-wrap {
-            padding: 0 15px;
+            padding: 0 .75rem;
         }
     }
 
     .author-admissions {
         .author-wrap {
             border-left: 1px solid $beige;
-            padding: 0 0 0 15px;
+            padding: 0 0 0 .75rem;
         }
     }
 
@@ -475,7 +506,7 @@
         .author-admissions {
             .author-wrap {
                 border-left: 1px solid $beige;
-                padding: 0 15px;
+                padding: 0 .75rem;
             }
         }
     }
@@ -490,7 +521,7 @@
         .author-admissions {
             .author-wrap {
                 border-left: 1px solid $beige;
-                padding: 0 15px;
+                padding: 0 .75rem;
             }
         }
 
@@ -501,5 +532,24 @@
             border-bottom: 0;
             border-top: 0;
         }
+    }
+}
+
+.cta-contact-links {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    & > span {
+        display: block;
+    }
+}
+
+.cta-contact-link {
+    padding: 0 0 0 $paragraph-margin-bottom / 4;
+
+    .btn {
+        padding-left: $paragraph-margin-bottom / 2;
+        padding-right: $paragraph-margin-bottom / 2;
     }
 }

@@ -17,8 +17,16 @@ a {
         font-weight: 600;
         text-decoration: underline;
     }
+}
 
-    .mdi {
-        vertical-align: unset;
+.blog-post a.permalink .subheading {
+    color: rgba($white, .75);
+
+    &:hover {
+        color: rgba($white, .875);
     }
+}
+
+.view-all {
+    font-weight: 400;
 }

@@ -9,7 +9,7 @@
         <div class="overlay">
             <h1>
                 <div class="container">
-                    <span class="subheading search-subheading"><?php echo $wp_query->found_posts; ?> <?php _e( 'Search results for', 'dutchtown' ); ?> </span><?php the_search_query(); ?>
+                    <span class="subheading search-subheading"><span class="search-number"><?php echo $wp_query->found_posts; ?></span> <?php _e( 'Search results for', 'dutchtown' ); ?> </span><?php the_search_query(); ?>
                 </div>
             </h1>
         </div>
@@ -17,12 +17,22 @@
 
     <div class="container">
         <div class="row">
-            <section class="page-content">
+            <section class="page-content search-results">
             <?php
             if ( have_posts() ) :
                 while ( have_posts() ) :
                     the_post();
-                    get_template_part( 'content/front-page-post' );
+                    if ( get_post_type() == 'post' ) :
+                        get_template_part( 'content/search/post' );
+                    elseif ( get_post_type() == 'page' ) :
+                        get_template_part( 'content/search/page' );
+                    elseif ( get_post_type() == 'practice_areas' ) :
+                        get_template_part( 'content/search/practice-area' );
+                    elseif ( get_post_type() == 'user' ) :
+                        get_template_part( 'content/search/user' );
+                    else :
+                        echo get_post_type();
+                    endif;
                 endwhile;
                 echo bootstrap_pagination();
             else :

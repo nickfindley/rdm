@@ -129,16 +129,6 @@
         color: rgba($white, .5);
         display: inline-block;
         line-height: 1;
-
-        .mdi {
-            fill: rgba($white, .75);
-            margin: 0;
-            transition: all .25s ease-in-out;
-
-            &:hover {
-                fill: $white;
-            }
-        }
     }
 
     .search-text {
@@ -205,15 +195,6 @@
 
             &:hover {
                 color: $white;
-
-                .mdi {
-                    fill: $white;
-                }
-            }
-
-            .mdi {
-                fill: rgba($white, .75);
-                width: 1.25rem;
             }
         }
     }
@@ -289,13 +270,13 @@
 
     .navbar {
         flex: 0;
+    }
+}
 
-        .mdi {
-            fill: rgba($white, .75);
+.navbar .search-icon i {
+    vertical-align: text-bottom;
 
-            &:hover {
-                fill: $white;
-            }
-        }
+    @include media-breakpoint-up(md) {
+        vertical-align: unset;
     }
 }

@@ -19,7 +19,7 @@ if( function_exists( 'acf_add_options_page' ) ) :
     {
         acf_add_options_sub_page(array(
             'page_title' 	=> '404 Page Settings',
-            'menu_title'	=> '404 Page Settings',
+            'menu_title'	=> '404 Page',
             'menu_slug' 	=> '404-page-settings',
             'capability'	=> 'edit_posts',
             'redirect'		=> false
@@ -27,23 +27,39 @@ if( function_exists( 'acf_add_options_page' ) ) :
 
         acf_add_options_sub_page(array(
             'page_title' 	=> 'Archive Page Settings',
-            'menu_title'	=> 'Archive Page Settings',
+            'menu_title'	=> 'Archive Page',
             'menu_slug' 	=> 'archive-page-settings',
             'capability'	=> 'edit_posts',
             'redirect'		=> false
         ));
 
         acf_add_options_sub_page(array(
+            'page_title' 	=> 'Blog Page Settings',
+            'menu_title'	=> 'Blog Page',
+            'menu_slug' 	=> 'blog-page-settings',
+            'capability'	=> 'edit_posts',
+            'redirect'		=> false
+        ));
+
+        acf_add_options_sub_page(array(
             'page_title' 	=> 'Office Page Settings',
-            'menu_title'	=> 'Office Page Settings',
+            'menu_title'	=> 'Office Page',
             'menu_slug' 	=> 'office-page-settings',
             'capability'	=> 'edit_posts',
             'redirect'		=> false
         ));
 
         acf_add_options_sub_page(array(
+            'page_title' 	=> 'Practice Area Page Settings',
+            'menu_title'	=> 'Practice Area Page',
+            'menu_slug' 	=> 'practice-area-page-settings',
+            'capability'	=> 'edit_posts',
+            'redirect'		=> false
+        ));
+
+        acf_add_options_sub_page(array(
             'page_title' 	=> 'Search Results Page Settings',
-            'menu_title'	=> 'Search Results Page Settings',
+            'menu_title'	=> 'Search Results Page',
             'menu_slug' 	=> 'search-results-page-settings',
             'capability'	=> 'edit_posts',
             'redirect'		=> false

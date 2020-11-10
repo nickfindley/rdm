@@ -44,8 +44,8 @@ function bootstrap_pagination( \WP_Query $wp_query = null, $echo = true ) {
 			'end_size'     => $end_size,
 			'mid_size'     => $mid_size,
 			'prev_next'    => true,
-			'prev_text'    => __( '&larr; Newer Posts' ),
-			'next_text'    => __( 'Older Posts &rarr;' ),
+			'prev_text'    => __( '<i class="fas fa-angle-left"></i> Previous Page' ),
+			'next_text'    => __( 'Next Page <i class="fas fa-angle-right"></i>' ),
 			'add_args'     => false,
 			'add_fragment' => ''
 		]

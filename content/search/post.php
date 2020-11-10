@@ -20,10 +20,10 @@
     </header>
     <?php else : ?>
     <header>
-        <div class="post-title bg-<?php echo $post_color; ?>">
+        <div class="post-title">
             <h3>
                 <a class="permalink" href="<?php the_permalink(); ?>">
-                    <?php the_title(); ?>
+                    <?php relevanssi_the_title(); ?>
                     <?php if ( get_field( 'post_subtitle' ) ) : ?>
                     <span class="subheading"><?php the_field( 'post_subtitle' ); ?></span>
                     <?php endif; ?>
@@ -61,7 +61,7 @@
             </ul>
         </section>
         <section class="post-content">
-            <?php the_content(); ?>
+            <?php the_excerpt(); ?>
         </section>
     </div>
 </article>

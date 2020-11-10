@@ -1,0 +1,19 @@
+.lede-wrapper {
+    margin-bottom: $paragraph-margin-bottom /2;
+}
+
+.lede {
+    @extend .col-xl-8;
+    @extend .offset-xl-2;
+    font-size: 112.5%;
+    padding-bottom: $paragraph-margin-bottom / 2;
+    padding-top: $paragraph-margin-bottom;
+
+    p:first-child {
+        font-size: 125%;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}

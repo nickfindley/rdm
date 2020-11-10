@@ -1,10 +1,12 @@
 <article class="blog-post post-color-<?php global $post_color; echo $post_color; ?>">
-    <header>
     <?php if ( has_post_thumbnail() ) : ?>
+    <header class="has-post-thumbnail">
         <div class="post-thumbnail">
             <?php the_post_thumbnail(); ?>
         </div>
-    <?php endif ?>
+    <?php else : ?>
+    <header>
+    <?php endif; ?>
         <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
         <div class="post-meta">
             <p class="byline">
@@ -25,6 +27,15 @@
     </header>
 
     <div class="post-content">
-        <?php the_excerpt(); ?>
+        <?php 
+            if ( has_excerpt() ) :
+        ?>
+            <p><?php echo get_the_excerpt(); ?></p>
+            <p><a class="more-link" href="<?php the_permalink(); ?>">Continue reading  <span><?php the_title(); ?></span> <i class="fas fa-angle-right"></i></a></p>
+        <?php
+            else :
+                the_excerpt();
+            endif;
+        ?>
     </div>
 </article>

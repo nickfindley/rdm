@@ -37,6 +37,11 @@ h6 {
     font-variant: small-caps;
     text-transform: lowercase;
     line-height: .875;
+
+    .subheading {
+        @extend .sc-small;
+        display: block;
+    }
 }
 
 h2 {
@@ -90,6 +95,15 @@ h6 {
     margin-bottom: 0;
 }
 
+p,
+ol,
+ul,
+dl {
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
 blockquote {
     p {
         color: rgba($brown, .875);
@@ -115,4 +129,24 @@ blockquote {
 
 .fab, .fas {
     font-size: 75%;
+}
+
+.oldstyle-numbers {
+    font-variant: all-small-caps;
+}
+
+.sc-small {
+    font-size: .875rem;
+    font-variant: small-caps;
+    letter-spacing: .05rem;
+    line-height: 1.25;
+    text-transform: lowercase;
+}
+
+.sc-smaller-light {
+    font-size: .75rem;
+    font-variant: small-caps;
+    letter-spacing: .05rem;
+    opacity: .625;
+    text-transform: lowercase;
 }

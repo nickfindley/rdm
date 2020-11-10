@@ -42,6 +42,7 @@ img.rdm-logo {
             letter-spacing: -.05rem;
             line-height: 1;
             padding-top: $paragraph-margin-bottom;
+            text-transform: none;
 
             .subheading {
                 color: rgba($body-color, .5);
@@ -66,26 +67,43 @@ img.rdm-logo {
     .blog-sidebars {
         @extend .col-md-4;
         margin-bottom: $paragraph-margin-bottom;
+        margin-top: $paragraph-margin-bottom;
+        padding-top: $paragraph-margin-bottom / 2;
+
+        @include media-breakpoint-up(md) {
+            border-left: 1px solid $beige;
+            margin-bottom: 0;
+            margin-top: $paragraph-margin-bottom;
+            padding-top: 0;
+        }
 
         @include media-breakpoint-up(lg) {
-            margin-top: $paragraph-margin-bottom;
+            border-left: 0;
+        }
+    }
 
-            .blog-sidebars-row {
-                @include make-row;
-                height: 100%;
-                padding-top: 0;
-            }
+    .blog-sidebars-row {
+        border-top: 1px solid $beige;
+        padding-top: $paragraph-margin-bottom / 2;
+
+        @include media-breakpoint-up(md) {
+            border-top: 0;
+        }
+
+        @include media-breakpoint-up(lg) {
+            @include make-row;
+            height: 100%;
+            padding-top: 0;
         }
     }
 
     .blog-sidebar {
-        border-top: 1px solid $beige;
-        padding-top: $paragraph-margin-bottom;
+        &:nth-child(2) {
+            padding-top: $paragraph-margin-bottom;
 
-        @include media-breakpoint-up(md) {
-            border-top: 0;
-            margin-top: $paragraph-margin-bottom;
-            padding-top: 0;
+            @include media-breakpoint-up(md) {
+                padding-top: 0;
+            }
         }
 
         @include media-breakpoint-up(lg) {
@@ -103,10 +121,8 @@ img.rdm-logo {
 
     br {
         display: none;
-    }
 
-    @include media-breakpoint-up(md) {
-        br {
+        @include media-breakpoint-up(lg) {
             display: inline;
         }
     }
@@ -130,52 +146,67 @@ img.rdm-logo {
         background-color: transparent;
     }
 
-    h2,
-    h3 {
-        margin-bottom: 0;
-        width: 100%;
+    header {
+        h2,
+        h3 {
+            margin-bottom: 0;
+            width: 100%;
 
-        a {
-            color: rgba($white, .875);
-            text-decoration: none;
+            a {
+                color: rgba($white, .875);
+                text-decoration: none;
 
-            &:hover {
-                color: $white;
+                &:hover {
+                    color: $white;
+                }
             }
-        }
 
-        .subheading {
-            display: block;
-            font-family: $essonnes;
-            font-size: 1.5rem;
-            font-variant: normal;
-            font-weight: 400;
-            letter-spacing: 0;
-            line-height: 1.125;
-            margin-top: .5rem;
+            .subheading {
+                display: block;
+                font-family: $essonnes;
+                font-size: 1.5rem;
+                font-variant: normal;
+                font-weight: 400;
+                letter-spacing: 0;
+                line-height: 1.125;
+                margin-top: .5rem;
+                text-transform: none;
+            }
         }
     }
 
     .post-title {
         box-shadow: $box-shadow-light;
-        padding: $paragraph-margin-bottom $paragraph-margin-bottom $paragraph-margin-bottom calc(var(--bs-gutter-x) / 2);
+        padding: $paragraph-margin-bottom $paragraph-margin-bottom $paragraph-margin-bottom 0;
         transition: all .25s ease-in-out;
 
-        @include media-breakpoint-up(lg) {
+        @include media-breakpoint-up(md) {
             padding: 0 $paragraph-margin-bottom / 2 0 calc(33.3333% + calc(var(--bs-gutter-x) / 2));
         }
     }
     
-    header.has-post-thumbnail {
+    .has-post-thumbnail {
         position: relative;
 
         .post-thumbnail {
             box-shadow: $box-shadow;
+            position: relative;
 
             img {
                 min-height: 16rem;
                 object-fit: cover;
                 position: relative;
+            }
+
+            &:after {
+                background-color: rgba($red, .25);
+                bottom: 0;
+                content: "";
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                transition: .5s all ease-in-out;
             }
         }
 
@@ -183,23 +214,7 @@ img.rdm-logo {
             align-items: flex-end;
             transition: all .25s ease-in-out;
             width: auto;
-        }
-
-        h2,
-        h3 {
-            backdrop-filter: blur(3px);
-            padding: $paragraph-margin-bottom / 2 $paragraph-margin-bottom / 2 $paragraph-margin-bottom / 2 calc(var(--bs-gutter-x) / 2);
-            text-shadow: 0 .125rem 1rem rgba($black, .5);
-
-            @include media-breakpoint-up(lg) {
-                padding: $paragraph-margin-bottom $paragraph-margin-bottom $paragraph-margin-bottom calc(33.3333% + calc(var(--bs-gutter-x) / 2));
-            }
-
-            .subheading {
-                margin-top: $paragraph-margin-bottom / 2;
-                text-transform: none;
-            }
-        }
+        }        
     }
 
     .post-meta {
@@ -207,11 +222,11 @@ img.rdm-logo {
         font-family: $proxima;
         font-size: .75rem;
         font-variant: small-caps;
-    text-transform: lowercase;
         font-weight: 300;
         letter-spacing: .05rem;
         line-height: 2;
         margin-top: $paragraph-margin-bottom / 2;
+        text-transform: lowercase;
 
         @include media-breakpoint-up(xl) {
             font-size: .875;
@@ -298,22 +313,10 @@ img.rdm-logo {
 
 .front-page-blog {
     .post-thumbnail {
-        margin-bottom: $paragraph-margin-bottom;
-        position: relative;
-        
-        &:after {
-            background-color: rgba($red, .25);
-            bottom: 0;
-            content: "";
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            transition: .5s all ease-in-out;
-        }
+        margin-bottom: $paragraph-margin-bottom / 2;
     }
 
-    h3 a {
+    .blog-post h3 a {
         color: $link-color;
 
         &:hover {
@@ -327,12 +330,35 @@ img.rdm-logo {
 }
 
 .blog-page,
-.attorney-blog {
+.attorney-blog,
+.search-results {
     .blog-post {
-        h2,
-        h3 {
-            @include media-breakpoint-up(lg) {
-                padding: $paragraph-margin-bottom $paragraph-margin-bottom $paragraph-margin-bottom 0;
+        header {
+            h2,
+            h3 {
+                backdrop-filter: blur(3px);
+                padding: 0 $paragraph-margin-bottom / 2;
+                text-shadow: 0 .125rem 1rem rgba($black, .5);
+
+                @include media-breakpoint-up(md) {
+                    padding: $paragraph-margin-bottom $paragraph-margin-bottom $paragraph-margin-bottom 0;
+                }
+
+                .subheading {
+                    margin-top: $paragraph-margin-bottom / 2;
+                    text-transform: none;
+                }
+            }
+        }
+
+        & .has-post-thumbnail {
+            h2,
+            h3 {
+                padding: $paragraph-margin-bottom / 2 $paragraph-margin-bottom / 2 $paragraph-margin-bottom / 2 calc(var(--bs-gutter-x) / 2);
+
+                @include media-breakpoint-up(md) {
+                    padding: $paragraph-margin-bottom $paragraph-margin-bottom $paragraph-margin-bottom calc(33.3333% + calc(var(--bs-gutter-x) / 2));
+                }
             }
         }
 
@@ -359,8 +385,4 @@ img.rdm-logo {
             margin-top: $paragraph-margin-bottom;
         }
     }
-}
-
-.view-all {
-    font-weight: 400;
 }

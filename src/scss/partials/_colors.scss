@@ -214,22 +214,52 @@
     }
 }
 
-.post-blue blockquote {
-    border-color: $blue;
+.post-blue {
+    blockquote {
+        border-color: $blue;
+    }
+
+    .archive-section-title.has-post-thumbnail h2 {
+        background-color: rgba($blue, .25);
+    }
 }
 
-.post-red blockquote {
-    border-color: $red;
+.post-red {
+    blockquote {
+        border-color: $red;
+    }
+
+    .archive-section-title.has-post-thumbnail h2 {
+        background-color: rgba($red, .25);
+    }
 }
 
-.post-beige blockquote {
-    border-color: $beige;
+.post-beige {
+    blockquote {
+        border-color: $beige;
+    }
+
+    .archive-section-title.has-post-thumbnail h2 {
+        background-color: rgba($beige, .25);
+    }
 }
 
-.post-taupe blockquote {
-    border-color: $taupe;
+.post-taupe {
+    blockquote {
+        border-color: $taupe;
+    }
+
+    .archive-section-title.has-post-thumbnail h2 {
+        background-color: rgba($taupe, .25);
+    }
 }
 
-.post-brown blockquote {
-    border-color: $brown;
+.post-brown {
+    blockquote {
+        border-color: $brown;
+    }
+
+    .archive-section-title.has-post-thumbnail h2 {
+        background-color: rgba($brown, .25);
+    }
 }
