@@ -3,7 +3,17 @@
         <div class="archive-section-content">
         <?php if ( has_post_thumbnail() ) : ?>
             <header class="archive-section-title has-post-thumbnail">
-                <?php the_post_thumbnail(); ?>
+            <?php
+                if ( get_the_ID() == 53 ) :
+                    // adr replacement
+                    echo wp_get_attachment_image( 1020, 'full' );
+                elseif ( get_the_ID() == 599 ) :
+                    // premises replacement
+                    echo wp_get_attachment_image( 1060, 'full' );
+                else :
+                    the_post_thumbnail();
+                endif;
+                ?>
                 <div class="overlay">
                     <h2>
                         <a href="<?php the_permalink(); ?>"><?php the_title() ?></a>

@@ -109,11 +109,17 @@
 
 .archive-section-body {
     p:first-child {
-        font-size: 1.125rem;
+        font-size: 112.5%;
     }
 
     p:last-child {
         margin-bottom: 0;
+    }
+}
+
+.search-results .archive-section-body {
+    p:first-child {
+        font-size: 100%;
     }
 }
 

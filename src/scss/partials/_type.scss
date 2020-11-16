@@ -131,6 +131,11 @@ blockquote {
     font-size: 75%;
 }
 
+.cc {
+    @extend .fab;
+    @extend .fa-creative-commons;
+}
+
 .oldstyle-numbers {
     font-variant: all-small-caps;
 }

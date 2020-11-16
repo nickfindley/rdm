@@ -30,8 +30,8 @@
                         get_template_part( 'content/search/practice-area' );
                     elseif ( get_post_type() == 'user' ) :
                         get_template_part( 'content/search/user' );
-                    else :
-                        echo get_post_type();
+                    elseif ( get_post_type() == 'offices' ) :
+                        get_template_part( 'content/search/office' );
                     endif;
                 endwhile;
                 echo bootstrap_pagination();

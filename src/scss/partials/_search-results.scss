@@ -1,4 +1,8 @@
 .search-results {
+    .archive-section-related {
+        margin-bottom: $paragraph-margin-bottom / 2;
+    }
+
     .attorney {
         border-top: 1px solid $beige;
         margin-bottom: $paragraph-margin-bottom / 2;
@@ -30,6 +34,38 @@
         .attorney-photo {
             @extend .col;
             @extend .col-md-3;
+
+            img {
+                box-shadow: $box-shadow-light;
+                transition: all ease-in-out .25s;
+
+                &:hover {
+                    box-shadow: $box-shadow;
+                }
+            }
+        }
+    }
+
+    .office {
+        border-top: 1px solid $beige;
+        margin-bottom: $paragraph-margin-bottom / 2;
+        margin: $paragraph-margin-bottom / 2 0 $paragraph-margin-bottom / 2;
+        padding-top: $paragraph-margin-bottom / 2;
+
+        .office-info {
+            @extend .col;
+            @extend .col-md-4;
+            padding-left: 0;
+            
+            @include media-breakpoint-up(md) {
+                border-right: 1px solid $beige;
+            }
+        }
+
+        .office-photo {
+            @extend .col;
+            @extend .col-md-8;
+            padding-right: 0;
 
             img {
                 box-shadow: $box-shadow-light;
