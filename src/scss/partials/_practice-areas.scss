@@ -32,5 +32,9 @@ $card-height: 100%;
             line-height: 1.25;
             padding: $paragraph-margin-bottom / 2 0;
         }
+
+        .attorney-link {
+            text-decoration: none;
+        }
     }
 }

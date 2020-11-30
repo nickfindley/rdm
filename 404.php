@@ -36,7 +36,7 @@
                         <input zid="s" name="s" type="text" class="form-control" placeholder="<?php esc_attr_e( 'Search &hellip;', 'rdm' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>">
                     </div>
                     <div class="search-submit">
-                        <input type="submit" class="btn btn-primary" value="Go">
+                        <input type="submit" class="btn btn-<?php echo $page_color;?>" value="Go">
                     </div>
                 </form>
                 <?php echo '<p>' . get_post_thumbnail_id()->post_content . '</p>'; ?>

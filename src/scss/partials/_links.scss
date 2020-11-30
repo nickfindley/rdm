@@ -12,6 +12,7 @@ a {
 .more-link {
     font-weight: 400;
     text-decoration: none;
+    transition: all .25s ease-in-out;
 
     span {
         font-weight: 600;

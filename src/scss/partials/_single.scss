@@ -44,12 +44,12 @@
     }
 
     .post-published .permalink {
-        font-family: $proxima;
+        display: block;
         font-size: .75rem;
         font-variant: small-caps;
         letter-spacing: .05rem;
-        line-height: 1;
-        margin-top: -.5rem;
+        line-height: 1.25;
+        opacity: .5;
         text-transform: lowercase;
     }
 

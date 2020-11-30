@@ -42,13 +42,38 @@
             </div>
             <div class="attorneys-cards">
         <?php
+            $founding_members_args = array(
+                'role' => 'contributor',
+                'fields' => 'all',
+                'meta_query' => array(
+                    array(
+                        'key' => 'title',
+                        'value' => 'Founding Member',
+                        'compare' => 'LIKE'
+                    )
+                ),
+                'meta_key' => 'start_date',
+                'orderby' => 'meta_value'
+            );
+            $founding_members_query = new WP_User_Query( $founding_members_args );
+            $founding_members = $founding_members_query->get_results();
+            if ( ! empty ( $founding_members ) ) :
+            ?>
+            <?php
+            foreach ( $founding_members as $attorney ) :              
+                get_template_part( 'content/page-attorneys-listing' );
+            endforeach;
+            ?>
+            <?php
+            endif;
+
             $members_args = array(
                 'role' => 'contributor',
                 'fields' => 'all',
                 'meta_query' => array(
                     array(
                         'key' => 'title',
-                        'value' => array( 'Founding Member', 'Member'),
+                        'value' => array( 'Member'),
                         'compare' => 'IN'
                     )
                 ),

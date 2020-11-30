@@ -116,9 +116,14 @@
 }
 
 .author-contact {
+    font-size: .875rem;
     list-style: none;
     margin: 0;
     padding-left: 0;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1rem;
+    }
 
     li {
         border-bottom: 1px solid rgba($beige, .5);
@@ -230,7 +235,7 @@
         }
 
         @include media-breakpoint-up(lg) {
-            font-size: 1.375rem;
+            font-size: 1.125rem;
             letter-spacing: .125rem;
 
             br {
@@ -246,11 +251,9 @@
     ul {
         list-style: none;
         padding-left: 0;
-        padding-bottom: $paragraph-margin-bottom;
 
         &:last-child {
             margin-bottom: 0;
-            padding-bottom: 0;
         }
     }
 

@@ -39,7 +39,7 @@
             $users = get_field( 'post_authors' );
             if ( $users ) :
                 foreach ( $users as $user ) :
-                    $authors[] = '<a href="' . get_author_posts_url( $user->ID ) . '">' . $user->display_name . '</a>';
+                    $authors[] = '<span class="nobr"><a href="' . get_author_posts_url( $user->ID ) . '">' . $user->display_name . '</a></span>';
                 endforeach;
                 echo '<p class="byline">By ' . natural_language_join( $authors ) . '<br>';
             else : 

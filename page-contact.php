@@ -1,9 +1,9 @@
 <?php
     get_header();
-    $post_color = get_field( 'post_color' ) ? get_field( 'post_color' ) : 'blue';
+    $page_color = get_field( 'page_color' ) ? get_field( 'page_color' ) : 'blue';
 ?>
 <main id="content" class="contact-page">
-    <header class="page-header big-image-header page-header bg-<?php echo $post_color; ?>" id="pageHeader">
+    <header class="page-header big-image-header page-header bg-<?php echo $page_color; ?>" id="pageHeader">
         <?php
             the_post_thumbnail();
         ?>
@@ -16,14 +16,14 @@
         </div>
     </header>
 
-    <div class="container">
-        <div class="page-wrapper">
+    <div class="container page-with-sidebar">
+        <div class="row">
             <section class="page-content">
             <?php the_content(); ?>
             </section>
 
             <aside class="page-sidebar">
-                <h3>Our Offices</h3>
+                <h3>Our Offices</h3> 
                 <?php
                     $args = array(
                         'post_type' => 'offices',

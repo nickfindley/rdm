@@ -1,18 +1,37 @@
 <?php
     get_header();
-    $post_color = get_field( 'post_color' ) ? get_field( 'post_color' ) : 'blue';
+    $page_color = get_field( 'page_color' ) ? get_field( 'page_color' ) : 'blue';
 ?>
 <main id="content">
-    <header class="page-header bg-<?php echo $post_color; ?> big-image-header" id="pageHeader">
+    
+    <?php if ( has_post_thumbnail() ) : ?>
+    <header class="page-header big-image-header bg-<?php echo $page_color; ?>" id="pageHeader">
         <?php the_post_thumbnail(); ?>
-        <div class="overlay">     
+        <div class="overlay">
             <h1>
                 <div class="container">
                     <?php the_title(); ?>
+                    <?php if ( get_field( 'page_subtitle' ) ) : ?>
+                    <span class="subheading"><?php the_field( 'page_subtitle' ); ?></span>
+                    <?php endif; ?>
                 </div>
             </h1>
         </div>
     </header>
+
+    <?php else : ?>
+
+    <header class="page-header plain-header bg-<?php echo $page_color; ?>" id="pageHeader">
+        <h1>
+            <div class="container">
+                <?php the_title(); ?>
+                <?php if ( get_field( 'page_subtitle' ) ) : ?>
+                <span class="subheading"><?php the_field( 'page_subtitle' ); ?></span>
+                <?php endif; ?>
+            </div>
+        </h1>
+    </header>
+    <?php endif; ?>
 
     <div class="container">
         <div class="row">
@@ -22,16 +41,19 @@
                 <h3>RDM&rsquo;s <?php the_title(); ?> Attorneys</h3>
                 <ul class="content-attorneys">
                 <?php
-                    $practice_id = get_the_ID();
-
-                    $args = array(
+                    $founding_members_args = array(
                         'role' => 'contributor',
                         'fields' => 'all',
                         'meta_query' => array(
                             'relation' => 'AND',
+                            'title_clause' => array(
+                                'key' => 'title',
+                                'value' => 'Founding Member',
+                                'compare' => '=='
+                            ),
                             'practice_clause' => array(
                                 'key' => 'practice_areas',
-                                'value' => $practice_id,
+                                'value' => $post->ID,
                                 'compare' => 'LIKE'
                             ),
                             'order_clause' => array(
@@ -41,80 +63,98 @@
                         ),
                         'orderby' => 'order_clause'
                     );
-                    $attorneys_query = new WP_User_Query( $args );
-                    $attorneys = $attorneys_query->get_results();
-                    if ( ! empty ( $attorneys ) ) :
-                        foreach ( $attorneys as $attorney ) :
-                            $info = get_userdata( $attorney->ID );
-                            $user_id = 'user_' . $attorney->ID;
-                            ?>
-                    <li>
-                        <div class="card">
-                            <?php echo wp_get_attachment_image( get_field( 'photo', $user_id ), 'full' ); ?>
-                            <div class="card-body">
-                                <a class="stretched-link" href="<?php echo get_author_posts_url( $attorney->ID ); ?>"><span class="attorney-name"><?php echo $info->first_name . ' ' . $info->last_name; ?></span><br>
-                                <span class="attorney-title"><?php the_field( 'title', $user_id ); ?></span></a>
-                            </div>
-                        </div>
-                    </li>
-                            <?php
+                    $founding_members_query = new WP_User_Query( $founding_members_args );
+                    $founding_members = $founding_members_query->get_results();
+                    if ( ! empty ( $founding_members ) ) :
+                        foreach ( $founding_members as $attorney ) : 
+                            include( 'content/attorney-card.php' );
+                        endforeach;
+                    endif;
+
+                    $members_args = array(
+                        'role' => 'contributor',
+                        'fields' => 'all',
+                        'meta_query' => array(
+                            'relation' => 'AND',
+                            'title_clause' => array(
+                                'key' => 'title',
+                                'value' => 'Member',
+                                'compare' => '=='
+                            ),
+                            'practice_clause' => array(
+                                'key' => 'practice_areas',
+                                'value' => $post->ID,
+                                'compare' => 'LIKE'
+                            ),
+                            'order_clause' => array(
+                                'key' => 'last_name',
+                                'compare' => 'EXISTS'
+                            )
+                        ),
+                        'orderby' => 'order_clause'
+                    );
+                    $members_query = new WP_User_Query( $members_args );
+                    $members = $members_query->get_results();
+                    if ( ! empty ( $members ) ) :
+                        foreach ( $members as $attorney ) :     
+                            include( 'content/attorney-card.php' );
+                        endforeach;
+                    endif;
+
+                    $associates_args = array(
+                        'role' => 'contributor',
+                        'fields' => 'all',
+                        'meta_query' => array(
+                            'relation' => 'AND',
+                            'title_clause' => array(
+                                'key' => 'title',
+                                'value' => 'Associate',
+                                'compare' => '=='
+                            ),
+                            'practice_clause' => array(
+                                'key' => 'practice_areas',
+                                'value' => $post->ID,
+                                'compare' => 'LIKE'
+                            ),
+                            'order_clause' => array(
+                                'key' => 'last_name',
+                                'compare' => 'EXISTS'
+                            )
+                        ),
+                        'orderby' => 'order_clause'
+                    );
+                    $associates_query = new WP_User_Query( $associates_args );
+                    $associates = $associates_query->get_results();
+                    if ( ! empty ( $associates ) ) :
+                        foreach ( $associates as $attorney ) :  
+                            include( 'content/attorney-card.php' );
                         endforeach;
                     endif;
                 ?>
                 </ul>
+                <?php
+                    if ( get_field( 'page_photo_credits' ) ) :
+                ?>
+                <p class="small muted">
+                    <?php the_field( 'page_photo_credits' ); ?>
+                </p>
+                <?php
+                    endif;
+                ?>
             </div>
 
             <aside class="single-sidebar">
-                <h3><?php the_title(); ?> Attorneys</h3>
-                <ul>
-                <?php
-                    $practice_id = get_the_ID();
-
-                    $args = array(
-                        'role' => 'contributor',
-                        'fields' => 'all',
-                        'meta_query' => array(
-                            'relation' => 'AND',
-                            'practice_clause' => array(
-                                'key' => 'practice_areas',
-                                'value' => $practice_id,
-                                'compare' => 'LIKE'
-                            ),
-                            'order_clause' => array(
-                                'key' => 'start_date',
-                                'compare' => 'EXISTS'
-                            )
-                        ),
-                        'orderby' => 'order_clause'
-                    );
-                    $attorneys_query = new WP_User_Query( $args );
-                    $attorneys = $attorneys_query->get_results();
-                    if ( ! empty ( $attorneys ) ) :
-                        foreach ( $attorneys as $attorney ) :
-                            $info = get_userdata( $attorney->ID );
-                            $user_id = 'user_' . $attorney->ID;
-                ?>
-                    <li>
-                        <a href="<?php echo get_author_posts_url( $attorney->ID ); ?>"><span class="attorney-name"><?php echo $info->first_name . ' ' . $info->last_name; ?></span><br>
-                        <span class="attorney-title"><?php the_field( 'title', $user_id ); ?></span></a>
-                    </li>
-                <?php
-                        endforeach;
-                    endif;
-                ?>
-                </ul>
-
                 <?php
                     $args = array(
                         'post_type' => 'post',
-                        'posts_per_page' => 3,
+                        'posts_per_page' => 5,
                         'orderby' => 'date',
                         'order' => 'DESC',
                         'suppress_filters' => true,
                         'meta_query' => array(
                             array(
                                 'key' => 'post_practice_areas',
-                                'value' => '"' . get_the_ID() . '"',
+                                'value' => '"' . $post->ID . '"',
                                 'compare' => 'LIKE'
                             )
                         )
@@ -123,7 +163,7 @@
                     $posts_query = new WP_Query( $args );
                     if ( $posts_query->have_posts() ) :
                 ?>
-                <h3>Recent Posts from RDM's Knowledge Blog</h3>
+                <h3>Recent Posts from RDM's <?php the_field( 'blog_name', 'options' ); ?> Blog</h3>
                 <ul>
                 <?php
                     while ( $posts_query->have_posts() ) :
@@ -171,6 +211,101 @@
                         endwhile;
                     endif;
                     wp_reset_postdata();
+                ?>
+                </ul>
+
+                <h3><?php the_title(); ?> Attorneys</h3>
+                <ul>
+                <?php
+                    $founding_members_args = array(
+                        'role' => 'contributor',
+                        'fields' => 'all',
+                        'meta_query' => array(
+                            'relation' => 'AND',
+                            'title_clause' => array(
+                                'key' => 'title',
+                                'value' => 'Founding Member',
+                                'compare' => '=='
+                            ),
+                            'practice_clause' => array(
+                                'key' => 'practice_areas',
+                                'value' => $post->ID,
+                                'compare' => 'LIKE'
+                            ),
+                            'order_clause' => array(
+                                'key' => 'last_name',
+                                'compare' => 'EXISTS'
+                            )
+                        ),
+                        'orderby' => 'order_clause'
+                    );
+                    $founding_members_query = new WP_User_Query( $founding_members_args );
+                    $founding_members = $founding_members_query->get_results();
+                    if ( ! empty ( $founding_members ) ) :
+                        foreach ( $founding_members as $attorney ) : 
+                            include( 'content/modal-attorneys-listing.php' );
+                        endforeach;
+                    endif;
+
+                    $members_args = array(
+                        'role' => 'contributor',
+                        'fields' => 'all',
+                        'meta_query' => array(
+                            'relation' => 'AND',
+                            'title_clause' => array(
+                                'key' => 'title',
+                                'value' => 'Member',
+                                'compare' => '=='
+                            ),
+                            'practice_clause' => array(
+                                'key' => 'practice_areas',
+                                'value' => $post->ID,
+                                'compare' => 'LIKE'
+                            ),
+                            'order_clause' => array(
+                                'key' => 'last_name',
+                                'compare' => 'EXISTS'
+                            )
+                        ),
+                        'orderby' => 'order_clause'
+                    );
+                    $members_query = new WP_User_Query( $members_args );
+                    $members = $members_query->get_results();
+                    if ( ! empty ( $members ) ) :
+                        foreach ( $members as $attorney ) :     
+                            include( 'content/modal-attorneys-listing.php' );
+                        endforeach;
+                    endif;
+
+                    $associates_args = array(
+                        'role' => 'contributor',
+                        'fields' => 'all',
+                        'meta_query' => array(
+                            'relation' => 'AND',
+                            'title_clause' => array(
+                                'key' => 'title',
+                                'value' => 'Associate',
+                                'compare' => '=='
+                            ),
+                            'practice_clause' => array(
+                                'key' => 'practice_areas',
+                                'value' => $post->ID,
+                                'compare' => 'LIKE'
+                            ),
+                            'order_clause' => array(
+                                'key' => 'last_name',
+                                'compare' => 'EXISTS'
+                            )
+                        ),
+                        'orderby' => 'order_clause'
+                    );
+                    $associates_query = new WP_User_Query( $associates_args );
+                    $associates = $associates_query->get_results();
+                    if ( ! empty ( $associates ) ) :
+                        foreach ( $associates as $attorney ) :  
+                            include( 'content/modal-attorneys-listing.php' );
+                        endforeach;
+                    endif;
                 ?>
                 </ul>
             </aside>

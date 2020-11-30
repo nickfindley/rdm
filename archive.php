@@ -57,9 +57,44 @@
                         <h3>RDM's <?php the_field( 'blog_name', 'options' ); ?> Blog</h3>
                         <?php the_field( 'blog_description', 'options' ); ?>
 
-                        <h3>Post Categories</h3>
-                        <ul class="blog-sidebar-categories">
-                            <?php wp_list_categories( array( 'title_li' => '', 'hide_empty' => 0, 'exclude' => '1' ) ); ?>
+                        <h3>Practice Areas</h3>
+                        <ul>
+                        <?php
+                            $args = array(
+                                'post_type' => 'practice_areas',
+                                'posts_per_page' => -1,
+                                'orderby' => 'title',
+                                'order' => 'ASC',
+                                'post__not_in' => array( get_the_ID() )
+                            );
+                            $services_query = new WP_Query( $args );
+                            if ( $services_query->have_posts() ) :
+                                while ( $services_query->have_posts() ) :
+                                    $services_query->the_post();
+                        ?>
+                                    <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></l1>
+                        <?php
+                                endwhile;
+                            endif;
+                            wp_reset_postdata();
+                        ?>
+                        </ul>
+
+                        <h3>News Categories</h3>
+                        <ul>
+                        <?php
+                            $cats = get_categories();
+                            foreach ( $cats as $c ) :
+                                if ( $c->category_parent == 1 || $c->cat_ID == 1 ) :
+                                    continue;
+                                endif;
+                        ?>
+                            <li>
+                                <a href="<?php echo get_category_link( $c->term_id ); ?>"><?php echo $c->name; ?></a>
+                            </li>
+                        <?php
+                        endforeach;
+                        ?>
                         </ul>
                     </aside>
 

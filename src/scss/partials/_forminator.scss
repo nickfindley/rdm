@@ -1,15 +1,20 @@
-$input-bg-color: rgba($black, .05);
-$input-bg-focus-color: rgba($black, .125);
-$input-bg-hover-color: rgba($black, .125);
-$input-radio-bg-color: rgba($black, .125);
+// $input-bg-color: rgba($black, .05);
+// $input-bg-focus-color: rgba($black, .125);
+// $input-bg-hover-color: rgba($black, .125);
+// $input-radio-bg-color: rgba($black, .125);
 
-$input-bg-error-color: rgba(255, 0, 0, .75);
-$input-bg-error-focus-color: rgba($black, .125);
-$input-bg-error-hover-color: rgba($black, .125);
+$input-bg-color: rgba($beige, .25);
+$input-bg-focus-color: rgba($beige, .125);
+$input-bg-hover-color: rgba($beige, .125);
+$input-radio-bg-color: rgba($beige, .125);
 
-$input-border-color: rgba($black, .125);
-$input-border-focus-color: rgba($black, .25);
-$input-selected-border-color: rgba($black, .5);
+$input-bg-error-color: rgba($red, .125);
+$input-bg-error-focus-color: rgba($red, .05);
+$input-bg-error-hover-color: rgba($red, .05);
+
+$input-border-color: rgba($brown, .125);
+$input-border-focus-color: rgba($brown, .25);
+$input-selected-border-color: rgba($brown, .5);
 
 .forminator-title {
     font-size: 1.25rem;
@@ -66,7 +71,8 @@ $input-selected-border-color: rgba($black, .5);
 }
 
 .forminator-required {
-    color: rgba(255,0,0,.75);
+    color: rgba($red, .75);
+    font-size: 100%;
     font-weight: 700;
     vertical-align: middle;
 }
@@ -77,8 +83,8 @@ $input-selected-border-color: rgba($black, .5);
 
 .forminator-has_error {
     .forminator-error-message {
-        background-color: $input-bg-error-color;
-        border: 1px solid $input-bg-error-color;
+        background-color: rgba($red, .875);
+        border: 1px solid $red;
         color: $white;
         display: block;
         font-size: .875rem;
@@ -566,7 +572,7 @@ label.forminator-radio {
 }
 
 .forminator-button-submit {
-    @extend .btn-primary;
+    @extend .btn-brown;
 }
 
 i.forminator-loading:before {
@@ -602,4 +608,12 @@ i.forminator-loading:before {
 
 .forminator-col-6 {
     flex: 50%;
+}
+
+.forminator-response-message.forminator-show {
+    background-color: $taupe;
+    color: $white;
+    font-size: 125%;
+    margin-bottom: $paragraph-margin-bottom;
+    padding: $paragraph_margin-bottom / 2;
 }

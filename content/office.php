@@ -24,8 +24,6 @@
             </header>
             <div class="archive-section-body">
                 <?php the_excerpt(); ?>
-
-                <p><a href="<?php the_permalink(); ?>">Learn more about <?php the_title(); ?> <i class="fas fa-angle-right"></i></a></p>
             </div>
         </div>
 

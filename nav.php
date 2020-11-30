@@ -2,6 +2,7 @@
     <div id="navbarCollapse">
         <div class="container">
             <a class="navbar-brand" href="/">
+                <span class="sr-only">RDM—Trial Counsel</span>
                 <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 180 72">
                     <rect x="51.3" class="st0" width="1" height="48"/>
                     <rect x="117.9" class="st0" width="1" height="48"/>
@@ -39,7 +40,7 @@
                         ) );
                     ?>
                     <div class="nav-functions">
-                        <a role="button" class="btn btn-nav-search" data-toggle="modal" data-target="#searchModal">
+                        <a role="button" class="btn btn-nav-search" data-toggle="modal" data-target="#searchModal" href="/search/">
                             <span class="search-icon"><i class="fas fa-search"></i></span><span class="search-text">Search</span>
                         </a>
                     </div>
@@ -60,7 +61,7 @@
                         ) );
                     ?>
                     <div class="nav-functions">
-                        <a role="button" class="navbar-toggler" id="toggler" data-toggle="collapse" data-target=".collapse" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <a role="button" href="#" class="navbar-toggler" id="toggler" data-toggle="collapse" data-target=".collapse" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span><span class="navbar-toggler-text">Hide Menu <i class="fas fa-bars"></i></span>
                         </a>                   
                     </div>

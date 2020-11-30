@@ -9,7 +9,6 @@
         font-family: $proxima;
         font-size: 2.5rem;
         font-variant: small-caps;
-    text-transform: lowercase;
         font-weight: 300;
         letter-spacing: .25rem;
         line-height: .875;
@@ -17,6 +16,7 @@
         padding: 2rem;
         text-align: center;
         text-shadow: 0 .125rem 1rem rgba($black, .5);
+        text-transform: lowercase;
         width: 100%;
 
         @include media-breakpoint-up(md) {
@@ -33,13 +33,13 @@
             font-family: $garamond;
             font-size: 1.25rem;
             font-variant: small-caps;
-    text-transform: lowercase;
             font-weight: 400;
             letter-spacing: .25rem;
             line-height: .875;
             margin-top: .375rem;
             position: relative;
             text-indent: .25rem;
+            text-transform: lowercase;
 
             @include media-breakpoint-up(md) {
                 font-size: 1.5rem;
@@ -71,7 +71,6 @@
         font-family: $proxima;
         font-size: 2.5rem;
         font-variant: small-caps;
-    text-transform: lowercase;
         font-weight: 300;
         letter-spacing: .25rem;
         line-height: .875;
@@ -79,6 +78,7 @@
         padding: 2rem;
         text-align: center;
         text-shadow: 0 .125rem 1rem rgba($black, .5);
+        text-transform: lowercase;
         width: 100%;
 
         @include media-breakpoint-up(md) {
@@ -95,13 +95,13 @@
             font-family: $garamond;
             font-size: 1.25rem;
             font-variant: small-caps;
-    text-transform: lowercase;
             font-weight: 400;
             letter-spacing: .25rem;
             line-height: .875;
             margin-top: .375rem;
             position: relative;
             text-indent: .25rem;
+            text-transform: lowercase;
 
             @include media-breakpoint-up(md) {
                 font-size: 1.5rem;

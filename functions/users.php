@@ -13,6 +13,7 @@ function rdm_contactmethods( $contactmethods )
     unset( $contactmethods['youtube'] );
 
     $contactmethods['telephone'] = 'Telephone';
+    $contactmethods['mobile'] = 'Mobile';
     $contactmethods['linkedin'] = 'LinkedIn';
     $contactmethods['avvo'] = 'Avvo';
 

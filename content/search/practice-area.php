@@ -31,9 +31,9 @@
                 $temp_post = $post;
                 $args = array(
                     'number' => 6,
-                    'meta_key' => 'start_date',
-                    'orderby' => 'start_date',
-                    'order' => 'ASC',
+                    'meta_key' => 'title',
+                    'orderby' => 'rand',
+                    // 'order' => 'RAND',
                     'role' => 'contributor',
                     'fields' => 'all',
                     'meta_query' => array(

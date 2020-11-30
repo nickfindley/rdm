@@ -7,12 +7,16 @@ body {
     font-feature-settings: "onum";
     font-variant-numeric: oldstyle-nums proportional-nums;
     font-weight: 300;
-    font-size: .875rem;
-    line-height: 1.75;
+    font-size: 1.125rem;
+    line-height: 2;
     text-rendering: optimizeLegibility;
 
     @include media-breakpoint-up(md) {
         font-size: 1rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+        font-size: 1.125rem;
     }
 }
 
@@ -45,17 +49,17 @@ h6 {
 }
 
 h2 {
-    font-size: 2.25rem;
+    font-size: 2rem;
     font-weight: 400;
     letter-spacing: .25rem;
     margin-bottom: $paragraph-margin-bottom / 2;
 
     @include media-breakpoint-up(md) {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
     }
 
     @include media-breakpoint-up(lg) {
-        font-size: 2.75rem;
+        font-size: 2.5rem;
     }
 }
 
@@ -129,6 +133,11 @@ blockquote {
 
 .fab, .fas {
     font-size: 75%;
+}
+
+.cc {
+    @extend .fab;
+    @extend .fa-creative-commons;
 }
 
 .oldstyle-numbers {

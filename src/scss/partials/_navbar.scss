@@ -139,6 +139,10 @@
 .navbar-toggler {
     border: 0;
 
+    &:focus {
+        box-shadow: none;
+    }
+
     .navbar-toggler-icon {
         background-image: escape-svg($navbar-toggler-icon-bg);
         color: rgba($white, .5);
@@ -274,9 +278,16 @@
 }
 
 .navbar .search-icon i {
-    vertical-align: text-bottom;
+    font-size: 100%;
+    vertical-align: -.375rem;
 
     @include media-breakpoint-up(md) {
-        vertical-align: unset;
+        font-size: 62.5%;
+        vertical-align: baseline;
+    }
+
+    @include media-breakpoint-up(lg) {
+        font-size: 75%;
+        vertical-align: bottom;
     }
 }

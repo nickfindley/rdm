@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="front-page-blog">
                     <header>
-                        <h2>From RDM&rsquo;s Knowledge Blog</h2>
+                        <h2>From RDM&rsquo;s <?php the_field( 'blog_name', 'options' ); ?> Blog</h2>
                         <p>Read more at <a href="#">rdm.law/knowledge</a>.</p>
                     </header>
                 <?php 

@@ -29,35 +29,6 @@
                 endforeach;
             ?>
             </ul>
-
-            <!--<h3>Admissions</h3>
-            <ul class="attorney-admissions">
-            <?php
-                $adm = array();
-                foreach ( $admissions as $post ) :
-                    // setup_postdata( $post->ID );
-                    $parent = get_post_ancestors( $post->ID );
-                    global $post;
-                    $post->post_parent_title = get_the_title( $parent[0] );
-                    $adm[] = $post;
-                    wp_reset_postdata();
-                endforeach;
-
-                // echo '<pre>' . print_r( $adm ) . '</pre>';
-
-                usort( $adm, arrSortObjsByKey( 'post_parent_title', 'ASC' ));
-                foreach ( $adm as $post ) :
-                    if ( $post->post_parent_title == 'State Courts' ) :
-                        $parent_title = '';
-                    else : 
-                        $parent_title = '<span class="admission-parent">' . $post->post_parent_title . ' </span>';
-                    endif;
-                    echo '<li>' . $parent_title . $post->post_title . '</li>';
-                endforeach;
-            ?>
-            </ul>-->
-
-            
         </div>
         
     </div>

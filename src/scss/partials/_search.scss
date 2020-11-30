@@ -4,7 +4,6 @@
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    // padding-bottom: $paragraph-margin-bottom * 4;
     padding-top: $paragraph-margin-bottom;
 
     &.search-results-inline {
@@ -19,7 +18,7 @@
     .search-input {
         align-items: flex-end;
         flex: 75%;
-        padding-right: $paragraph-margin-bottom / 2;
+        padding-right: $paragraph-margin-bottom / 4;
 
         label {
             font-family: $proxima;
@@ -33,8 +32,9 @@
         }
 
         input {
+            background-clip: border-box;
             background-color: rgba($beige, .25);
-            border: 1px solid rgba($beige, .75);
+            border: 1px solid $taupe;
             border-radius: 0;
             font-size: 1.25rem;
             min-height: 1.25rem;
@@ -61,8 +61,15 @@
     padding-bottom: 0;
 
     .search-input input {
+        background-color: rgba($beige, .75);
         font-size: 100%;
         padding: .25rem;
+        transition: all .25s ease-in-out;
+
+        &:focus,
+        &:hover {
+            background-color: $beige;
+        }
     }
 
     input[type="submit"] {

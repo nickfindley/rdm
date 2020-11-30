@@ -6,23 +6,38 @@
     }
 }
 
-.contact-page {
+.page-with-sidebar {
     .page-wrapper {
-        @extend .row;
-        margin-bottom: $paragraph-margin-bottom;
-        padding-top: $paragraph-margin-bottom;
+        margin: 0 0 $paragraph-margin-bottom;
+        padding: $paragraph-margin-bottom 0 0;
+
+        @include media-breakpoint-up(md) {
+            margin-left: calc(var(--bs-gutter-x) / -2);
+            margin-right: calc(var(--bs-gutter-x) / -2);
+        }
     }
 
     .page-content {
         @extend .col-md-8;
+        padding-left: 0;
+        padding-right: 0;
 
         @include media-breakpoint-up(md) {
             border-right: 1px solid $beige;
+            padding: 0 calc(var(--bs-gutter-x) / 2) 0;
         }
     }
 
     .page-sidebar {
         @extend .col-md-4;
+        border-top: 1px solid $beige;
+        margin-top: $paragraph-margin-bottom;
+        padding: $paragraph-margin-bottom 0 0;
+
+        @include media-breakpoint-up(md) {
+            border-top: 0;
+            padding: 0 calc(var(--bs-gutter-x) / 2) 0;
+        }
 
         .offices {
             list-style: none;

@@ -9,6 +9,7 @@ $color = get_field( 'attorney_color', $user_id ) ? get_field( 'attorney_color', 
 $first_name = $attorney->first_name;
 $last_name = $attorney->last_name;
 $telephone = $attorney->telephone;
+$mobile = $attorney->mobile;
 $email = $attorney->user_email;
 if ( $email == 'nfindley@rdm.law') : $email = ''; endif;
 $linkedin = $attorney->linkedin;
@@ -41,7 +42,7 @@ endif;
 
 <main id="content">
     <header class="page-header big-image-header bg-<?php echo $color; ?>" id="pageHeader">
-        <?php echo wp_get_attachment_image( $office_photo_id, 'full' ); ?>
+        <?php echo wp_get_attachment_image( $office_photo_id, 'full', '', ['class' => 'no-lazyload'] ); ?>
         <div class="overlay">
             <h1>
                 <?php echo $first_name . ' ' . $last_name; ?><br>
@@ -64,22 +65,50 @@ endif;
                     </div>
                     <ul class="author-contact">
                         <?php if ( $telephone ) : ?>
-                        <li><a href="tel:<?php echo $telephone; ?>"><i class="fas fa-fw fa-phone-alt"></i><span class="contact"><?php echo phone_format( $telephone ); ?></span></a></li>
+                        <li>
+                            <a href="tel:<?php echo $telephone; ?>">
+                                <i class="fas fa-fw fa-phone-alt"></i><span class="contact"><?php echo phone_format( $telephone ); ?></span>
+                            </a>
+                        </li>
+                        <?php endif; ?>
+                        <?php if ( $mobile ) : ?>
+                        <li>
+                            <a href="tel:<?php echo $mobile; ?>">
+                                <i class="fas fa-fw fa-mobile-alt"></i><span class="contact"><?php echo phone_format( $mobile ); ?></span>
+                            </a>
+                        </li>
                         <?php endif; ?>
                         <?php if ( $email ) : ?>
-                        <li><a href="mailto:<?php echo $email; ?>"><i class="fas fa-fw fa-envelope"></i><span class="contact"><?php echo $email; ?></span></a></li>
+                        <li>
+                            <a href="mailto:<?php echo $email; ?>" target="_blank">
+                                <i class="fas fa-fw fa-envelope"></i><span class="contact"><?php echo $email; ?></span>
+                            </a>
+                        </li>
                         <?php endif; ?>
                         <?php if ( $linkedin ) : ?>
-                        <li><a href="<?php echo $linkedin; ?>"><i class="fab fa-fw fa-linkedin"></i><span class="contact">Connect on LinkedIn</span></a></li>
+                        <li>
+                            <a href="<?php echo $linkedin; ?>" target="_blank">
+                                <i class="fab fa-fw fa-linkedin"></i><span class="contact">Connect on LinkedIn</span>
+                            </a>
+                        </li>
                         <?php endif; ?>
                         <?php if ( $vcard ) : ?>
-                        <li><a href="#"><i class="fas fa-fw fa-address-card"></i><span class="contact">vCard</span></a></li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i class="fas fa-fw fa-address-card"></i><span class="contact">vCard</span>
+                            </a>
+                        </li>
                         <?php endif; ?>
-                        <li><a href="<?php echo $office_link; ?>" class="office-address"><i class="fas fa-fw fa-map-marker-alt"></i><span class="contact"><address>
-                                <span class="addr-1"><?php echo $office_address; ?></span>
-                                <span class="addr-2"><?php echo $office_address_2; ?></span>
-                                <span class="addr-csz"><?php echo $office_city; ?>, <?php echo $office_state; ?> <?php echo $office_zip; ?></span>
-                            </address></span>
+                        <li>
+                            <a href="<?php echo $office_link; ?>" class="office-address">
+                                <i class="fas fa-fw fa-map-marker-alt"></i>
+                                <span class="contact">
+                                    <address>
+                                        <span class="addr-1"><?php echo $office_address; ?></span>
+                                        <span class="addr-2"><?php echo $office_address_2; ?></span>
+                                        <span class="addr-csz"><?php echo $office_city; ?>, <?php echo $office_state; ?> <?php echo $office_zip; ?></span>
+                                    </address>
+                                </span>
                             </a>
                         </li>
                     </ul>
@@ -104,9 +133,14 @@ endif;
                                     <a class="btn" href="tel:<?php echo $telephone; ?>"><span class="sr-only">Telephone</span><i class="fas fa-phone"></i></a>
                                 </span>
                                 <?php endif; ?>
+                                <?php if ( $mobile ) : ?>
+                                <span class="cta-contact-link">
+                                    <a class="btn" href="tel:<?php echo $mobile; ?>"><span class="sr-only">Mobile</span><i class="fas fa-mobile-alt"></i></a>
+                                </span>
+                                <?php endif; ?>
                                 <?php if ( $email ) : ?>
                                 <span class="cta-contact-link">
-                                    <a class="btn" href="mailto:<?php echo $email; ?>"><span class="sr-only">Email</span><i class="fas fa-envelope"></i></a>
+                                    <a class="btn" href="mailto:<?php echo $email; ?>"><span class="sr-only" target="_blank">Email</span><i class="fas fa-envelope"></i></a>
                                 </span>
                                 <?php endif; ?>
                             </span>
@@ -288,19 +322,21 @@ endif;
                     ?>
                         <li>
                             <?php if ( get_sub_field( 'honor_url' ) ) : ?>
-                            <a href="<?php the_sub_field( 'honor_url' ); ?>">
+                            <a href="<?php the_sub_field( 'honor_url' ); ?>" target="_blank">
                             <?php endif; ?>
                             <span class="honor"><?php the_sub_field( 'honor' ); ?></span>
                             <?php if ( get_sub_field( 'honor_url' ) ) : ?>
                             </a>
                             <?php endif; ?>
+
                             <?php if ( get_sub_field( 'year' ) ) : ?>
                             <br><span class="year"> <?php the_sub_field( 'year' ); ?></span>
                             <?php endif; ?>
+
                             <?php if ( get_sub_field( 'source' ) ) : ?>
                             <span class="source">
                                 <?php if ( get_sub_field( 'source_url' ) ) : ?>
-                                <a href="<?php the_sub_field( 'source_url' ); ?>">
+                                <a href="<?php the_sub_field( 'source_url' ); ?>" target="_blank">
                                 <?php endif; ?>
                                 <?php the_sub_field( 'source' ); ?>
                                 <?php if ( get_sub_field( 'source_url' ) ) : ?>
@@ -324,7 +360,7 @@ endif;
                     ?>
                         <li>
                             <?php if ( get_sub_field( 'membership_url' ) ) : ?>
-                            <a href="<?php the_sub_field( 'membership_url' ); ?>">
+                            <a href="<?php the_sub_field( 'membership_url' ); ?>" target="_blank">
                             <?php endif; ?>
                             <span class="honor"><?php the_sub_field( 'membership' ); ?></span>
                             <?php if ( get_sub_field( 'membership_url' ) ) : ?>
@@ -352,7 +388,7 @@ endif;
                     ?>
                         <li>
                             <?php if ( get_sub_field( 'organization_url' ) ) : ?>
-                            <a href="<?php the_sub_field( 'organization_url' ); ?>">
+                            <a href="<?php the_sub_field( 'organization_url' ); ?>" target="_blank">
                             <?php endif; ?>
                             <span class="organization"><?php the_sub_field( 'organization' ); ?></span>
                             <?php if ( get_sub_field( 'organization_url' ) ) : ?>
@@ -404,7 +440,7 @@ endif;
     <div class="container">
         <section class="attorney-blog">       
             <header class="blog-header">
-                <h2>RDM's Knowledge Blog <span class="subheading">Posts by <?php echo $first_name . ' ' . $last_name; ?></span></h2>
+                <h2>RDM's <?php the_field( 'blog_name', 'options' ); ?> Blog <span class="subheading">Posts by <?php echo $first_name . ' ' . $last_name; ?></span></h2>
             </header>
             <?php
                 while ( $posts_query->have_posts() ) :
