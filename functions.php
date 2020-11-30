@@ -16,6 +16,7 @@ require_once 'functions/image-sizes.php';
 require_once 'functions/natural-language-join.php';
 require_once 'functions/orderby.php';
 require_once 'functions/phone-format.php';
+require_once 'functions/preconnect.php';
 require_once 'functions/rdm-walker.php';
 require_once 'functions/read-more.php';
 require_once 'functions/relevanssi.php';
