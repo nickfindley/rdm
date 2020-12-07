@@ -1,6 +1,6 @@
 .navbar-wrapper {
     backdrop-filter: blur(5px);
-    background-color: transparent;
+    background-color: rgba($brown, .875);
     box-shadow: $box-shadow;
     padding-right: 0 !important;
     transition: background-color ease-in .75s;
@@ -10,11 +10,11 @@
     }
 }
 
-.nav-translucent {
-    background-color: rgba($brown, .5);
-}
+// .nav-translucent {
+    // background-color: rgba($brown, .5);
+// }
 
-.nav-opaque {
+.nav-opaque{
     background-color: $brown;
 }
 
@@ -154,7 +154,6 @@
         display: none;
     }
 }
-
 
 .collapse.show + .nav-functions,
 .collapsing + .nav-functions {

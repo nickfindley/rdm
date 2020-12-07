@@ -60,8 +60,8 @@
                             'walker'          => new WP_Bootstrap_Navwalker(),
                         ) );
                     ?>
-                    <div class="nav-functions">
-                        <a role="button" href="#" class="navbar-toggler" id="toggler" data-toggle="collapse" data-target=".collapse" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <div class="nav-functions" id="nav-functions">
+                        <a role="button" href="#nav-functions" class="navbar-toggler" id="toggler" data-toggle="collapse" data-target=".collapse" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span><span class="navbar-toggler-text">Hide Menu <i class="fas fa-bars"></i></span>
                         </a>                   
                     </div>

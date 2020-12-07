@@ -13,6 +13,7 @@
     }
 
     .block-container {
+        -webkit-backdrop-filter: blur(3px);
         backdrop-filter: blur(3px);
         box-shadow: 0 .125rem 1rem rgba($black, .5);
         color: $white;
