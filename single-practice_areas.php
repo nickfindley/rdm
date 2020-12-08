@@ -70,22 +70,6 @@
                             include( 'content/attorney-card.php' );
                         endforeach;
                     endif;
-<<<<<<< HEAD
-=======
-                    wp_reset_postdata();
-                ?>
-                </ul>
-                <?php
-                    if ( get_field( 'page_photo_credits' ) ) :
-                ?>
-                <p class="small muted">
-                    <?php the_field( 'page_photo_credits' ); ?>
-                </p>
-                <?php
-                    endif;
-                ?>
-            </div>
->>>>>>> eeacbdd51a5cb7679ed6f814c0f7dfae8bb94840
 
                     $members_args = array(
                         'role' => 'contributor',
