@@ -17,20 +17,4 @@ if ( ! function_exists( 'rdm_enqueue_scrips' ) ) :
 
     add_action( 'wp_enqueue_scripts', 'rdm_enqueue_scripts' );
 endif;
-
-if ( ! function_exists( 'rdm_deregister_forminator' ) ) :
-    function rdm_deregister_forminator()
-    {
-        if ( ! is_page( 'contact' ) ) :
-            wp_dequeue_script( 'forminator-jquery-validate' );
-            wp_dequeue_script( 'forminator-custom-form-moment' );
-            wp_dequeue_script( 'forminator-select2' );
-            wp_dequeue_script( 'forminator-form' );
-            wp_dequeue_script( 'forminator-front-scripts' );
-            wp_dequeue_script( 'forminator-intlTelInput' );
-        endif;
-    }
-
-    add_action( 'wp_enqueue_scripts', 'rdm_deregister_forminator', 100 );
-endif;
 ?>

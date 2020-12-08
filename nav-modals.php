@@ -127,29 +127,6 @@
     </div>
 </div>
 
-<div class="modal nav-modal fade" id="navContact" data-keyboard="false" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="contactModalLabel">
-                    Contact RDM
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Send us a message using the form below. You can also call our Kansas City Headquarters at <a href="tel:8169601611">816-960-1611</a></p>
-                <?php echo do_shortcode( '[forminator_form id="823"]' ); ?>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <a href="/contact/" role="button" class="btn btn-<?php echo $modal_color; ?>">More Contacts</a>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="modal nav-modal fade" id="navOffices" data-keyboard="false" tabindex="-1" aria-labelledby="officesModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
