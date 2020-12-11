@@ -1,9 +1,11 @@
-<article class="blog-post post-color-<?php global $post_color; echo $post_color; ?>">
+<article class="blog-post post-<?php global $post_color; echo $post_color; ?>">
     <?php if ( has_post_thumbnail() ) : ?>
     <header class="has-post-thumbnail">
         <div class="post-thumbnail">
             <?php the_post_thumbnail(); ?>
+            <div class="overlay"></div>
         </div>
+        
     <?php else : ?>
     <header>
     <?php endif; ?>

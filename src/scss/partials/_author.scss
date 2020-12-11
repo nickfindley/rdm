@@ -1,71 +1,89 @@
-.author-header {
-    box-shadow: $box-shadow;
-    position: relative;
-    z-index: 1;
+// .author .page-header.big-image-header {
+//     height: 0;
+//     padding-top: 50%;
+//     position: relative;
 
-    img {
-        min-height: 50vh;
-        object-fit: cover;
-    }
+//     & > img {
+//         left: 0;
+//         min-height: 0;
+//         min-width: 100%;
+//         position: absolute;
+//         top: 0;
+//     }
 
-    .overlay {
-        align-items: center;
-        background-color: rgba($red, .25);
+//     .overlay {
+//         width: auto;
+//     }
+// }
 
-        @include media-breakpoint-up(md) {
-            align-items: flex-end;
-            padding-bottom: $paragraph-margin-bottom;
-        }
-    }
+// .author-header {
+//     box-shadow: $box-shadow;
+//     position: relative;
+//     z-index: 1;
 
-    h1 {
-        backdrop-filter: blur(3px);
-        box-shadow: 0 .125rem 1rem rgba($black, .5);
-        color: $white;
-        font-family: $proxima;
-        font-size: 2.5rem;
-        font-variant: small-caps;
-        font-weight: 300;
-        letter-spacing: .25rem;
-        line-height: .875;
-        margin: 0;
-        padding: 2rem;
-        text-align: center;
-        text-shadow: 0 .125rem 1rem rgba($black, .5);
-        text-transform: lowercase;
-        width: 100%;
+//     img {
+//         min-height: 50vh;
+//         object-fit: cover;
+//     }
 
-        @include media-breakpoint-up(md) {
-            font-size: 3rem;
-        }
+//     .overlay {
+//         align-items: center;
+//         background-color: rgba($red, .25);
 
-        @include media-breakpoint-up(lg) {
-            font-size: 4rem;
-            letter-spacing: .375rem;
-        }
+//         @include media-breakpoint-up(md) {
+//             align-items: flex-end;
+//             padding-bottom: $paragraph-margin-bottom;
+//         }
+//     }
 
-        .subheading {
-            display: block;
-            font-family: $garamond;
-            font-size: 1.25rem;
-            font-variant: small-caps;
-            font-weight: 400;
-            letter-spacing: .25rem;
-            line-height: .875;
-            position: relative;
-            text-indent: .25rem;
-            text-transform: lowercase;
+//     h1 {
+//         backdrop-filter: blur(3px);
+//         box-shadow: 0 .125rem 1rem rgba($black, .5);
+//         color: $white;
+//         font-family: $proxima;
+//         font-size: 2.5rem;
+//         font-variant: small-caps;
+//         font-weight: 300;
+//         letter-spacing: .25rem;
+//         line-height: .875;
+//         margin: 0;
+//         padding: 2rem;
+//         text-align: center;
+//         text-shadow: 0 .125rem 1rem rgba($black, .5);
+//         text-transform: lowercase;
+//         width: 100%;
 
-            @include media-breakpoint-up(md) {
-                font-size: 1.5rem;
-            }
+//         @include media-breakpoint-up(md) {
+//             font-size: 3rem;
+//         }
 
-            @include media-breakpoint-up(lg) {
-                font-size: 2rem;
-            }        
-        }
-    }
-}
+//         @include media-breakpoint-up(lg) {
+//             font-size: 4rem;
+//             letter-spacing: .375rem;
+//         }
+
+//         .subheading {
+//             display: block;
+//             font-family: $garamond;
+//             font-size: 1.25rem;
+//             font-variant: small-caps;
+//             font-weight: 400;
+//             letter-spacing: .25rem;
+//             line-height: .875;
+//             position: relative;
+//             text-indent: .25rem;
+//             text-transform: lowercase;
+
+//             @include media-breakpoint-up(md) {
+//                 font-size: 1.5rem;
+//             }
+
+//             @include media-breakpoint-up(lg) {
+//                 font-size: 2rem;
+//             }        
+//         }
+//     }
+// }
 
 .author-intro {
     padding-bottom: $paragraph-margin-bottom;
@@ -77,37 +95,44 @@
 
 .author-info {
     @extend .col-md-4;
+    display: flex;
     position: relative;
     z-index: 2;
 
 
     @include media-breakpoint-up(md) {
+        display: block;
         z-index: 0;
     }
 
-    &.has-photo {
-        margin-top: -25%;
+    // &.has-photo {
+    //     margin-top: -25%;
 
-        @media screen and (orientation: landscape) {
-            margin-top: -20%;
-        }
+    //     @media screen and (orientation: landscape) {
+    //         margin-top: -20%;
+    //     }
 
-        @include media-breakpoint-up(md) {
-            margin-top: 0;
-        }
-    }
+    //     @include media-breakpoint-up(md) {
+    //         margin-top: 0;
+    //     }
+    // }
 }
 
 .author-photo {
+    flex: 1 1 calc(50% - var(--bs-gutter-x));
+
+    @include media-breakpoint-up(md) {
+        flex: 0 0 100%;
+    }
+
     img {
         border: 0;
-        border-radius: 50%;
         box-shadow: $box-shadow;
-        margin: 0 25%;
-        width: 50%;
+        // margin: 0 25%;
+        // width: 50%;
 
         @include media-breakpoint-up(md) {
-            border-radius: 0;
+            // border-radius: 0;
             box-shadow: none;
             margin: 0;
             width: 100%;
@@ -116,10 +141,17 @@
 }
 
 .author-contact {
+    align-self: center;
+    flex: 1 0 50%;
     font-size: .875rem;
     list-style: none;
     margin: 0;
-    padding-left: 0;
+    padding-left: var(--bs-gutter-x);
+
+    @include media-breakpoint-up(md) {
+        flex: 0 0 100%;
+        padding-left: 0;
+    }
 
     @include media-breakpoint-up(lg) {
         font-size: 1rem;

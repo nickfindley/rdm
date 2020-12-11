@@ -3,7 +3,7 @@
     $page_color = get_field( 'page_color' ) ? get_field( 'page_color' ) : 'blue';
 ?>
 <main id="content" class="contact-page">
-    <header class="page-header big-image-header page-header bg-<?php echo $page_color; ?>" id="pageHeader">
+    <header class="page-header big-image-header big-image-header-2x1 page-header bg-<?php echo $page_color; ?>" id="pageHeader">
         <?php
             the_post_thumbnail();
         ?>
@@ -41,10 +41,13 @@
                 ?>
                     <li>
                         <h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
-                        <?php echo phone_format( get_field( 'main_phone' ) ); ?><br>
+                        <a href="tel:<?php the_field( 'main_phone' ); ?>"><?php echo phone_format( get_field( 'main_phone' ) ); ?></a><br>
+                        <a href="<?php the_field( 'google_map_url' ); ?>">
                         <?php the_field( 'address' ); ?><br>
                         <?php the_field( 'address_2' ); ?><br>
-                        <?php the_field( 'city' ); ?>, <?php the_field( 'state' ); ?> <?php the_field( 'zip' ); ?>
+                        <?php the_field( 'city' ); ?>, <?php the_field( 'state' ); ?> <?php the_field( 'zip' ); ?><br>
+                        <span class="sc-smaller-light">click for directions <i class="fas fa-external-link-alt"></i></span>
+                        </a>
                     </li>
                 <?php
                         endwhile;

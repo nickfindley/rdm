@@ -154,7 +154,9 @@
                                 $offices_query->the_post();
                                 ?>
                                 <div class="office col-sm-4">
-                                    <?php the_post_thumbnail(); ?>
+                                    <div class="office-thumbnail">
+                                        <?php the_post_thumbnail(); ?>
+                                    </div>
                                     <h6><a class="stretched-link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
                                     <ul>
                                         <li><?php echo phone_format( get_field( 'main_phone' ) ); ?></li>

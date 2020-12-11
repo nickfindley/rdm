@@ -1,4 +1,16 @@
-.single {
+body.single-post {
+    padding-top: 53px;
+
+    @include media-breakpoint-up(md) {
+        padding-top: 79px;
+    }
+
+    @include media-breakpoint-up(lg) {
+        padding-top: 95px;
+    }
+}
+
+.single-post-row {
     @extend .row;
     padding-bottom: $paragraph-margin-bottom;
     padding-top: $paragraph-margin-bottom;

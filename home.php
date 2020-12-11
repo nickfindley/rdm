@@ -6,7 +6,7 @@
 <main id="content" class="blog-page">
     <?php       
         if ( has_post_thumbnail( $page_for_posts ) ) : ?>
-    <header class="page-header big-image-header bg-<?php echo $page_color; ?>" id="pageHeader">
+    <header class="page-header big-image-header big-image-header-4x3 bg-<?php echo $page_color; ?>" id="pageHeader">
         <?php echo get_the_post_thumbnail( $page_for_posts, 'full' ); ?>
         <div class="overlay">
             <h1>

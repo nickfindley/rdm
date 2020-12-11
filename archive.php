@@ -5,7 +5,7 @@
 <main id="content" class="blog-page">
     
     <?php if ( get_field( 'archive_page_image', 'option' ) ) : ?>
-    <header class="page-header big-image-header bg-<?php echo $page_color; ?>" id="pageHeader">
+    <header class="page-header big-image-header big-image-header-2x1 bg-<?php echo $page_color; ?>" id="pageHeader">
         <?php echo wp_get_attachment_image( get_field( 'archive_page_image', 'option' ), 'full' ); ?>
         <div class="overlay">
             <h1>

@@ -3,11 +3,25 @@
     $post_color = get_field( 'post_color' ) ? get_field( 'post_color' ) : 'blue';
 ?>
 <main id="content">
-    
+    <article>
     <?php if ( has_post_thumbnail() ) : ?>
-    <header class="page-header big-image-header bg-<?php echo $post_color; ?>" id="pageHeader">
-        <?php the_post_thumbnail(); ?>
-        <div class="overlay">
+        <header class="page-header big-image-header big-image-header-2x1 bg-<?php echo $post_color; ?>" id="pageHeader">
+            <?php the_post_thumbnail(); ?>
+            <div class="overlay">
+                <h1>
+                    <div class="container">
+                        <?php the_title(); ?>
+                        <?php if ( get_field( 'post_subtitle' ) ) : ?>
+                        <span class="subheading"><?php the_field( 'post_subtitle' ); ?></span>
+                        <?php endif; ?>
+                    </div>
+                </h1>
+            </div>
+        </header>
+
+        <?php else : ?>
+
+        <header class="page-header plain-header bg-<?php echo $post_color; ?>" id="pageHeader">
             <h1>
                 <div class="container">
                     <?php the_title(); ?>
@@ -16,26 +30,11 @@
                     <?php endif; ?>
                 </div>
             </h1>
-        </div>
-    </header>
+        </header>
+        <?php endif; ?>
 
-    <?php else : ?>
-
-    <header class="page-header plain-header bg-<?php echo $post_color; ?>" id="pageHeader">
-        <h1>
-            <div class="container">
-                <?php the_title(); ?>
-                <?php if ( get_field( 'post_subtitle' ) ) : ?>
-                <span class="subheading"><?php the_field( 'post_subtitle' ); ?></span>
-                <?php endif; ?>
-            </div>
-        </h1>
-    </header>
-    <?php endif; ?>
-
-    <article>
         <div class="container">
-            <div class="single post-<?php echo $post_color; ?>">
+            <div class="single-post-row post-<?php echo $post_color; ?>">
                 <section class="single-content">
                 <?php
                     the_content();
@@ -85,7 +84,10 @@
                 ?>
 
                 <h3>Published</h3>
-                <p class="post-published"><a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?><br><span class="permalink">Permanent Link</span></a></p>
+                <p class="post-published">
+                    <a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?><br><span class="permalink">Permanent Link</span></a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo urlencode( get_the_permalink() ); ?>">Share on LinkedIn <i class="fas fa-external-link-alt"></i></a>
+                </p>
 
                 <?php
                     $areas = get_field( 'post_practice_areas' );

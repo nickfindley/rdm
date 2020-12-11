@@ -224,7 +224,8 @@
         border-color: $blue;
     }
 
-    .archive-section-title.has-post-thumbnail h2 {
+    .archive-section-title.has-post-thumbnail h2,
+    &.blog-post .overlay {
         background-color: rgba($blue, .25);
     }
 }
@@ -234,7 +235,8 @@
         border-color: $red;
     }
 
-    .archive-section-title.has-post-thumbnail h2 {
+    .archive-section-title.has-post-thumbnail h2,
+    &.blog-post .overlay {
         background-color: rgba($red, .25);
     }
 }
@@ -244,7 +246,8 @@
         border-color: $beige;
     }
 
-    .archive-section-title.has-post-thumbnail h2 {
+    .archive-section-title.has-post-thumbnail h2,
+    &.blog-post .overlay {
         background-color: rgba($beige, .25);
     }
 }
@@ -254,7 +257,8 @@
         border-color: $taupe;
     }
 
-    .archive-section-title.has-post-thumbnail h2 {
+    .archive-section-title.has-post-thumbnail h2,
+    &.blog-post .overlay {
         background-color: rgba($taupe, .25);
     }
 }
@@ -264,7 +268,8 @@
         border-color: $brown;
     }
 
-    .archive-section-title.has-post-thumbnail h2 {
+    .archive-section-title.has-post-thumbnail h2,
+    &.blog-post .overlay {
         background-color: rgba($brown, .25);
     }
 }

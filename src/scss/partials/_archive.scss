@@ -1,18 +1,18 @@
-.archive-header.big-image-header {
-    box-shadow: $box-shadow;
-    z-index: 1;
+// .archive-header.big-image-header {
+//     box-shadow: $box-shadow;
+//     z-index: 1;
 
-    & > img {
-        min-height: 50vh;
-    }
+//     & > img {
+//         min-height: 50vh;
+//     }
 
-    .overlay {
-        @include media-breakpoint-up(md) {
-            align-items: center;
-            padding-bottom: $paragraph-margin-bottom;
-        }
-    }
-}
+//     .overlay {
+//         @include media-breakpoint-up(md) {
+//             align-items: center;
+//             padding-bottom: $paragraph-margin-bottom;
+//         }
+//     }
+// }
 
 .archive-content article {
     border-top: 1px solid $beige;

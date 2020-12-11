@@ -5,7 +5,7 @@
 <main id="content">
     
     <?php if ( has_post_thumbnail() ) : ?>
-    <header class="page-header big-image-header bg-<?php echo $page_color; ?>" id="pageHeader">
+    <header class="page-header big-image-header big-image-header-4x3 bg-<?php echo $page_color; ?>" id="pageHeader">
         <?php the_post_thumbnail(); ?>
         <div class="overlay">
             <h1>

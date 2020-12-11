@@ -41,7 +41,7 @@ endif;
 ?>
 
 <main id="content">
-    <header class="page-header big-image-header bg-<?php echo $color; ?>" id="pageHeader">
+    <header class="page-header big-image-header big-image-header-2x1 bg-<?php echo $color; ?>" id="pageHeader">
         <?php echo wp_get_attachment_image( $office_photo_id, 'full', '', ['class' => 'no-lazyload'] ); ?>
         <div class="overlay">
             <h1>

@@ -31,9 +31,12 @@
             <h3>Contact RDM in <span class="nobr"><?php the_title(); ?></span></h3>
             <ul>
                 <li>
+                    <a href="<?php the_field( 'google_map_url' ); ?>">
                     <?php the_field( 'address' ); ?><br>
                     <?php the_field( 'address_2' ); ?><br>
-                    <?php the_field( 'city' ); ?>, <?php the_field( 'state' ); ?> <?php the_field( 'zip' ); ?>
+                    <?php the_field( 'city' ); ?>, <?php the_field( 'state' ); ?> <?php the_field( 'zip' ); ?><br>
+                    <span class="sc-smaller-light">click for directions <i class="fas fa-external-link-alt"></i></span>
+                    </a>
                 </li>
                 <li>
                     <a href="tel:<?php the_field( 'main_phone' ); ?>">

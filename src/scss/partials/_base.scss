@@ -2,7 +2,8 @@ html,
 body {
     margin: 0;
     overflow-x: hidden;
-    padding: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     position: relative;
     scroll-behavior: smooth;
 }

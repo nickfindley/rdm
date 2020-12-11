@@ -4,7 +4,7 @@
     $page_color = get_field( $acf_prefix . '_page_color', 'option' ) ? get_field( $acf_prefix . '_page_color', 'option' ) : 'red';
 ?>
 <main id="content">
-    <header class="404-header big-image-header page-header bg-<?php echo $page_color; ?>" id="pageHeader">
+    <header class="404-header big-image-header big-image-header-2x1 page-header bg-<?php echo $page_color; ?>" id="pageHeader">
         <?php echo wp_get_attachment_image( get_field( $acf_prefix . '_page_image', 'option' ), 'full' ); ?>
         <div class="overlay">
             <h1>

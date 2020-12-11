@@ -60,7 +60,16 @@
             </div>
 
             <div class="post-content">
-                <?php the_excerpt(); ?>
+            <?php 
+            if ( has_excerpt() ) :
+            ?>
+                <p><?php echo get_the_excerpt(); ?></p>
+                <p><a class="more-link" href="<?php the_permalink(); ?>">Continue reading  <span><?php the_title(); ?></span> <i class="fas fa-angle-right"></i></a></p>
+            <?php
+                else :
+                    the_excerpt();
+                endif;
+            ?>
             </div>
         </div>
     </section>
